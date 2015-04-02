@@ -10,12 +10,10 @@ public class Elfo
     
     private String nome;
     private int flechas, experiencia;
-    private int vidaOrcs;
+    private int vidaOrc;
     
-    Orcs orc = new Orcs();
+    Orc orc = new Orc();
     
-    
-
     // type initializer
     {
         flechas = 42;
@@ -45,9 +43,9 @@ public class Elfo
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
-        vidaOrcs = orc.getVida();
-        vidaOrcs = vidaOrcs - 10;
-        orc.setVida(vidaOrcs);        
+        vidaOrc = orc.getVida();
+        vidaOrc = vidaOrc - 10;
+        orc.setVida(vidaOrc);        
     }
     
     /* EXERCICIO 1.4

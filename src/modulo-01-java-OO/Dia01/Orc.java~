@@ -15,7 +15,6 @@ public class Orc
         
     }
     
-    
     public int getVida() {
             return vida;
         }   
@@ -23,5 +22,17 @@ public class Orc
     public void setVida(int vida) {
         this.vida = vida;
     }
-       
+    
+    
+    /**
+     * Constructor for objects of class Orcs
+     
+    public Orcs(int vida)
+    {
+        // initialise instance variables
+       this.
+    }
+    */
+
+    
 }

@@ -12,7 +12,7 @@ public class Elfo
     private int flechas, experiencia;
     private int vidaOrc;
     
-    Orc orc = new Orc();
+    
     
     // type initializer
     {
@@ -39,7 +39,7 @@ public class Elfo
     /**
      * Atira uma flecha e perde uma unidade.
      */
-    public void atirarFlecha() {
+    public void atirarFlecha(Orc orc) {
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
