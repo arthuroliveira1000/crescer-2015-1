@@ -13,7 +13,7 @@ public class Elfo
     private int vidaOrcs;
     
     Orcs orc = new Orcs();
-    
+    vidaOrcs = orc.getVida();
     
 
     // type initializer
@@ -45,7 +45,6 @@ public class Elfo
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
-        vidaOrcs = orc.getVida();
         vidaOrcs = vidaOrcs - 10;
         orc.setVida(vidaOrcs);        
     }
