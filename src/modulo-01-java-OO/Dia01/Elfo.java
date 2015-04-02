@@ -42,7 +42,7 @@ public class Elfo
         experiencia++;
     }
     
-    
+    // EXERCICIO 1.4
     //public void setNome(String novoNome) {
     //    nome = novoNome;
     //}
