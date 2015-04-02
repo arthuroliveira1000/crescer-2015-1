@@ -24,8 +24,8 @@ public class Elfo
      */
     public Elfo(String umNome, int flechas)
     {
-        this(umNome);
-        // this.nome = nome;
+        //this(umNome);
+        this.nome = nome;
         this.flechas = flechas;
     }
     
