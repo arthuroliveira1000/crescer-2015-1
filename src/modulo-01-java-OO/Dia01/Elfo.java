@@ -42,10 +42,10 @@ public class Elfo
         experiencia++;
     }
     
-    // EXERCICIO 1.4
+    /* EXERCICIO 1.4
     //public void setNome(String novoNome) {
     //    nome = novoNome;
-    //}
+}*/
     
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
@@ -55,10 +55,5 @@ public class Elfo
     
     // camelCase: public void atirarFlechaDourada
     // PascalCase: public void AtirarFlechaDourada
-    
-    
-    
-    
-    
     
 }
