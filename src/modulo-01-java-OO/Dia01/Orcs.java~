@@ -8,7 +8,7 @@
 public class Orcs
 {
     // instance variables - replace the example below with your own
-    private int vida = 110;
+    private static int vida = 110;
 
     
     public Orcs() {

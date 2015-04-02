@@ -5,13 +5,13 @@
  * @author Arthur Oliveira 
  * @version (a version number or a date)
  */
-public class Orcs
+public class Orc
 {
     // instance variables - replace the example below with your own
     private static int vida = 110;
 
     
-    public Orcs() {
+    public Orc() {
         
     }
     
