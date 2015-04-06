@@ -4,38 +4,31 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class TestesIntegrados.
+
+ * Testes integrados entre objetos Elfo e Orc.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  CWI Software
  */
 public class TestesIntegrados
 {
-    /**
-     * Default constructor for test class TestesIntegrados
-     */
-   
-        @Test
-        public void umElfoAtiraEmDoisOrcsDiferentes(){
-        //Arrange
-        Elfo elfoTeste = new Elfo("Cusco 1000");
+    @Test
+    public void umElfoAtiraEmDoisOrcs() {
+        // Arrange
+        Elfo elfo = new Elfo("O Elfo");
         Orc orc1 = new Orc();
         Orc orc2 = new Orc();
-        
-        
-        //Act
-        elfoTeste.atirarFlecha(orc1);
-        elfoTeste.atirarFlecha(orc2);
-        
-        //Assert
+        // Act
+        elfo.atirarFlecha(orc1);
+        elfo.atirarFlecha(orc2);
+        // Assert
         int experienciaEsperada = 2;
         int flechasEsperadas = 40;
-        int vidaEsperadaOrc = 100;
-      
+        int vidaEsperadaOrc1 = 100;
+        int vidaEsperadaOrc2 = 100;
         
-        assertEquals(experienciaEsperada, elfoTeste.getExperiencia());
-        assertEquals(flechasEsperadas, elfoTeste.getFlechas());
-        assertEquals(vidaEsperadaOrc, orc1.getVida());
-        assertEquals(vidaEsperadaOrc, orc2.getVida());
-        }
+        assertEquals(experienciaEsperada, elfo.getExperiencia());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
+        assertEquals(vidaEsperadaOrc1, orc1.getVida());
+        assertEquals(vidaEsperadaOrc2, orc2.getVida());
+    }
 }
