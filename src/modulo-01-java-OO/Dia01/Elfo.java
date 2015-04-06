@@ -9,7 +9,6 @@ public class Elfo
     // Versão correção do tema!!
     private String nome;
     private int flechas, experiencia;
-    private int vidaOrc;
 
     // type initializer
     {
@@ -30,8 +29,8 @@ public class Elfo
     
     public Elfo(String umNome, int flechas)
     {
-        //this(umNome);
-        this.nome = nome;
+        this(umNome);
+        //this.nome = umNome;
         this.flechas = flechas;
     }
     
@@ -42,14 +41,11 @@ public class Elfo
     /**
      * Atira uma flecha e perde uma unidade.
      */
-    public void atirarFlecha() {
+    public void atirarFlecha(Orc orc) {
         //flechas = flechas - 1;
-        Orc orc = new Orc();
         flechas--;
         experiencia++;
-        vidaOrc = orc.getVida();
-        vidaOrc = vidaOrc - 10;
-        orc.setVida(vidaOrc);        
+        orc.recebeAtaque();
     }
     
     public int getFlechas() {
@@ -61,13 +57,10 @@ public class Elfo
             return experiencia;
         } 
         
-        
-   public int getVidaOrc() {
-            return vidaOrc;
-        } 
-        
        
-    
+    public String getNome() {
+            return this.nome = nome;
+        }
     
     
     

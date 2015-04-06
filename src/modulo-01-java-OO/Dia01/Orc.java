@@ -8,8 +8,11 @@
 public class Orc
 {
     // instance variables - replace the example below with your own
-    private static int vida = 110;
+    private int vida;
 
+    {
+    vida = 110;
+    }
     
     public Orc() {
         
@@ -23,5 +26,8 @@ public class Orc
     public void setVida(int vida) {
         this.vida = vida;
     }
-       
+    
+    public void recebeAtaque() {
+      this.vida -= 10;  
+    }
 }

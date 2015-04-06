@@ -24,8 +24,5 @@ public class OrcTest
     int resultadoObtido = orc.getVida();
     
     assertEquals(resultadoObtido, esperado);
-   
-       
     }
-    
 }
