@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=Orc()
-comment1.params=
-comment1.target=int\ getVida()
-comment2.params=vida
-comment2.target=void\ setVida(int)
-numComments=3
