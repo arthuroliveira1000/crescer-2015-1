@@ -40,7 +40,7 @@ public class Orc
     
     public String toString() {
     
-      return "Vida Atual: " + this.vida;  
+      return "Vida atual: " + this.vida;  
     
     }  
 }
