@@ -23,7 +23,7 @@ public class OrcTest
     int esperado = 110;
     int resultadoObtido = orc.getVida();
     
-    assetEquals(resultadoObtido, esperado);
+    assertEquals(resultadoObtido, esperado);
    
        
     }
