@@ -35,9 +35,5 @@ public class ElfoTest
         assertEquals(resultadoExperiencia, experienciaEsperada);
        
        assertEquals(resultadoVidaOrcEsperada, VidaOrcEsperada);
-            
-        
     }
-
-    
 }

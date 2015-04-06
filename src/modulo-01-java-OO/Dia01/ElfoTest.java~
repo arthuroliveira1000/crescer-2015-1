@@ -27,8 +27,14 @@ public class ElfoTest
         int experienciaEsperada = 1;
         int resultadoExperiencia = elfoTeste.getExperiencia();
         
+        int VidaOrcEsperada = 100;
+        int resultadoVidaOrcEsperada = elfoTeste.getVidaOrc();
+        
         assertEquals(resultadoflechas, flechasEsperadas);
+        
         assertEquals(resultadoExperiencia, experienciaEsperada);
+       
+       assertEquals(resultadoVidaOrcEsperada, VidaOrcEsperada);
             
         
     }
