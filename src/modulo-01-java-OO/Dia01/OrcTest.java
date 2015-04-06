@@ -93,4 +93,63 @@ public class OrcTest
         
         assertEquals(esperado, resultadoObtido);
     }  
+    
+    @Test
+    public void orcToStringRetornaVidaDefault() {
+    //Arrange
+    Orc orc = new Orc();
+    //Act
+    String resultadoObtido = orc.toString();
+    //Assert
+    String esperado = "Vida atual: 110";
+    
+    assertEquals(esperado, resultadoObtido);
+    
+    }
+    
+     @Test
+    public void orcToStringRetornaVidaAposLevarUmaFlechada() {
+    //Arrange
+    Orc orc = new Orc();
+    //Act
+    orc.recebeAtaque();
+    String resultadoObtido = orc.toString();
+    //Assert
+    String esperado = "Vida atual: 100";
+    
+    assertEquals(esperado, resultadoObtido);
+    
+    }
+    
+    
+    @Test
+    public void orcToStringRetornaVidaAposLevarDozeFlechadas() {
+    //Arrange
+    Orc orc = new Orc();
+    //Act
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    orc.recebeAtaque();
+    String resultadoObtido = orc.toString();
+    //Assert
+    String esperado = "Vida atual: -10";
+    
+    assertEquals(esperado, resultadoObtido);
+    
+    }
+    
+    
+    
+    
+    
+    
 }
