@@ -135,4 +135,20 @@ public class ElfoTest
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }    
+    
+    @Test
+    public void elfoToStringRetornaNomeQuantidadeFlechasExperienciaDoElfo() {
+    
+    String nomeEsperado = "Cusco";   
+    int QuantidadeFlechasEsperadas = 42;
+    Elfo elfo = new Elfo(nomeEsperado, QuantidadeFlechasEsperadas);
+    Orc orc = new Orc();
+    
+    elfo.atirarFlecha(orc);
+    
+    String resultadoEsperado = elfo.toString();
+    String resultado = "Cusco possui 41 flechas e 1 níveis de experiência.";
+    
+    assertEquals(resultado, resultadoEsperado);
+    }
 }
