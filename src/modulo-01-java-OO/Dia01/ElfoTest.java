@@ -147,8 +147,11 @@ public class ElfoTest
     elfo.atirarFlecha(orc);
     
     String resultadoEsperado = elfo.toString();
-    String resultado = "Cusco possui 41 flechas e 1 níveis de experiência.";
+    String resultado = "Cusco possui 41 flechas e 1 nível de experiência.";
     
     assertEquals(resultado, resultadoEsperado);
     }
+    
+    
+    
 }
