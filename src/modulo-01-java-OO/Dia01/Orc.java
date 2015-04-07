@@ -82,22 +82,23 @@ public class Orc
         } else if(this.vida < 20) {
             numeroMagico = numeroMagico * 3;
             //C
-        } else if(status == Status.FUGINDO) {
+        } if(status == Status.FUGINDO) {
             numeroMagico = numeroMagico / 2;
         } else if((status == Status.CAÇANDO) || (status == Status.DORMINDO)) {
-            numeroMagico = numeroMagico + 1;
+            numeroMagico += 1;
         }
             //D
-            else if(this.experiencia % 2 == 0) {
+             if(this.experiencia % 2 == 0) {
                 numeroMagico = numeroMagico * numeroMagico * numeroMagico;
             } else if(this.experiencia % 2 != 0 && this.experiencia > 2) {
                 numeroMagico = numeroMagico * numeroMagico;
             } 
             //A
+            // booelan possuiNomeComMaisDe%Caracteres = this.nome != nukkk && this.nome.length() > 5;
             if(this.nome != null && this.nome.length() > 5) {
-                numeroMagico = numeroMagico + 65;
+                numeroMagico += 65;
             } else {
-                numeroMagico = numeroMagico - 60;
+                numeroMagico -= 60;
             }
         
         return numeroMagico;
