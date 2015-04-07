@@ -85,4 +85,9 @@ public class Orc
       public int getVida() {
         return this.vida;
     }
+    
+    public void setStatus(Status novoStatus) {
+        status = novoStatus;
+        
+    }
 }
