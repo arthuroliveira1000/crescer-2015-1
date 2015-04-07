@@ -6,6 +6,8 @@
 public class Orc
 {
     private int vida = 110;
+    private String nome;
+    private int experiencia;
 
     {
         //vida = 110;
@@ -18,6 +20,31 @@ public class Orc
         //vida = 110;
     }
     **/
+    
+    
+    /**
+      Construtor para objetos da classe Orc vazio pq estava dando erro nas outras classes onde criava um orc e não passava nenhum parametro
+   **/ 
+   public Orc() {
+ 
+   }
+    
+    
+    /**
+      Construtor para objetos da classe Orc com nome 
+   **/
+   public Orc(String nome) {
+        this.nome = nome;
+   } 
+    
+   /**
+      Construtor para objetos da classe Orc com nome e experiencia
+   **/
+   public Orc(String nome, int experiencia) {
+        this.nome = nome;
+        this.experiencia = experiencia;
+   } 
+   
     
     /**
      * Faz o Orc sofrer um ataque.
