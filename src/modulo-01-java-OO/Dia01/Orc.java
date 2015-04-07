@@ -94,7 +94,7 @@ public class Orc
                 numeroMagico = numeroMagico * numeroMagico;
             } 
             //A
-            else if(this.nome != null && this.nome.length() > 5) {
+            if(this.nome != null && this.nome.length() > 5) {
                 numeroMagico = numeroMagico + 65;
             } else {
                 numeroMagico = numeroMagico - 60;
