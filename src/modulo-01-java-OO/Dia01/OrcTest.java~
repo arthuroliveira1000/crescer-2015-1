@@ -13,6 +13,17 @@ import org.junit.Test;
  */
 public class OrcTest
 {
+    /*@test
+    public void exercicio3.4ParteE() {
+    Orc orc = new Orc();
+    
+    orc.setVida(-10);
+    
+    
+    
+    }
+    */
+    
     @Test
     public void orcNasceCom110Vida() {
         // Arrange - Montagem dos dados de teste
