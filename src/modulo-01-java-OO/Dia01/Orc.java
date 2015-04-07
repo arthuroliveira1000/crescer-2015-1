@@ -64,9 +64,31 @@ public class Orc
     }
     
     private int gerarNumero() {
-        
         int numeroMagico = 0;
       
+            // B
+        if(this.vida >= 30 && this.vida <= 60) {
+          numeroMagico = numeroMagico * 2;
+        } else if(this.vida < 20) {
+            numeroMagico = numeroMagico * 3;
+            //C
+        } else if(status == Status.FUGINDO) {
+            numeroMagico = numeroMagico / 2;
+        } else if((status == Status.CAÇANDO) || (status == Status.DORMINDO)) {
+            numeroMagico = numeroMagico + 1;
+        }
+            //D
+            else if(this.experiencia % 2 == 0) {
+                numeroMagico = numeroMagico * numeroMagico * numeroMagico;
+            } else if(this.experiencia % 2 != 0 && this.experiencia > 2) {
+                numeroMagico = numeroMagico * numeroMagico;
+            } 
+            //A
+            else if(this.nome != null && this.nome.length() > 5) {
+                numeroMagico = numeroMagico + 65;
+            } else {
+                numeroMagico = numeroMagico - 60;
+            }
         
         return numeroMagico;
    }
