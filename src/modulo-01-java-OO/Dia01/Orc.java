@@ -78,12 +78,12 @@ public class Orc
       
             // B
         if(this.vida >= 30 && this.vida <= 60) {
-          numeroMagico = numeroMagico * 2;
+          numeroMagico *= 2;
         } else if(this.vida < 20) {
-            numeroMagico = numeroMagico * 3;
+            numeroMagico *= 3;
             //C
         } if(status == Status.FUGINDO) {
-            numeroMagico = numeroMagico / 2;
+            numeroMagico /= 2;
         } else if((status == Status.CAÇANDO) || (status == Status.DORMINDO)) {
             numeroMagico += 1;
         }
