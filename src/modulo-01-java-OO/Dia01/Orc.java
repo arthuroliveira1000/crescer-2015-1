@@ -73,8 +73,8 @@ public class Orc
         }
     }
     
-    private int gerarNumero() {
-        int numeroMagico = 0;
+    private double gerarNumero() {
+        double numeroMagico = 0.0;
       
             // B
         if(this.vida >= 30 && this.vida <= 60) {
