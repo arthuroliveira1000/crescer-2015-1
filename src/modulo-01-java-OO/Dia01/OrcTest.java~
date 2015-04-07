@@ -179,6 +179,26 @@ public class OrcTest
     
         
     }
+    
+      @Test
+    public void orcRecebeAtaqueMaior100() {
+        
+        Orc orc = new Orc("Nomiee");
+        
+        orc.setExperiencia(0);
+        orc.recebeAtaque();
+       
+        
+        int ExperienciaEsperada = 0;
+        int VidaEsperada =  100;
+        int ExperienciaObtida = orc.getExperiencia();
+        int vidaObtida = orc.getVida();
+        
+        assertEquals(ExperienciaEsperada, ExperienciaObtida);
+        assertEquals(VidaEsperada, vidaObtida);
+    
+        
+    }
 }
 
 
