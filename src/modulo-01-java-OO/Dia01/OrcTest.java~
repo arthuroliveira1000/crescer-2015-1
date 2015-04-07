@@ -13,16 +13,8 @@ import org.junit.Test;
  */
 public class OrcTest
 {
-    /*@test
-    public void exercicio3.4ParteE() {
-    Orc orc = new Orc();
+   
     
-    orc.setVida(-10);
-    
-    
-    
-    }
-    */
     
     @Test
     public void orcNasceCom110Vida() {
@@ -40,7 +32,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueUmaVez() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("Nomaooooooo");
         // Act
         umOrc.recebeAtaque();
         // Assert - Verificação
@@ -53,7 +45,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueDuasVezes() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("Nomaooooooo");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -67,7 +59,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueCincoVezes() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("Nomaooooooo");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -84,7 +76,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueDozeVezes() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("Nomaooooooo");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -108,7 +100,7 @@ public class OrcTest
     @Test
     public void orcToStringRetornaVidaPadrao() {
         // Arrange
-        Orc orc = new Orc();
+        Orc orc = new Orc("Nomaooooooo");
         // Act
         String resultadoObtido = orc.toString();
         // Assert
@@ -119,7 +111,7 @@ public class OrcTest
     @Test
     public void orcToStringAposReceberAtaque() {
         // Arrange
-        Orc orc = new Orc();
+        Orc orc = new Orc("Nomaooooooo");
         // Act
         orc.recebeAtaque();
         String resultadoObtido = orc.toString();
@@ -131,7 +123,7 @@ public class OrcTest
     @Test
     public void orcToStringAposReceberDozeAtaques() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("Nomaooooooo");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -151,17 +143,42 @@ public class OrcTest
         assertEquals(esperado, resultadoObtido);
     }
     
+    @Test
+    public void orcRecebeAtaqueComNumeroMenorQue0() {
     
+        Orc orc = new Orc("Nomin");
+        
+        orc.recebeAtaque();
+        
+        int ExperienciaEsperada = 2;
+        int VidaEsperada =  110;
+        int ExperienciaObtida = orc.getExperiencia();
+        int vidaObtida = orc.getVida();
+        
+        assertEquals(ExperienciaEsperada, ExperienciaObtida);
+        assertEquals(VidaEsperada, vidaObtida);
+
+    }
     
+    @Test
+    public void orcRecebeAtaqueEntre0E100() {
+        
+        Orc orc = new Orc("Nomiee");
+        
+        orc.setExperiencia(1);
+        orc.recebeAtaque();
+       
+        
+        int ExperienciaEsperada = 1;
+        int VidaEsperada =  110;
+        int ExperienciaObtida = orc.getExperiencia();
+        int vidaObtida = orc.getVida();
+        
+        assertEquals(ExperienciaEsperada, ExperienciaObtida);
+        assertEquals(VidaEsperada, vidaObtida);
     
-    
-    
-    
-    
-    
-    
-    
-    
+        
+    }
 }
 
 

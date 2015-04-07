@@ -64,19 +64,24 @@ public class Orc
             //this.vida -= 10;
             // this.vida = this.vida - 10;
             this.experiencia += 2;
-        } if(this.gerarNumero() >= 0 && this.gerarNumero() <= 100) {
-            // nada acontece
-            //this.vida -= 10;
-            //this.experiencia = this.experiencia + 2;
-        } else {
+        } else if(this.gerarNumero() > 100){
             this.vida -= 10;
+            this.status = Status.FERIDO;
         }
     }
     
     private double gerarNumero() {
         double numeroMagico = 0.0;
       
-            // B
+         //A
+            // booelan possuiNomeComMaisDe%Caracteres = this.nome != nukkk && this.nome.length() > 5;
+            if(this.nome != null && this.nome.length() > 5) {
+                numeroMagico += 65;
+            } else {
+                numeroMagico -= 60;
+            }
+        
+        // B
         if(this.vida >= 30 && this.vida <= 60) {
           numeroMagico *= 2;
         } else if(this.vida < 20) {
@@ -93,13 +98,7 @@ public class Orc
             } else if(this.experiencia % 2 != 0 && this.experiencia > 2) {
                 numeroMagico = numeroMagico * numeroMagico;
             } 
-            //A
-            // booelan possuiNomeComMaisDe%Caracteres = this.nome != nukkk && this.nome.length() > 5;
-            if(this.nome != null && this.nome.length() > 5) {
-                numeroMagico += 65;
-            } else {
-                numeroMagico -= 60;
-            }
+           
         
         return numeroMagico;
    }
