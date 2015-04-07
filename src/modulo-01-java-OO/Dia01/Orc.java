@@ -59,6 +59,18 @@ public class Orc
         return this.vida;
     }
     
+    private int gerarNumero() {
+        
+        int numeroMagico = 0;
+      
+        
+        return numeroMagico;
+   }
+    
+    
+    
+    
+    
     /**
      * Imprime a vida atual do Orc.
      * 
