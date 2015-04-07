@@ -64,7 +64,7 @@ public class Orc
             //this.vida -= 10;
             // this.vida = this.vida - 10;
             this.experiencia += 2;
-        } else if(this.gerarNumero() >= 0 && this.gerarNumero() <= 100) {
+        } if(this.gerarNumero() >= 0 && this.gerarNumero() <= 100) {
             // nada acontece
             //this.vida -= 10;
             //this.experiencia = this.experiencia + 2;
