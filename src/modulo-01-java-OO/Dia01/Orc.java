@@ -6,6 +6,7 @@
 public class Orc
 {
     private int vida = 110;
+    private Status status;
     private String nome;
     private int experiencia;
 
@@ -45,6 +46,13 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
+   public void adicionandoStatusAoOrc() {
+       
+       if(this.vida == 0) {
+           status = Status.MORTO;
+    }
+   
+}
     
     /**
      * Faz o Orc sofrer um ataque.
@@ -55,10 +63,6 @@ public class Orc
         // this.vida = this.vida - 10;
     }
     
-    public int getVida() {
-        return this.vida;
-    }
-    
     private int gerarNumero() {
         
         int numeroMagico = 0;
@@ -66,11 +70,7 @@ public class Orc
         
         return numeroMagico;
    }
-    
-    
-    
-    
-    
+ 
     /**
      * Imprime a vida atual do Orc.
      * 
@@ -80,5 +80,9 @@ public class Orc
      */
     public String toString() {
         return "Vida atual: " + this.vida;
+    }
+    
+      public int getVida() {
+        return this.vida;
     }
 }
