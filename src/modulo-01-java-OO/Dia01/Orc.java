@@ -120,6 +120,9 @@ public class Orc
     
     public void setStatus(Status novoStatus) {
         status = novoStatus;
-        
+    }
+    
+    public void setVida(int novaVida) {
+            vida = novaVida;
     }
 }
