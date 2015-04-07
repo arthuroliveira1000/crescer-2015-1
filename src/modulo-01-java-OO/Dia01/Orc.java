@@ -5,10 +5,10 @@
  */
 public class Orc
 {
-    private int vida = 110;
+    private int vida = 110, experiencia;
     private Status status;
     private String nome;
-    private int experiencia;
+   
 
     {
         //vida = 110;
@@ -125,4 +125,21 @@ public class Orc
     public void setVida(int novaVida) {
             vida = novaVida;
     }
+    
+    public String getNome() {
+        return this.nome;
+    }
+    
+      public int getExperiencia() {
+        return this.experiencia;
+    }
+    
+    public void setNome(String nomeNovo) {
+        nome = nomeNovo;
+    }
+    
+    public void setExperiencia(int experienciaNova) {
+        experiencia = experienciaNova;
+    }
+    
 }
