@@ -36,10 +36,10 @@ public class ItemDoInventario
      public void setDescricao(String novaDescricao) {
         descricao = novaDescricao;
     }
-    
+    */
     public void setQuantidade(int novaQuantidade) {
         quantidade = novaQuantidade;
     }
-    */
+    
     
 }

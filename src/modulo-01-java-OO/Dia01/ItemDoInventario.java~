@@ -31,12 +31,15 @@ public class ItemDoInventario
         return this.quantidade;
     }
     
-    public void setDescricao(String novaDescricao) {
+    /* CRIAR METODOS SET SOMENTE QUANDO PRECISAR!!! MA PRATICA
+     * 
+     public void setDescricao(String novaDescricao) {
         descricao = novaDescricao;
     }
     
     public void setQuantidade(int novaQuantidade) {
         quantidade = novaQuantidade;
     }
+    */
     
 }
