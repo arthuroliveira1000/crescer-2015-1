@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 /**
  * A classe de teste OrcTest.
@@ -201,23 +202,34 @@ public class OrcTest
     }
     
     @Test
-    public void orcConsegueAdicionar2ItemsDoInventario() {
+    public void orcConseguePerder1ItemDoInventario() {
         
-        Orc orc = new Orc();
-        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
-        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
-        
+       Orc orc = new Orc();
+       ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
+       ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
         
        orc.adicionarItemDaLista(item1);
        orc.adicionarItemDaLista(item2);
        
-       int tamanhoLista = orc.getlistaDeItens();
-       
-       assertEquals(2, tamanhoLista);
+       orc.removerItemDaLista(item2);
        
        
-        
-        
+       assertEquals(1, orc.getlistaDeItens().size());      
+    }
+    
+    @Test
+    public void orcConsegueAdicionar1ItemDoInventarioComDescricaoEQuantidadeCorretos() {
+    
+     Orc orc = new Orc();
+     ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
+     
+     ArrayList<ItemDoInventario> listaDeItensParaComparar = new ArrayList<ItemDoInventario>();
+     listaDeItensParaComparar.add(item1);
+     
+     orc.adicionarItemDaLista(item1);
+    
+     assertEquals(orc.getlistaDeItens().get(0), listaDeItensParaComparar.get(0));
+    
     }
 }
 

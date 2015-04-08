@@ -130,8 +130,8 @@ public class Orc
         return this.vida;
     }
     
-    public int getlistaDeItens() {
-        return this.listaDeItens.size();
+    public ArrayList getlistaDeItens() {
+        return this.listaDeItens;
     }
     
     public void setStatus(Status novoStatus) {

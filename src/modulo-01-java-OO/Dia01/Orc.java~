@@ -49,20 +49,20 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
-   public int adicionarItemDaLista(ItemDoInventario i) {
+   public void adicionarItemDaLista(ItemDoInventario i) {
        
        listaDeItens.add(i);
        
-       int tamanhoLista = listaDeItens.size();
-       return tamanhoLista; 
+       //int tamanhoLista = listaDeItens.size();
+       //return tamanhoLista; 
     }
     
-   public int removerItemDaLista(ItemDoInventario i) {
+   public void removerItemDaLista(ItemDoInventario i) {
        
        listaDeItens.remove(i);
        
-       int tamanhoLista = listaDeItens.size();
-       return tamanhoLista; 
+       //int tamanhoLista = listaDeItens.size();
+       //return tamanhoLista; 
    }
    
    public void adicionandoStatusAoOrc() {   
