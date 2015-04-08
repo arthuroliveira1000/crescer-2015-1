@@ -231,6 +231,21 @@ public class OrcTest
          assertEquals(orc.getlistaDeItens().get(1), listaDeItensParaComparar.get(1));
         
         }
+        
+    @Test
+    public void ListaItensCorretamente() {
+    
+         Orc orc = new Orc();
+         ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
+         ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
+         
+         orc.adicionarItemDaLista(item1);
+         orc.adicionarItemDaLista(item2);
+         
+         String resultadoEsperado = "Espada de Diamantes,Espada de Ferro";
+         
+         assertEquals(resultadoEsperado, orc.getDescricoesItens());
+    }
 }
 
 

@@ -27,16 +27,16 @@ public class Orc
     **/
     
     /**
-      Construtor para objetos da classe Orc vazio pq estava dando erro nas outras classes onde criava um orc e não passava nenhum parametro
-   **/ 
+     * Construtor para objetos da classe Orc vazio pq estava dando erro nas outras classes onde criava um orc e não passava nenhum parametro
+   */
    public Orc() {
  
    }
     
     
     /**
-      Construtor para objetos da classe Orc com nome 
-   **/
+     *   Construtor para objetos da classe Orc com nome 
+   */
    public Orc(String nome) {
         this.nome = nome;
    } 
@@ -48,6 +48,29 @@ public class Orc
         this.nome = nome;
         this.experiencia = experiencia;
    } 
+   
+   /**
+    * Concatena as informações SEM ESPAÇO E SEM PONTO FINAL
+    * 
+    * "adaga,escudo,bracelete"
+    */
+   
+   
+   public String getDescricoesItens()  {
+       
+       StringBuilder builder = new StringBuilder();
+       int tamanhoLista = listaDeItens.size();
+             
+       
+       for(int x = 0; x < tamanhoLista; x++) {
+           builder.append(listaDeItens.get(x).getDescricao());
+           builder.append(x != (tamanhoLista - 1) ? "," : "");    
+           //System.out.println(listaDeItens.get(x).getDescricao());
+        }
+        
+       
+       return builder.toString();
+    }
    
    public void adicionarItemDaLista(ItemDoInventario i) {
        
