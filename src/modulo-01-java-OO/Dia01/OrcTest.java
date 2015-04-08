@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -212,25 +210,27 @@ public class OrcTest
        orc.adicionarItemDaLista(item2);
        
        orc.removerItemDaLista(item2);
-       
-       
        assertEquals(1, orc.getlistaDeItens().size());      
     }
     
     @Test
-    public void orcConsegueAdicionar1ItemDoInventarioComDescricaoEQuantidadeCorretos() {
+    public void orcConsegueAdicionar2ItensDoInventarioComDescricaoEQuantidadeCorretos() {
     
-     Orc orc = new Orc();
-     ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
-     
-     ArrayList<ItemDoInventario> listaDeItensParaComparar = new ArrayList<ItemDoInventario>();
-     listaDeItensParaComparar.add(item1);
-     
-     orc.adicionarItemDaLista(item1);
-    
-     assertEquals(orc.getlistaDeItens().get(0), listaDeItensParaComparar.get(0));
-    
-    }
+         Orc orc = new Orc();
+         ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
+         ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
+         
+         ArrayList<ItemDoInventario> listaDeItensParaComparar = new ArrayList<ItemDoInventario>();
+         listaDeItensParaComparar.add(item1);
+         listaDeItensParaComparar.add(item2);
+         
+         orc.adicionarItemDaLista(item1);
+         orc.adicionarItemDaLista(item2);
+        
+         assertEquals(orc.getlistaDeItens().get(0), listaDeItensParaComparar.get(0));
+         assertEquals(orc.getlistaDeItens().get(1), listaDeItensParaComparar.get(1));
+        
+        }
 }
 
 
