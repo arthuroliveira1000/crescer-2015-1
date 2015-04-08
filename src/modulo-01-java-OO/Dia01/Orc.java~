@@ -6,6 +6,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Orc
 {
@@ -61,20 +62,38 @@ public class Orc
        StringBuilder builder = new StringBuilder();
        int tamanhoLista = listaDeItens.size();
              
-       
        for(int x = 0; x < tamanhoLista; x++) {
            builder.append(listaDeItens.get(x).getDescricao());
            builder.append(x != (tamanhoLista - 1) ? "," : "");    
            //System.out.println(listaDeItens.get(x).getDescricao());
         }
-        
-       
+
        return builder.toString();
     }
    
+   /**
+    * CASO ORC TENHA SORTE --> GANHAR 1000 UNIDADES DE CADA ITEM EM SEU INVENTARIO;
+    */ 
+   
+   public void tentaSorte() {
+       
+       double numeroGerado = gerarNumero();
+      
+       if(numeroGerado == 3481) {
+        for(ItemDoInventario item : this.listaDeItens) {
+            int novaQuantidadeItem = item.getQuantidade() + 1000;
+            item.seQuantidade(novaQuantidadeItem);
+        }
+       
+          //  for(int x = 0; x < tamanhoLista; x++) {
+          //      listaDeItens.get(x).setQuantidade(listaDeItens.get(x).getQuantidade() + 1000);
+           //}
+    }
+     }
+    
    public void adicionarItemDaLista(ItemDoInventario i) {
        
-       listaDeItens.add(i);
+      listaDeItens.add(i);
        
        //int tamanhoLista = listaDeItens.size();
        //return tamanhoLista; 
@@ -144,7 +163,7 @@ public class Orc
      * @return String com a vida atual do orc. Ex:
      * 
      * "Vida atual: 110"
-     *//
+     */
     public String toString() {
         return "Vida atual: " + this.vida;
     }
