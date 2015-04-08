@@ -180,7 +180,7 @@ public class OrcTest
         
     }
     
-      @Test
+    @Test
     public void orcRecebeAtaqueMaior100() {
         
         Orc orc = new Orc("Nomiee");
@@ -197,6 +197,26 @@ public class OrcTest
         assertEquals(ExperienciaEsperada, ExperienciaObtida);
         assertEquals(VidaEsperada, vidaObtida);
     
+        
+    }
+    
+    @Test
+    public void orcConsegueAdicionar2ItemsDoInventario() {
+        
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
+        
+        
+       orc.adicionarItemDaLista(item1);
+       orc.adicionarItemDaLista(item2);
+       
+       int tamanhoLista = orc.get
+       
+       assertEquals(2, tamanhoLista);
+       
+       
+        
         
     }
 }

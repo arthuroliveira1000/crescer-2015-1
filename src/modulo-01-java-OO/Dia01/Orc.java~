@@ -3,13 +3,17 @@
  * 
  * @author CWI Software
  */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Orc
 {
-    private int vida = 110, experiencia = 0;
+    private int vida = 110, experiencia;
     private Status status;
     private String nome;
-   
-
+    ArrayList<ItemDoInventario> listaDeItens = new ArrayList<ItemDoInventario>();
+ 
     {
         //vida = 110;
     }
@@ -21,7 +25,6 @@ public class Orc
         //vida = 110;
     }
     **/
-    
     
     /**
       Construtor para objetos da classe Orc vazio pq estava dando erro nas outras classes onde criava um orc e não passava nenhum parametro
@@ -46,20 +49,29 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
-   public void adicionandoStatusAoOrc() {
+   public int adicionarItemDaLista(ItemDoInventario i) {
        
-       if(this.vida == 0) {
-           status = Status.MORTO;
+       listaDeItens.add(i);
+       
+       int tamanhoLista = listaDeItens.size();
+       return tamanhoLista; 
     }
-   
-}
     
-    /**
-     * Faz o Orc sofrer um ataque.
-     * Atualmente 10 de dano será decrementado.
-     */
+   public int removerItemDaLista(ItemDoInventario i) {
+       
+       listaDeItens.remove(i);
+       
+       int tamanhoLista = listaDeItens.size();
+       return tamanhoLista; 
+   }
+   
+   public void adicionandoStatusAoOrc() {   
+           if(this.vida == 0) {
+               status = Status.MORTO;
+        }
+    }
+    
     public void recebeAtaque() {
-        
         if(this.gerarNumero() < 0) {
             //this.vida -= 10;
             // this.vida = this.vida - 10;
@@ -72,14 +84,13 @@ public class Orc
     
     private double gerarNumero() {
         double numeroMagico = 0.0;
-      
          //A
             // booelan possuiNomeComMaisDe%Caracteres = this.nome != nukkk && this.nome.length() > 5;
-            if(this.nome != null && this.nome.length() > 5) {
-                numeroMagico += 65;
-            } else {
-                numeroMagico -= 60;
-            }
+        if(this.nome != null && this.nome.length() > 5) {
+            numeroMagico += 65;
+        } else {
+            numeroMagico -= 60;
+        }
         
         // B
         if(this.vida >= 30 && this.vida <= 60) {
@@ -87,19 +98,20 @@ public class Orc
         } else if(this.vida < 20) {
             numeroMagico *= 3;
             //C
-        } if(status == Status.FUGINDO) {
+        } 
+        
+        if(status == Status.FUGINDO) {
             numeroMagico /= 2;
         } else if((status == Status.CAÇANDO) || (status == Status.DORMINDO)) {
             numeroMagico += 1;
         }
-            //D
-             if(this.experiencia % 2 == 0) {
-                numeroMagico = numeroMagico * numeroMagico * numeroMagico;
-            } else if(this.experiencia % 2 != 0 && this.experiencia > 2) {
-                numeroMagico = numeroMagico * numeroMagico;
-            } 
+        //D
+         if(this.experiencia % 2 == 0) {
+            numeroMagico = numeroMagico * numeroMagico * numeroMagico;
+        } else if(this.experiencia % 2 != 0 && this.experiencia > 2) {
+            numeroMagico = numeroMagico * numeroMagico;
+        } 
            
-        
         return numeroMagico;
    }
  
@@ -116,6 +128,10 @@ public class Orc
     
       public int getVida() {
         return this.vida;
+    }
+    
+    public int getlistaDeItens() {
+        return this.listaDeItens.size();
     }
     
     public void setStatus(Status novoStatus) {
