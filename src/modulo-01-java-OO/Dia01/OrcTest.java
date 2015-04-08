@@ -233,7 +233,7 @@ public class OrcTest
         }
         
     @Test
-    public void ListaItensCorretamente() {
+    public void Lista2ItensCorretamente() {
     
          Orc orc = new Orc();
          ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
@@ -246,6 +246,26 @@ public class OrcTest
          
          assertEquals(resultadoEsperado, orc.getDescricoesItens());
     }
+    
+    /*
+    @Test 
+    pubic void OrcTentaSorteETemSucessoAssimGanha1000DeQuantidadeEmTodosItens () {
+    
+        Orc orc = new orc();
+        
+        orc.setStatus(Status.DORMINDO);
+        orc.setExperiencia(3);
+        orc.adicionarItemDaLista(new ItemDoInventario(3, "Poção de Mana"));
+        orc.adicionarTemDaLista(new ItemDoIventario(1, "Poção Lança"));
+        
+        // act
+        orc.tentarSorte();
+        
+        //Assert
+        ItemDoInventario pocao = orc.getlistaDeItens.get(0);
+    
+    }
+    */
 }
 
 
