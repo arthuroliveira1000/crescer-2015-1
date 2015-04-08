@@ -14,6 +14,8 @@ public class Orc
     private Status status;
     private String nome;
     ArrayList<ItemDoInventario> listaDeItens = new ArrayList<ItemDoInventario>();
+    private final int NUMERO_SORTE = 3481;
+
  
     {
         //vida = 110;
@@ -76,20 +78,17 @@ public class Orc
     */ 
    
    public void tentaSorte() {
-       
-       double numeroGerado = gerarNumero();
-      
-       if(numeroGerado == 3481) {
-        for(ItemDoInventario item : this.listaDeItens) {
-            int novaQuantidadeItem = item.getQuantidade() + 1000;
-            item.setQuantidade(novaQuantidadeItem);
+        double numeroGerado = gerarNumero();
+        
+        if (numeroGerado == NUMERO_SORTE) {
+            for (ItemDoInventario item : this.listaDeItens) {
+                int novaQuantidadeItem = item.getQuantidade() + 1000;
+                item.setQuantidade(novaQuantidadeItem);
+            }
         }
-       
-          //  for(int x = 0; x < tamanhoLista; x++) {
-          //      listaDeItens.get(x).setQuantidade(listaDeItens.get(x).getQuantidade() + 1000);
-           //}
+        
     }
-     }
+
     
    public void adicionarItemDaLista(ItemDoInventario i) {
        

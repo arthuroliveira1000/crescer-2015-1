@@ -3,6 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A classe de teste OrcTest.
@@ -247,25 +248,43 @@ public class OrcTest
          assertEquals(resultadoEsperado, orc.getDescricoesItens());
     }
     
-    /*
-    @Test 
-    pubic void OrcTentaSorteETemSucessoAssimGanha1000DeQuantidadeEmTodosItens () {
-    
-        Orc orc = new orc();
-        
-        orc.setStatus(Status.DORMINDO);
-        orc.setExperiencia(3);
-        orc.adicionarItemDaLista(new ItemDoInventario(3, "Poção de Mana"));
-        orc.adicionarTemDaLista(new ItemDoIventario(1, "Poção Lança"));
-        
-        // act
-        orc.tentarSorte();
-        
-        //Assert
-        ItemDoInventario pocao = orc.getlistaDeItens.get(0);
-    
+    /*    
+    @Test
+    public void orcTentarSorteAumenta1000UnidadesDosItens() {
+        // Arrange
+        Orc urukhai = new Orc();
+        urukhai.setStatus(Status.DORMINDO);
+        urukhai.setExperiencia(3);
+        ItemDoInventario pocao = new ItemDoInventario("Poção de mana", 3);
+        ItemDoInventario lanca = new ItemDoInventario("Poção Lança", 1);
+        urukhai.adicionarItemDaLista(pocao);
+        urukhai.adicionarItemDaLista(lanca);
+        // Act
+        urukhai.tentaSorte();
+        // Assert
+        ItemDoInventario pocao1 = urukhai.getlistaDeItens().get(0);
+        ItemDoInventario lanca1 = urukhai.getlistaDeItens().get(1);
+        assertEquals(1003, pocao1.getQuantidade());
+        assertEquals(1001, lanca1.getQuantidade());
     }
-    */
+  
+    
+    @Test
+    public void orcTentarSorteNaoFazNada() {
+        // Arrange
+        Orc urukhai = new Orc();
+        urukhai.getlistaDeItens(new ItemDoInventario( "Poção de mana", 3));
+        urukhai.getlistaDeItens(new ItemDoInventario( "Poção Lança", 1));
+        // Act
+        urukhai.tentaSorte();
+        // Assert
+        ItemDoInventario pocao = urukhai.getlistaDeItens().get(0);
+        ItemDoInventario lanca = urukhai.getlistaDeItens().get(1);
+        assertEquals(3, pocao.getQuantidade());
+        assertEquals(1, lanca.getQuantidade());
+    }
+      */
+
 }
 
 
