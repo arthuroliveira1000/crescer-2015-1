@@ -52,9 +52,32 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
-  /**
-   * MÉTODO RETORNA O ITEM COM MAIOR QUANTIDADE
-   */
+  
+   public void ordenarItens() {
+   
+       
+       if(this.listaDeItens.size() >= 1) {
+        
+           ItemDoInventario variavelDeControle = this.listaDeItens.get(0);
+           ItemDoInventario itemAuxiliar;
+           
+           
+               for(int x = 1; x <= listaDeItens.size(); x++) {
+               if(variavelDeControle.getQuantidade() <  this.listaDeItens.get(x).getQuantidade() ) {
+                   
+                   //itemAuxiliar = this.listaDeItens.get(x - 1);
+                   this.listaDeItens.set(x, variavelDeControle);
+                   this.listaDeItens.set(x - 1, this.listaDeItens.get(x));
+                    
+                }
+                variavelDeControle = this.listaDeItens.get(x);
+            }
+        }
+   } 
+    
+
+   
+  
    
    public ItemDoInventario getItemComMaiorQuantidade(){
        
@@ -78,33 +101,7 @@ public class Orc
         
          return itemMaiorQuantidade;
         }
-       
-       
-       /*
-       int maiorQuantidade = listaDeItens.get(0).getQuantidade();
-       
-       ItemDoInventario itemComMaiorQuantidade = null;
-      
-       int tamanhoDaLista = listaDeItens.size();
-       
-       if(this.listaDeItens.isEmpty() == false) {
-           
-           itemComMaiorQuantidade =  listaDeItens.get(0);
-           
-           for(int x = 1; x < tamanhoDaLista; x++) {
-           if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
-               maiorQuantidade = listaDeItens.get(x).getQuantidade();
-               itemComMaiorQuantidade = listaDeItens.get(x);
-            }   
-        }
-        
-            return itemComMaiorQuantidade;
-        
-        } else {
-           
-            return itemComMaiorQuantidade;
-        }
-}*/
+    
    
      /**
     * Concatena as informações SEM ESPAÇO E SEM PONTO FINAL

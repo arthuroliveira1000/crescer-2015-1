@@ -39,7 +39,5 @@ public class ItemDoInventario
     */
     public void setQuantidade(int novaQuantidade) {
         quantidade = novaQuantidade;
-    }
-    
-    
+    }    
 }

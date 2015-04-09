@@ -14,7 +14,30 @@ import java.util.Arrays;
 public class OrcTest
 {
    
+    @Test
+    public void OrcTem3ItensNaListaEEstaoTodosOrdenados() {
     
+    Orc orc = new Orc();
+    
+    ItemDoInventario item0 = new ItemDoInventario("Espada de Diamantes", 3);
+    ItemDoInventario item1 = new ItemDoInventario("Espada de Ferro", 1);
+    ItemDoInventario item2 = new ItemDoInventario("Espada de BeyBlade",2);
+        
+     orc.adicionarItemDaLista(item0);
+     orc.adicionarItemDaLista(item1);
+     orc.adicionarItemDaLista(item2);
+     
+     orc.ordenarItens();
+     
+    // String esperado = "Espada de Ferro,Espada de BeyBlade,Espada de Diamantes";
+     
+     
+     //assertEquals(esperado, orc.getlistaDeItens().toString());
+     assertEquals(item1, orc.getlistaDeItens().get(0));
+     assertEquals(item2, orc.getlistaDeItens().get(1));
+     assertEquals(item0, orc.getlistaDeItens().get(2));
+    
+    }
     
     @Test
     public void orcNasceCom110Vida() {
