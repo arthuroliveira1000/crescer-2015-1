@@ -58,18 +58,53 @@ public class Orc
    
    public ItemDoInventario getItemComMaiorQuantidade(){
        
+       ItemDoInventario itemMaiorQuantidade = null;
+        
+       boolean temItens = !this.listaDeItens.isEmpty();
+         if (temItens) {
+         itemMaiorQuantidade = this.listaDeItens.get(0);
+        
+         for (int i = 1; i < this.listaDeItens.size(); i++) {
+         ItemDoInventario itemAtual = this.listaDeItens.get(i);
+         boolean encontreiAMaiorQuantidade =
+         itemAtual.getQuantidade() > itemMaiorQuantidade.getQuantidade();
+        
+         if (encontreiAMaiorQuantidade) {
+         // atualizar a minha referência para o maior parcial
+         itemMaiorQuantidade = itemAtual;
+         }
+         }
+        }
+        
+         return itemMaiorQuantidade;
+        }
+       
+       
+       /*
        int maiorQuantidade = listaDeItens.get(0).getQuantidade();
-       ItemDoInventario itemComMaiorQuantidade = listaDeItens.get(0);
+       
+       ItemDoInventario itemComMaiorQuantidade = null;
+      
        int tamanhoDaLista = listaDeItens.size();
        
-       for(int x = 1; x < tamanhoDaLista; x++) {
+       if(this.listaDeItens.isEmpty() == false) {
+           
+           itemComMaiorQuantidade =  listaDeItens.get(0);
+           
+           for(int x = 1; x < tamanhoDaLista; x++) {
            if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
                maiorQuantidade = listaDeItens.get(x).getQuantidade();
                itemComMaiorQuantidade = listaDeItens.get(x);
-        }   
-    }
-    return itemComMaiorQuantidade;
-}
+            }   
+        }
+        
+            return itemComMaiorQuantidade;
+        
+        } else {
+           
+            return itemComMaiorQuantidade;
+        }
+}*/
    
      /**
     * Concatena as informações SEM ESPAÇO E SEM PONTO FINAL

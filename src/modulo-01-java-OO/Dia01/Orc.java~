@@ -59,17 +59,28 @@ public class Orc
    public ItemDoInventario getItemComMaiorQuantidade(){
        
        int maiorQuantidade = listaDeItens.get(0).getQuantidade();
-       ItemDoInventario itemComMaiorQuantidade = listaDeItens.get(0);
+       
+       ItemDoInventario itemComMaiorQuantidade = null;
+      
        int tamanhoDaLista = listaDeItens.size();
        
-       for(int x = 0; x < tamanhoDaLista; x++) {
+       if(this.listaDeItens.isEmpty() == false) {
            
+           itemComMaiorQuantidade =  listaDeItens.get(0);
+           
+           for(int x = 1; x < tamanhoDaLista; x++) {
            if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
                maiorQuantidade = listaDeItens.get(x).getQuantidade();
                itemComMaiorQuantidade = listaDeItens.get(x);
-        }   
-    }
-    return itemComMaiorQuantidade;
+            }   
+        }
+        
+            return itemComMaiorQuantidade;
+        
+        } else {
+           
+            return itemComMaiorQuantidade;
+        }
 }
    
      /**
