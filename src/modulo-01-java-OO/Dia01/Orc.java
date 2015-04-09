@@ -52,13 +52,32 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
-   /**
+  /**
+   * MÉTODO RETORNA O ITEM COM MAIOR QUANTIDADE
+   */
+   
+   public ItemDoInventario getItemComMaiorQuantidade(){
+       
+       int maiorQuantidade = listaDeItens.get(0).getQuantidade();
+       ItemDoInventario itemComMaiorQuantidade = listaDeItens.get(0);
+       int tamanhoDaLista = listaDeItens.size();
+       
+       for(int x = 0; x < tamanhoDaLista; x++) {
+           
+           if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
+               maiorQuantidade = listaDeItens.get(x).getQuantidade();
+               itemComMaiorQuantidade = listaDeItens.get(x);
+        }   
+    }
+    return itemComMaiorQuantidade;
+}
+   
+     /**
     * Concatena as informações SEM ESPAÇO E SEM PONTO FINAL
     * 
     * "adaga,escudo,bracelete"
     */
-   
-   
+
    public String getDescricoesItens()  {
        
        StringBuilder builder = new StringBuilder();
