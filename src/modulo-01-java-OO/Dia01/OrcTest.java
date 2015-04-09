@@ -299,9 +299,6 @@ public class OrcTest
         assertEquals(item5, orc.getlistaDeItens().get(4));
     }
     
-    
-    
-   /*
     @Test
     public void orcTentarSorteAumenta1000UnidadesDosItens() {
         // Arrange
@@ -316,32 +313,33 @@ public class OrcTest
         // Act
         orc.tentaSorte();
         // Assert
-        //ItemDoInventario pocao1 = urukhai.getlistaDeItens().get(0);
-        //ItemDoInventario lanca1 = urukhai.getlistaDeItens().get(1);
+        ItemDoInventario pocaoTeste = orc.getlistaDeItens().get(0);
+        ItemDoInventario lancaTeste = orc.getlistaDeItens().get(1);
         
         
-        assertEquals(1003, orc.getlistaDeItens().get(0).getQuantidade());
-        assertEquals(1001, orc.getlistaDeItens().get(1).getQuantidade());
+        assertEquals(1003, pocaoTeste.getQuantidade());
+        assertEquals(1001, lancaTeste.getQuantidade());
     }
-  */
-    
+  
     @Test
     public void orcTentarSorteNaoFazNada() {
         // Arrange
         Orc urukhai = new Orc();
-        urukhai.getlistaDeItens(new ItemDoInventario( "Poção de mana", 3));
-        urukhai.getlistaDeItens(new ItemDoInventario( "Poção Lança", 1));
+        
+        ItemDoInventario item1 = new ItemDoInventario("Poção de mana", 3);
+        ItemDoInventario item2 = new ItemDoInventario("Poção Lança", 1);
+        
+        urukhai.adicionarItemDaLista(item1);
+        urukhai.adicionarItemDaLista(item2);
         // Act
         urukhai.tentaSorte();
         // Assert
         ItemDoInventario pocao = urukhai.getlistaDeItens().get(0);
         ItemDoInventario lanca = urukhai.getlistaDeItens().get(1);
+        
         assertEquals(3, pocao.getQuantidade());
         assertEquals(1, lanca.getQuantidade());
-    }
-    
-      
-
+    }  
 }
 
 
