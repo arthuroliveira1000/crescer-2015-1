@@ -14,6 +14,8 @@ public class Orc
     private Status status;
     private String nome;
     ArrayList<ItemDoInventario> listaDeItens = new ArrayList<ItemDoInventario>();
+    private final int NUMERO_SORTE = 3481;
+
  
     {
         //vida = 110;
@@ -50,13 +52,32 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
-   /**
+  /**
+   * MÉTODO RETORNA O ITEM COM MAIOR QUANTIDADE
+   */
+   
+   public ItemDoInventario getItemComMaiorQuantidade(){
+       
+       int maiorQuantidade = listaDeItens.get(0).getQuantidade();
+       ItemDoInventario itemComMaiorQuantidade = listaDeItens.get(0);
+       int tamanhoDaLista = listaDeItens.size();
+       
+       for(int x = 0; x < tamanhoDaLista; x++) {
+           
+           if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
+               maiorQuantidade = listaDeItens.get(x).getQuantidade();
+               itemComMaiorQuantidade = listaDeItens.get(x);
+        }   
+    }
+    return itemComMaiorQuantidade;
+}
+   
+     /**
     * Concatena as informações SEM ESPAÇO E SEM PONTO FINAL
     * 
     * "adaga,escudo,bracelete"
     */
-   
-   
+
    public String getDescricoesItens()  {
        
        StringBuilder builder = new StringBuilder();
@@ -76,20 +97,17 @@ public class Orc
     */ 
    
    public void tentaSorte() {
-       
-       double numeroGerado = gerarNumero();
-      
-       if(numeroGerado == 3481) {
-        for(ItemDoInventario item : this.listaDeItens) {
-            int novaQuantidadeItem = item.getQuantidade() + 1000;
-            item.seQuantidade(novaQuantidadeItem);
+        double numeroGerado = gerarNumero();
+        
+        if (numeroGerado == NUMERO_SORTE) {
+            for (ItemDoInventario item : this.listaDeItens) {
+                int novaQuantidadeItem = item.getQuantidade() + 1000;
+                item.setQuantidade(novaQuantidadeItem);
+            }
         }
-       
-          //  for(int x = 0; x < tamanhoLista; x++) {
-          //      listaDeItens.get(x).setQuantidade(listaDeItens.get(x).getQuantidade() + 1000);
-           //}
+        
     }
-     }
+
     
    public void adicionarItemDaLista(ItemDoInventario i) {
        
