@@ -260,8 +260,10 @@ public class OrcTest
          orc.adicionarItemDaLista(item2);
          orc.adicionarItemDaLista(item3);
     
-         assertEquals(item2, orc.getlistaDeItens().get(1));
+         assertEquals(item2, orc.getItemComMaiorQuantidade());
     }
+    
+   
     
     @Test 
     public void inseriQuatroItensNaListaERetornaitem1QueTemAMaiorQuantidade() {
@@ -277,18 +279,18 @@ public class OrcTest
          orc.adicionarItemDaLista(item3);
          orc.adicionarItemDaLista(item4);
     
-         assertEquals(item1, orc.getlistaDeItens().get(0));
+         assertEquals(item1, orc.getItemComMaiorQuantidade());
     }
     
     @Test 
     public void inseriCincoItensNaListaERetornaitem5QueTemAMaiorQuantidade() {
     
         Orc orc = new Orc();
-        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 10);
-        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 5);
-        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",2);
-        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",4);
-        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",16);
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 15);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",17);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",9);
+        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",18);
         
         orc.adicionarItemDaLista(item1);
         orc.adicionarItemDaLista(item2);
@@ -296,8 +298,44 @@ public class OrcTest
         orc.adicionarItemDaLista(item4);
         orc.adicionarItemDaLista(item5);
     
-        assertEquals(item5, orc.getlistaDeItens().get(4));
+        assertEquals(item5, orc.getItemComMaiorQuantidade());
     }
+    
+    @Test 
+    public void inseriCincoItensNaListaComDoisComQuantidadesIguaisERetornaUmDosItensQueTemAMaiorQuantidade() {
+    
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 1);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",18);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",9);
+        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",18);
+        
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
+        orc.adicionarItemDaLista(item3);
+        orc.adicionarItemDaLista(item4);
+        orc.adicionarItemDaLista(item5);
+   
+        //retorna o primeiro item com quantidade maior pq meu if só muda para o outro se for maior, como não é maior fica o primeiro mesmo
+        assertEquals(item3, orc.getItemComMaiorQuantidade());
+    }
+    
+    /*
+    @Test
+    public void ListaVaziaEMetodoGetItemComMaiorQuantidadeRetornaNulo() {
+        //Arrange
+        Orc orc = new Orc();
+        //Act
+        ItemDoInventario esperado = null;
+        //Assert
+        
+        ItemDoInventario resultado =  orc.getItemComMaiorQuantidade();
+        assertEquals(esperado, resultado);
+    
+    }
+    */
+    
     
     @Test
     public void orcTentarSorteAumenta1000UnidadesDosItens() {
