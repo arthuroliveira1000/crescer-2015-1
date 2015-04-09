@@ -284,11 +284,11 @@ public class OrcTest
     public void inseriCincoItensNaListaERetornaitem5QueTemAMaiorQuantidade() {
     
         Orc orc = new Orc();
-        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 10);
-        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 5);
-        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",2);
-        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",4);
-        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",16);
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 15);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 2);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",17);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",9);
+        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",18);
         
         orc.adicionarItemDaLista(item1);
         orc.adicionarItemDaLista(item2);

@@ -299,9 +299,6 @@ public class OrcTest
         assertEquals(item5, orc.getlistaDeItens().get(4));
     }
     
-    
-    
-   
     @Test
     public void orcTentarSorteAumenta1000UnidadesDosItens() {
         // Arrange
@@ -324,7 +321,6 @@ public class OrcTest
         assertEquals(1001, lancaTeste.getQuantidade());
     }
   
-    
     @Test
     public void orcTentarSorteNaoFazNada() {
         // Arrange
