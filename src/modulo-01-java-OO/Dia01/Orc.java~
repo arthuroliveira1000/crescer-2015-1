@@ -190,7 +190,7 @@ public class Orc
         return this.vida;
     }
     
-    public ArrayList getlistaDeItens() {
+    public ArrayList<ItemDoInventario> getlistaDeItens() {
         return this.listaDeItens;
     }
     

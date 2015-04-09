@@ -62,8 +62,7 @@ public class Orc
        ItemDoInventario itemComMaiorQuantidade = listaDeItens.get(0);
        int tamanhoDaLista = listaDeItens.size();
        
-       for(int x = 0; x < tamanhoDaLista; x++) {
-           
+       for(int x = 1; x < tamanhoDaLista; x++) {
            if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
                maiorQuantidade = listaDeItens.get(x).getQuantidade();
                itemComMaiorQuantidade = listaDeItens.get(x);
