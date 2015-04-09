@@ -263,26 +263,65 @@ public class OrcTest
          assertEquals(item2, orc.getlistaDeItens().get(1));
     }
     
+    @Test 
+    public void inseriQuatroItensNaListaERetornaitem1QueTemAMaiorQuantidade() {
+    
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 10);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 5);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",2);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",4);
+        
+         orc.adicionarItemDaLista(item1);
+         orc.adicionarItemDaLista(item2);
+         orc.adicionarItemDaLista(item3);
+         orc.adicionarItemDaLista(item4);
+    
+         assertEquals(item1, orc.getlistaDeItens().get(0));
+    }
+    
+    @Test 
+    public void inseriCincoItensNaListaERetornaitem5QueTemAMaiorQuantidade() {
+    
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 10);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 5);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",2);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",4);
+        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",16);
+        
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
+        orc.adicionarItemDaLista(item3);
+        orc.adicionarItemDaLista(item4);
+        orc.adicionarItemDaLista(item5);
+    
+        assertEquals(item5, orc.getlistaDeItens().get(4));
+    }
     
     
-    /*    
+    
+   /*
     @Test
     public void orcTentarSorteAumenta1000UnidadesDosItens() {
         // Arrange
-        Orc urukhai = new Orc();
-        urukhai.setStatus(Status.DORMINDO);
-        urukhai.setExperiencia(3);
-        ItemDoInventario pocao = new ItemDoInventario("Poção de mana", 3);
-        ItemDoInventario lanca = new ItemDoInventario("Poção Lança", 1);
-        urukhai.adicionarItemDaLista(pocao);
-        urukhai.adicionarItemDaLista(lanca);
+        Orc orc = new Orc();
+        orc.setStatus(Status.DORMINDO);
+        orc.setExperiencia(3);
+        ItemDoInventario item1 = new ItemDoInventario("Poção de mana", 3);
+        ItemDoInventario item2 = new ItemDoInventario("Poção Lança", 1);
+        
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
         // Act
-        urukhai.tentaSorte();
+        orc.tentaSorte();
         // Assert
-        ItemDoInventario pocao1 = urukhai.getlistaDeItens().get(0);
-        ItemDoInventario lanca1 = urukhai.getlistaDeItens().get(1);
-        assertEquals(1003, pocao1.getQuantidade());
-        assertEquals(1001, lanca1.getQuantidade());
+        //ItemDoInventario pocao1 = urukhai.getlistaDeItens().get(0);
+        //ItemDoInventario lanca1 = urukhai.getlistaDeItens().get(1);
+        
+        
+        assertEquals(1003, orc.getlistaDeItens().get(0).getQuantidade());
+        assertEquals(1001, orc.getlistaDeItens().get(1).getQuantidade());
     }
   
     
@@ -300,7 +339,8 @@ public class OrcTest
         assertEquals(3, pocao.getQuantidade());
         assertEquals(1, lanca.getQuantidade());
     }
-      */
+    */
+      
 
 }
 
