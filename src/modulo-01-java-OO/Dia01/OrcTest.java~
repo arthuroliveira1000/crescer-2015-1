@@ -280,9 +280,28 @@ public class OrcTest
          assertEquals(item1, orc.getlistaDeItens().get(0));
     }
     
+    @Test 
+    public void inseriCincoItensNaListaERetornaitem5QueTemAMaiorQuantidade() {
+    
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Diamantes", 10);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de Ferro", 5);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade",2);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de seila",4);
+        ItemDoInventario item5 = new ItemDoInventario("Espada de vaisaber",16);
+        
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
+        orc.adicionarItemDaLista(item3);
+        orc.adicionarItemDaLista(item4);
+        orc.adicionarItemDaLista(item5);
+    
+        assertEquals(item5, orc.getlistaDeItens().get(4));
+    }
     
     
-   /*
+    
+   
     @Test
     public void orcTentarSorteAumenta1000UnidadesDosItens() {
         // Arrange
@@ -320,7 +339,7 @@ public class OrcTest
         assertEquals(3, pocao.getQuantidade());
         assertEquals(1, lanca.getQuantidade());
     }
-    */
+    
       
 
 }

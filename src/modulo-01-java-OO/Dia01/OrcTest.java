@@ -323,7 +323,7 @@ public class OrcTest
         assertEquals(1003, orc.getlistaDeItens().get(0).getQuantidade());
         assertEquals(1001, orc.getlistaDeItens().get(1).getQuantidade());
     }
-  
+  */
     
     @Test
     public void orcTentarSorteNaoFazNada() {
@@ -339,7 +339,7 @@ public class OrcTest
         assertEquals(3, pocao.getQuantidade());
         assertEquals(1, lanca.getQuantidade());
     }
-    */
+    
       
 
 }
