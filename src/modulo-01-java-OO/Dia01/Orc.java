@@ -13,7 +13,7 @@ public class Orc
     private int vida = 110, experiencia;
     private Status status;
     private String nome;
-    ArrayList<ItemDoInventario> listaDeItens = new ArrayList<ItemDoInventario>();
+    ArrayList<ItemDoInventario> listaDeItens = new ArrayList<>();
     private final int NUMERO_SORTE = 3481;
 
  
