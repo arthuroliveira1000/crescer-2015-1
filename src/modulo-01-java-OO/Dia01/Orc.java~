@@ -13,7 +13,7 @@ public class Orc
     private int vida = 110, experiencia;
     private Status status;
     private String nome;
-    ArrayList<ItemDoInventario> listaDeItens = new ArrayList<ItemDoInventario>();
+    ArrayList<ItemDoInventario> listaDeItens = new ArrayList<>();
     private final int NUMERO_SORTE = 3481;
 
  
@@ -53,8 +53,46 @@ public class Orc
    } 
    
   /**
-   * MÉTODO RETORNA O ITEM COM MAIOR QUANTIDADE
+   * MÉTODO ORDENA OS ITENS QUE O ORC TEM
+   * 
+   * for para percorrer o arrayList, caso a quantidade de determinado item for maior que a do anterior
+   * o itemAnterior recebe o itematual e o itematual se torna o anterior
+   * itemAnterior = itemAtual
+   * itematual = itemAuxiliar(itemAnterior)
+   * 
    */
+   public void ordenarItens() {
+   
+       
+       if(this.listaDeItens.size() > 1) {
+        
+           ItemDoInventario itemAuxiliarContendoItemAtual;
+           ItemDoInventario proximoItem;
+           int indexItemAnterior;
+           
+           
+           for(int y = 0; y < listaDeItens.size(); y++) {
+                   //No bubblesort, compara-se o itematual[x] com o proximoitem[x + 1]
+                   // Desta forma, se o laço for até a última posição do vetor, ele irá comparar com um valor que não existe, 
+                   //e conseqüentemente irá retornar mensagem de erro.
+                   for(int x = 0; x < (listaDeItens.size() - 1); x++) {
+                       //SE O ITEM ATUAL TEM A QUANTIDADE MAIOR QUE A DO PROXIMO ITEM, ENTÃO TROCA DE POSIÇÃO
+                       if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
+                       
+                           itemAuxiliarContendoItemAtual = this.listaDeItens.get(x);
+                           proximoItem = this.listaDeItens.get(x + 1);
+                           
+                           this.listaDeItens.set(x, proximoItem);// ITEM ATUAL = PROXIMO ITEM
+                           this.listaDeItens.set(x + 1, itemAuxiliarContendoItemAtual); // PROXIMO ITEM = ITEMATUAL
+                    }
+                }
+            }
+        }
+   } 
+    
+
+   
+  
    
    public ItemDoInventario getItemComMaiorQuantidade(){
        
@@ -78,33 +116,7 @@ public class Orc
         
          return itemMaiorQuantidade;
         }
-       
-       
-       /*
-       int maiorQuantidade = listaDeItens.get(0).getQuantidade();
-       
-       ItemDoInventario itemComMaiorQuantidade = null;
-      
-       int tamanhoDaLista = listaDeItens.size();
-       
-       if(this.listaDeItens.isEmpty() == false) {
-           
-           itemComMaiorQuantidade =  listaDeItens.get(0);
-           
-           for(int x = 1; x < tamanhoDaLista; x++) {
-           if(listaDeItens.get(x).getQuantidade() > maiorQuantidade) {
-               maiorQuantidade = listaDeItens.get(x).getQuantidade();
-               itemComMaiorQuantidade = listaDeItens.get(x);
-            }   
-        }
-        
-            return itemComMaiorQuantidade;
-        
-        } else {
-           
-            return itemComMaiorQuantidade;
-        }
-}*/
+    
    
      /**
     * Concatena as informações SEM ESPAÇO E SEM PONTO FINAL
