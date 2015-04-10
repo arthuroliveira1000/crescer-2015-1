@@ -77,11 +77,11 @@ public class Orc
                    //e conseqüentemente irá retornar mensagem de erro.
                    for(int x = 0; x < (listaDeItens.size() - 1); x++) {
                        //SE O ITEM ATUAL TEM A QUANTIDADE MAIOR QUE A DO PROXIMO ITEM, ENTÃO TROCA DE POSIÇÃO
-                       if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
-                       
+                      
                            itemAuxiliarContendoItemAtual = this.listaDeItens.get(x);
                            proximoItem = this.listaDeItens.get(x + 1);
-                           
+                       
+                       if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
                            this.listaDeItens.set(x, proximoItem);// ITEM ATUAL = PROXIMO ITEM
                            this.listaDeItens.set(x + 1, itemAuxiliarContendoItemAtual); // PROXIMO ITEM = ITEMATUAL
                     }

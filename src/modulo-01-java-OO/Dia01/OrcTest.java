@@ -103,14 +103,14 @@ public class OrcTest
     }
     
     @Test
-    public void OrcNaoTemNenhumItemNaListaTestaMetodoOrdenaItensPelaDescricao() {
+    public void OrcNaoTemNenhumItemNaLista() {
         //Arrange - Montagem dos dados de teste
         Orc orc = new Orc();
-        String testaAApartirDaDescricao = "";
+         ArrayList<ItemDoInventario> listaTeste = new ArrayList<>();
         //Act - execução da ação do teste
         orc.ordenarItens();
         //Assert - teste em si
-        assertEquals(testaAApartirDaDescricao, orc.getDescricoesItens());
+        assertEquals(listaTeste, orc.getlistaDeItens());
     }
     
     @Test
