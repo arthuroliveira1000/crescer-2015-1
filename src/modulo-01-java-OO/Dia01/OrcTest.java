@@ -8,8 +8,7 @@ import java.util.Arrays;
 /**
  * A classe de teste OrcTest.
  *
- * @author  (seu nome)
- * @version (um número de versão ou data)
+ * @author  Arthur Oliveira 
  */
 public class OrcTest
 {

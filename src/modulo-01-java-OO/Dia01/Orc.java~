@@ -1,57 +1,28 @@
 /**
  * Define objetos do tipo Orc
  * 
- * @author CWI Software
+ * @author Arthur Oliveira 
  */
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
-public class Orc
+
+public class Orc extends Personagem 
 {
-    private int vida = 110, experiencia;
-    private Status status;
-    private String nome;
-    ArrayList<ItemDoInventario> listaDeItens = new ArrayList<>();
     private final int NUMERO_SORTE = 3481;
 
- 
-    {
-        //vida = 110;
-    }
-    
-    /**
-     * Construtor para objetos da classe Orc
-    public Orc()
-    {
-        //vida = 110;
-    }
-    **/
+   public Orc(String nome) {
+       super("", 110);
+   }  
     
     /**
      * Construtor para objetos da classe Orc vazio pq estava dando erro nas outras classes onde criava um orc e não passava nenhum parametro
    */
    public Orc() {
- 
+       this("");
    }
-    
-    
-    /**
-     *   Construtor para objetos da classe Orc com nome 
-   */
-   public Orc(String nome) {
-        this.nome = nome;
-   } 
-    
-   /**
-      Construtor para objetos da classe Orc com nome e experiencia
-   **/
-   public Orc(String nome, int experiencia) {
-        this.nome = nome;
-        this.experiencia = experiencia;
-   } 
-   
+
   /**
    * MÉTODO ORDENA OS ITENS QUE O ORC TEM
    * 
@@ -77,11 +48,11 @@ public class Orc
                    //e conseqüentemente irá retornar mensagem de erro.
                    for(int x = 0; x < (listaDeItens.size() - 1); x++) {
                        //SE O ITEM ATUAL TEM A QUANTIDADE MAIOR QUE A DO PROXIMO ITEM, ENTÃO TROCA DE POSIÇÃO
-                       if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
-                       
+                      
                            itemAuxiliarContendoItemAtual = this.listaDeItens.get(x);
                            proximoItem = this.listaDeItens.get(x + 1);
-                           
+                       
+                       if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
                            this.listaDeItens.set(x, proximoItem);// ITEM ATUAL = PROXIMO ITEM
                            this.listaDeItens.set(x + 1, itemAuxiliarContendoItemAtual); // PROXIMO ITEM = ITEMATUAL
                     }
@@ -232,36 +203,12 @@ public class Orc
         return "Vida atual: " + this.vida;
     }
     
-      public int getVida() {
-        return this.vida;
-    }
-    
-    public ArrayList<ItemDoInventario> getlistaDeItens() {
-        return this.listaDeItens;
-    }
-    
+
     public void setStatus(Status novoStatus) {
         status = novoStatus;
     }
-    
-    public void setVida(int novaVida) {
-            vida = novaVida;
-    }
-    
-    public String getNome() {
-        return this.nome;
-    }
-    
+   
       public int getExperiencia() {
         return this.experiencia;
     }
-    
-    public void setNome(String nomeNovo) {
-        nome = nomeNovo;
-    }
-    
-    public void setExperiencia(int experienciaNova) {
-        experiencia = experienciaNova;
-    }
-    
 }

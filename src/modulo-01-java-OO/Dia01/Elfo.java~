@@ -4,44 +4,27 @@
  * 
  * @author CWI Software
  */
-public class Elfo
-{
-    // Versão correção do tema!!
-    private String nome;
-    private int flechas, experiencia;
+public class Elfo extends Personagem  {
 
-    // type initializer
-    {
-        flechas = 42;
-        experiencia = 0;
+    private int flechas;
+
+    public Elfo(String nomeNovo, int flechasNovas) {
+    
+        super(nomeNovo, 0);
+        this.flecha = flechasNovas;
     }
     
-    /**
-     * Cria objetos Elfo
-     * 
-     * @param umNome Nome que o elfo receberá
-     * @param flechas Quantidade inicial de flechas
-     */
     
-    Elfo() {
     
-    }
     
-    public Elfo(String umNome, int flechas)
-    {
-        this(umNome);
-        //this.nome = umNome;
-        this.flechas = flechas;
-    }
-    
-    /**
-     * Cria um elfo informando nome.
-     * 
-     * @param nome Nome a ser dado para o Elfo.
-     */
     public Elfo(String nome) {
-        this.nome = nome;
+       super("", 110);
     }
+    
+    public int getFlechas() {
+        return this.flechas;
+    }
+    
     
     /**
      * Atira uma flecha e perde uma unidade.
@@ -55,28 +38,6 @@ public class Elfo
         umOrc.recebeAtaque();
     }
     
-    public String getNome() {
-        return this.nome;
-    }
-    
-    public int getFlechas() {
-        return this.flechas;
-    }
-    
-    public int getExperiencia() {
-        return this.experiencia;
-    }
-    
-    
-    public String toString() {
-    
-      String textoFlechas = this.flechas != 1 ? " flechas" : " flecha";  
-      String textoNiveis = this.experiencia == 1 ? " nível" : " níveis";
-      return this.nome + " possui " + this.flechas + textoFlechas + " e " + this.experiencia + textoNiveis + " de experiência.";  
-    
-    }  
-    
-    
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
@@ -86,4 +47,60 @@ public class Elfo
     // camelCase: public void atirarFlechaDourada
     // PascalCase: public void AtirarFlechaDourada
     
+    /**
+     * Retorna o nome do elfo, sua quantidade de flechas e seus níveis de experiência.
+     * 
+     * @return Informações gerais sobre o elfo, ex:
+     * 
+     * "Legolas possui 42 flechas e 0 níveis de experiência."
+     */
+    public String toString() {
+        
+        /*StringBuilder builder = new StringBuilder();
+        
+        builder.append(
+            String.format("%s possui %d %s e %d %s de experiência.",
+                this.nome,
+                this.flechas,
+                this.flechas == 1 ? "flecha" : "flechas",
+                this.experiencia,
+                this.experiencia == 1 ? "nível" : "níveis"
+            )
+        );
+
+        return builder.toString();
+        
+        */
+        
+        return String.format("%s possui %d %s e %d %s de experiência.",
+                this.nome,
+                this.flechas,
+                this.flechas == 1 ? "flecha" : "flechas",
+                this.experiencia,
+                this.experiencia == 1 ? "nível" : "níveis"
+            );
+       
+        // Ruby ou CoffeeScript:
+        //"#{nome} possui #{flechas} #{textoFlechas} e #{experiencia} #{textoNiveis} de experiência."
+       
+        // C# null-coalsing:
+        // String texto = this.nome ?? "Sem Nome";
+                
+        /*if (this.flechas == 1) {
+            textoFlechas = "flecha";
+        } else {
+            textoFlechas = "flechas";
+        }*/
+        
+        /*builder.append(this.nome);
+        builder.append(" possui ");
+        builder.append(this.flechas);
+        builder.append(" ");
+        builder.append(textoFlechas);
+        builder.append(" e ");
+        builder.append(this.experiencia);
+        builder.append(" ");
+        builder.append(textoNiveis);
+        builder.append(" de experiência.");*/
+    }
 }

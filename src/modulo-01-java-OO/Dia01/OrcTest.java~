@@ -103,7 +103,7 @@ public class OrcTest
     }
     
     @Test
-    public void OrcNaoTemNenhumItemNaListaTestaMetodoOrdenaItensPelaDescricao() {
+    public void OrcNaoTemNenhumItemNaLista() {
         //Arrange - Montagem dos dados de teste
         Orc orc = new Orc();
          ArrayList<ItemDoInventario> listaTeste = new ArrayList<>();
