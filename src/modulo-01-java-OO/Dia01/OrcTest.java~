@@ -76,6 +76,23 @@ public class OrcTest
     }
     
     @Test
+    public void OrcNaoTemNenhumItemNaListaTestaMetodoOrdenaItensPelaDescricao() {
+        //Arrange - Montagem dos dados de teste
+        Orc orc = new Orc();
+        String testaAApartirDaDescricao = "";
+        //Act - execução da ação do teste
+        orc.ordenarItens();
+        //Assert - teste em si
+        assertEquals(testaAApartirDaDescricao, orc.getDescricoesItens());
+        
+        
+        
+        
+    
+    
+    }
+    
+    @Test
     public void orcNasceCom110Vida() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
