@@ -52,25 +52,39 @@ public class Orc
         this.experiencia = experiencia;
    } 
    
-  
+  /**
+   * MÉTODO ORDENA OS ITENS QUE O ORC TEM
+   * 
+   * for para percorrer o arrayList, caso a quantidade de determinado item for maior que a do anterior
+   * o itemAnterior recebe o itematual e o itematual se torna o anterior
+   * itemAnterior = itemAtual
+   * itematual = itemAuxiliar(itemAnterior)
+   * 
+   */
    public void ordenarItens() {
    
        
-       if(this.listaDeItens.size() >= 1) {
+       if(this.listaDeItens.size() > 1) {
         
-           ItemDoInventario variavelDeControle = this.listaDeItens.get(0);
-           ItemDoInventario itemAuxiliar;
+           ItemDoInventario itemAuxiliarContendoItemAtual;
+           ItemDoInventario proximoItem;
+           int indexItemAnterior;
            
-           
-               for(int x = 1; x <= listaDeItens.size(); x++) {
-               if(variavelDeControle.getQuantidade() <  this.listaDeItens.get(x).getQuantidade() ) {
-                   
-                   //itemAuxiliar = this.listaDeItens.get(x - 1);
-                   this.listaDeItens.set(x, variavelDeControle);
-                   this.listaDeItens.set(x - 1, this.listaDeItens.get(x));
-                    
+           //FOR PARA PERCORRER A LISTA
+           for(int y = 0; y < listaDeItens.size(); y++) {
+               
+                   // FOR PARA ORDENAR CADA ITEM
+                   for(int x = 0; x < (listaDeItens.size() - 1); x++) {
+                       //SE O ITEM ATUAL TEM A QUANTIDADE MAIOR QUE A DO PROXIMO ITEM, ENTÃO TROCA DE POSIÇÃO
+                       if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
+                       
+                           itemAuxiliarContendoItemAtual = this.listaDeItens.get(x);
+                           proximoItem = this.listaDeItens.get(x + 1);
+                           
+                           this.listaDeItens.set(x, proximoItem);// ITEM ATUAL = PROXIMO ITEM
+                           this.listaDeItens.set(x + 1, itemAuxiliarContendoItemAtual); // PROXIMO ITEM = ITEMATUAL
+                    }
                 }
-                variavelDeControle = this.listaDeItens.get(x);
             }
         }
    } 

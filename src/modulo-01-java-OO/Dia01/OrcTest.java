@@ -17,25 +17,61 @@ public class OrcTest
     @Test
     public void OrcTem3ItensNaListaEEstaoTodosOrdenados() {
     
-    Orc orc = new Orc();
-    
-    ItemDoInventario item0 = new ItemDoInventario("Espada de Diamantes", 3);
-    ItemDoInventario item1 = new ItemDoInventario("Espada de Ferro", 1);
-    ItemDoInventario item2 = new ItemDoInventario("Espada de BeyBlade",2);
+        Orc orc = new Orc();
         
-     orc.adicionarItemDaLista(item0);
-     orc.adicionarItemDaLista(item1);
-     orc.adicionarItemDaLista(item2);
-     
-     orc.ordenarItens();
-     
-    // String esperado = "Espada de Ferro,Espada de BeyBlade,Espada de Diamantes";
-     
-     
-     //assertEquals(esperado, orc.getlistaDeItens().toString());
-     assertEquals(item1, orc.getlistaDeItens().get(0));
-     assertEquals(item2, orc.getlistaDeItens().get(1));
-     assertEquals(item0, orc.getlistaDeItens().get(2));
+        ItemDoInventario item0 = new ItemDoInventario("Espada de Diamantes", 3);
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Ferro", 1);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de BeyBlade",2);
+            
+        orc.adicionarItemDaLista(item0);
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
+         
+        orc.ordenarItens();
+       
+        assertEquals(item1, orc.getlistaDeItens().get(0));
+        assertEquals(item2, orc.getlistaDeItens().get(1));
+        assertEquals(item0, orc.getlistaDeItens().get(2));
+    
+    }
+    
+    @Test
+    public void OrcTem3ItensNaListaSendoQueDoisTemAMesmaQuantidade() {
+    
+        Orc orc = new Orc();
+        //Arrange - Montagem dos dados de teste
+        ItemDoInventario item0 = new ItemDoInventario("Espada de Diamantes", 2);
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Ferro", 1);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de BeyBlade", 18);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade", 1);
+            
+        orc.adicionarItemDaLista(item0);
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
+        orc.adicionarItemDaLista(item3);
+        //Act - execução da ação do teste
+        orc.ordenarItens();
+        //Assert - teste em si
+        assertEquals(item1, orc.getlistaDeItens().get(0));
+        assertEquals(item3, orc.getlistaDeItens().get(1));
+        assertEquals(item0, orc.getlistaDeItens().get(2));
+        assertEquals(item2, orc.getlistaDeItens().get(3));
+    
+    }
+    
+    @Test
+    public void OrcUmItemNaLista() {
+    
+        //Arrange - Montagem dos dados de teste
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Espada de BeyBlade", 2);
+        orc.adicionarItemDaLista(item1);
+        
+        
+        //Act - execução da ação do teste
+        orc.ordenarItens();
+        //Assert - teste em si
+        assertEquals(item1, orc.getlistaDeItens().get(0));
     
     }
     
