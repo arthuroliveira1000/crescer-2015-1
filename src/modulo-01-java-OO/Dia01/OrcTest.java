@@ -60,6 +60,33 @@ public class OrcTest
     }
     
     @Test
+    public void OrcTem5ItensNaListaSendoQueDoisTemAMesmaQuantidadeEDoisSaoNegativos() {
+    
+        Orc orc = new Orc();
+        //Arrange - Montagem dos dados de teste
+        ItemDoInventario item0 = new ItemDoInventario("Espada de Diamantes", 15);
+        ItemDoInventario item1 = new ItemDoInventario("Espada de Ferro", 15);
+        ItemDoInventario item2 = new ItemDoInventario("Espada de BeyBlade", -2);
+        ItemDoInventario item3 = new ItemDoInventario("Espada de BeyBlade", -5);
+        ItemDoInventario item4 = new ItemDoInventario("Espada de BeyBlade", 3);
+            
+        orc.adicionarItemDaLista(item0);
+        orc.adicionarItemDaLista(item1);
+        orc.adicionarItemDaLista(item2);
+        orc.adicionarItemDaLista(item3);
+        orc.adicionarItemDaLista(item4);
+        //Act - execução da ação do teste
+        orc.ordenarItens();
+        //Assert - teste em si
+        assertEquals(item3, orc.getlistaDeItens().get(0));
+        assertEquals(item2, orc.getlistaDeItens().get(1));
+        assertEquals(item4, orc.getlistaDeItens().get(2));
+        assertEquals(item0, orc.getlistaDeItens().get(3));
+        assertEquals(item1, orc.getlistaDeItens().get(4));
+    
+    }
+    
+    @Test
     public void OrcUmItemNaLista() {
     
         //Arrange - Montagem dos dados de teste

@@ -84,12 +84,6 @@ public class OrcTest
         orc.ordenarItens();
         //Assert - teste em si
         assertEquals(testaAApartirDaDescricao, orc.getDescricoesItens());
-        
-        
-        
-        
-    
-    
     }
     
     @Test
