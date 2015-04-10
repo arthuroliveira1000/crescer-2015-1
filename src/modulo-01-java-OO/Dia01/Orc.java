@@ -70,10 +70,11 @@ public class Orc
            ItemDoInventario proximoItem;
            int indexItemAnterior;
            
-           //FOR PARA PERCORRER A LISTA
+           
            for(int y = 0; y < listaDeItens.size(); y++) {
-               
-                   // FOR PARA ORDENAR CADA ITEM
+                   //No bubblesort, compara-se o itematual[x] com o proximoitem[x + 1]
+                   // Desta forma, se o laço for até a última posição do vetor, ele irá comparar com um valor que não existe, 
+                   //e conseqüentemente irá retornar mensagem de erro.
                    for(int x = 0; x < (listaDeItens.size() - 1); x++) {
                        //SE O ITEM ATUAL TEM A QUANTIDADE MAIOR QUE A DO PROXIMO ITEM, ENTÃO TROCA DE POSIÇÃO
                        if(this.listaDeItens.get(x).getQuantidade() > this.listaDeItens.get(x + 1).getQuantidade() ) {
