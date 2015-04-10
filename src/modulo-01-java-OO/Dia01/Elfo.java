@@ -6,7 +6,7 @@
  */
 public class Elfo extends Personagem  {
 
-    private int flechas;
+    private int flechas = 42;
 
     public Elfo(String nomeNovo, int flechasNovas) {
     
@@ -18,7 +18,7 @@ public class Elfo extends Personagem  {
     
     
     public Elfo(String nome) {
-       super("", 110);
+       super(nome, 110);
     }
     
     public int getFlechas() {

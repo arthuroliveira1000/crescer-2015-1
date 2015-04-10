@@ -46,6 +46,10 @@ public class Personagem
         this.experiencia = novaExperiencia;
     }
     
+    public void setStatus(Status novoStatus) {
+        status = novoStatus;
+    }
+    
     public ArrayList<ItemDoInventario> getlistaDeItens() {
         return this.listaDeItens;
     }
@@ -84,7 +88,68 @@ public class Personagem
         }
 
        return builder.toString();
+       
+                                       /*
+                                + * Utilizando for tradicional
+                                + int numeroDeItens = this.itens.size();
+                                +
+                                + for (int i = 0; i < numeroDeItens; i++) {
+                                + ItemDoInventario itemAtual = this.itens.get(i);
+                                +
+                                + boolean éÚltimoÍndice = i == numeroDeItens - 1;
+                                +
+                                + builder.append(
+                                + éÚltimoÍndice ?
+                                + itemAtual.getDescricao() :
+                                + itemAtual.getDescricao() + ","
+                                + );
+                                + }
+                                + */
+                                
+                                 // C#
+                                 //foreach (ItemDoInventario item in this.itens) { }
+                                
+                                /*
+                                + * Utilizando FOREACH!!
+                                + for (ItemDoInventario itemAtual : this.itens) {
+                                + int i = this.itens.indexOf(itemAtual);
+                                + int numeroDeItens = this.itens.size();
+                                + boolean éÚltimoÍndice = i == numeroDeItens - 1;
+                                +
+                                + builder.append(
+                                + éÚltimoÍndice ?
+                                + itemAtual.getDescricao() :
+                                + itemAtual.getDescricao() + ","
+                                + );
+                                + }
+                                + */
+                                
+                                 /*
+                                + * JavaScript
+                                + for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
+                                + }
+                                + */
+                                
+                                 /*
+                                + * WHILE (ENQUANTO)
+                                + int i = 0;
+                                + int numeroDeItens = this.itens.size();
+                                +
+                                + while (i < numeroDeItens) {
+                                + ItemDoInventario itemAtual = this.itens.get(i);
+                                + boolean éÚltimoÍndice = i == numeroDeItens - 1;
+                                +
+                                + builder.append(
+                                + éÚltimoÍndice ?
+                                + itemAtual.getDescricao() :
+                                + itemAtual.getDescricao() + ","
+                                + );
+                                + //
+                                + i++;
+                                + }
+                                + */
     }
+
     
    public ItemDoInventario getItemComMaiorQuantidade(){
        
