@@ -13,12 +13,13 @@ public class Elfo extends Personagem  {
         super(nomeNovo, 0);
         this.flechas = flechasNovas;
     }
-    
-    
-    
-    
+
     public Elfo(String nome) {
        super(nome, 110);
+    }
+    
+    public void Setflechas(int novasFlechas) {
+        this.flechas = novasFlechas;
     }
     
     public int getFlechas() {
