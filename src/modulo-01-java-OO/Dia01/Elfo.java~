@@ -6,19 +6,20 @@
  */
 public class Elfo extends Personagem  {
 
-    private int flechas;
+    private int flechas = 42;
 
     public Elfo(String nomeNovo, int flechasNovas) {
     
-        super(nomeNovo, 0);
-        this.flecha = flechasNovas;
+        super(nomeNovo, 100);
+        this.flechas = flechasNovas;
+    }
+
+    public Elfo(String nome) {
+       super(nome, 100);
     }
     
-    
-    
-    
-    public Elfo(String nome) {
-       super("", 110);
+    public void Setflechas(int novasFlechas) {
+        this.flechas = novasFlechas;
     }
     
     public int getFlechas() {

@@ -10,12 +10,12 @@ public class Elfo extends Personagem  {
 
     public Elfo(String nomeNovo, int flechasNovas) {
     
-        super(nomeNovo, 0);
+        super(nomeNovo, 100);
         this.flechas = flechasNovas;
     }
 
     public Elfo(String nome) {
-       super(nome, 110);
+       super(nome, 100);
     }
     
     public void Setflechas(int novasFlechas) {
@@ -25,7 +25,6 @@ public class Elfo extends Personagem  {
     public int getFlechas() {
         return this.flechas;
     }
-    
     
     /**
      * Atira uma flecha e perde uma unidade.
