@@ -18,7 +18,7 @@ public class ElfoNoturno extends Elfo
     
     public void atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(Orc umOrc) {
        
-       double cincoPorCentoDaVida = (int) (vida * 5) / 100;
+       double cincoPorCentoDaVida = (vida * 5) / 100;
         
        atirarFlecha(umOrc);
        experiencia += 2;

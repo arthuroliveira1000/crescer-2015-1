@@ -25,7 +25,7 @@ public class ElfoNoturno extends Elfo
        
        vida -= cincoPorCentoDaVida;
        
-       if(vida = 0) {
+       if(vida == 0) {
            atualizaStatus();
         }     
     }

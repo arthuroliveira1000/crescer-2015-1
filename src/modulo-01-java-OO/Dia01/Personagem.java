@@ -23,7 +23,7 @@ public class Personagem
     
     public void atualizaStatus()
     {
-        if(vida <= 0) {
+        if(vida == 0) {
             status = Status.MORTO;
     }
     }
