@@ -8,7 +8,7 @@ public class ElfoVerde extends Elfo
 {
     public ElfoVerde(String nomeNovo, int flechasNovas)
     {
-        super(nomeNovo);
+        super(nomeNovo, 0);
         Setflechas(flechasNovas);
     }
     
