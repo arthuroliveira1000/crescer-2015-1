@@ -6,7 +6,11 @@
  */
 public class Elfo extends Personagem  {
 
-    private int flechas = 42;
+    protected int flechas;
+    
+    {
+    flechas = 42;
+    }
 
     public Elfo(String nomeNovo, int flechasNovas) {
     

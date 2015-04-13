@@ -6,7 +6,11 @@
  */
 public class Elfo extends Personagem  {
 
-    private int flechas = 42;
+    private int flechas;
+    
+    {
+    flechas = 42;
+    }
 
     public Elfo(String nomeNovo, int flechasNovas) {
     
@@ -25,7 +29,6 @@ public class Elfo extends Personagem  {
     public int getFlechas() {
         return this.flechas;
     }
-    
     
     /**
      * Atira uma flecha e perde uma unidade.

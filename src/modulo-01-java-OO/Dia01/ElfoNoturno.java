@@ -5,22 +5,28 @@
  * Arthur Oliveira
  */
 public class ElfoNoturno extends Elfo
-{    
-    private int cincoPorCentoDaVida = (vida * 5) / 100;
-    
+{        
+    public ElfoNoturno(String nome) {
+       super(nome);
+    }
     
     public ElfoNoturno(String nomeNovo, int flechasNovas)
     {
         super(nomeNovo);
-        Setflechas(flechasNovas);
+        this.flechas = flechasNovas;
     }
     
     public void atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(Orc umOrc) {
+       
+       double cincoPorCentoDaVida = (int) (vida * 5) / 100;
+        
        atirarFlecha(umOrc);
-       experiencia++;
-       experiencia++;
+       experiencia += 2;
        
-       vida = vida - cincoPorCentoDaVida;
+       vida -= cincoPorCentoDaVida;
        
+       if(vida == 0) {
+           atualizaStatus();
+        }     
     }
 }

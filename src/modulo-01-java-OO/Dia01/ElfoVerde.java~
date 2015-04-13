@@ -6,10 +6,14 @@
  */
 public class ElfoVerde extends Elfo
 {
+    public ElfoVerde(String nome) {
+       super(nome, 100);
+    }
+    
     public ElfoVerde(String nomeNovo, int flechasNovas)
     {
-        super(nomeNovo, 0);
-        Setflechas(flechasNovas);
+        super(nomeNovo);
+        this.flechas = flechasNovas;
     }
     
     public void atirarFlechaEGanha2DeExperiencia(Orc umOrc) {
