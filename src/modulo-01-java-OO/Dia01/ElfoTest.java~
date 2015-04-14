@@ -10,6 +10,38 @@ import org.junit.Test;
  */
 public class ElfoTest
 {
+    private final double DELTA = 0.005;
+    
+    @Test
+    public void contadorEstaticoFuncionando() {
+    //Arrange
+    Elfo elfoZera = new Elfo("elfozera");
+    elfoZera.setContador(0);
+    //Act
+    Elfo elfo = new Elfo("elf");
+    ElfoVerde elfov = new ElfoVerde("elfove");
+    ElfoNoturno elfon = new ElfoNoturno("elfon");
+    
+    int contadorEsperado = 3;
+    
+    //Assert
+    
+    assertEquals(contadorEsperado, elfo.getContador());
+    }
+    
+    @Test
+    public void contadorEstaticoComValor0() {
+    //Arrange
+    Elfo elfoZera = new Elfo("elfozera");
+    elfoZera.setContador(0);
+    //Act
+    
+    int contadorEsperado = 0;
+    
+    //Assert
+    assertEquals(contadorEsperado, elfoZera.getContador());
+    }
+    
     @Test
     public void elfoNasceComNomeInformado() {
         // Arrange

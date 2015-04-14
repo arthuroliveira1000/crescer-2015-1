@@ -7,12 +7,14 @@
 public class Elfo extends Personagem  {
 
     protected int flechas;
+    protected static int contador;
     
     
     {
     flechas = 42;
+    contador++;
     }
-
+    
     public Elfo(String nomeNovo, int flechasNovas) {
     
         super(nomeNovo, 100);
@@ -29,6 +31,14 @@ public class Elfo extends Personagem  {
     
     public int getFlechas() {
         return this.flechas;
+    }
+    
+    protected int getContador() {
+        return contador;
+    }
+    
+    protected void setContador(int novoContador) {
+        contador = novoContador;
     }
     
     /**

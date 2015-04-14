@@ -13,6 +13,54 @@ public class ElfoTest
     private final double DELTA = 0.005;
     
     @Test
+    public void contadorEstaticoFuncionando() {
+    //Arrange
+    Elfo elfoZera = new Elfo("elfozera");
+    elfoZera.setContador(0);
+    //Act
+    Elfo elfo = new Elfo("elf");
+    ElfoVerde elfov = new ElfoVerde("elfove");
+    ElfoNoturno elfon = new ElfoNoturno("elfon");
+    
+    int contadorEsperado = 3;
+    
+    //Assert
+    
+    assertEquals(contadorEsperado, elfo.getContador());
+    }
+    
+    @Test
+    public void contadorEstaticoComValor0() {
+    //Arrange
+    Elfo elfoZera = new Elfo("elfozera");
+    elfoZera.setContador(0);
+    //Act
+    
+    int contadorEsperado = 0;
+    
+    //Assert
+    assertEquals(contadorEsperado, elfoZera.getContador());
+    }
+    
+     @Test
+    public void contadorEstaticoAposTerAdicionado6Elfos() {
+    //Arrange
+    Elfo elfoZera = new Elfo("elfozera");
+    elfoZera.setContador(0);
+    //Act
+    ElfoVerde elfo1 = new ElfoVerde("elfo1");
+    ElfoNoturno elfo2 = new ElfoNoturno("elfo2");
+    Elfo elfov = new Elfo("elfo3");
+    ElfoNoturno elfo4 = new ElfoNoturno("elfo4");
+    ElfoVerde elfo5 = new ElfoVerde("elfo5");
+    Elfo elfo6 = new Elfo("elfo6");
+    int contadorEsperado = 6;
+    
+    //Assert
+    assertEquals(contadorEsperado, elfoZera.getContador());
+    }
+    
+    @Test
     public void elfoNasceComNomeInformado() {
         // Arrange
         String esperado = "Celeborn";        
