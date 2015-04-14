@@ -10,6 +10,8 @@ import org.junit.Test;
  */
 public class ElfoTest
 {
+    private final double DELTA = 0.005;
+    
     @Test
     public void elfoNasceComNomeInformado() {
         // Arrange

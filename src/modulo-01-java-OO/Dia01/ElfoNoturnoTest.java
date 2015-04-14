@@ -11,14 +11,16 @@ import org.junit.Test;
  */
 public class ElfoNoturnoTest
 {
-    @Test
+  private final double DELTA = 0.005;
+    
+  @Test
   public void elfoNoturnoAtiraUmaFlechaEmUmOrcEGanhaOTriploDeExperienciaEPerdeCincoPorCentoDeVidaAtual() {
         // Arrange
         ElfoNoturno elfo = new ElfoNoturno("Legolas");
         Orc orc = new Orc();
         // Act
         
-        int vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
+        double vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
         elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
         // Assert
         int experienciaEsperada = 3;
@@ -26,7 +28,7 @@ public class ElfoNoturnoTest
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
     }
     
   @Test
@@ -35,7 +37,7 @@ public class ElfoNoturnoTest
         ElfoNoturno elfo = new ElfoNoturno("Legolas");
         Orc orc = new Orc();
         // Act
-        int vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
+        double vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
         elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
         elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
@@ -47,7 +49,7 @@ public class ElfoNoturnoTest
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
     }
     
     @Test
@@ -56,7 +58,7 @@ public class ElfoNoturnoTest
         ElfoNoturno elfo = new ElfoNoturno("Legolas");
         Orc orc = new Orc();
         // Act
-        int vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
+        double vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
         elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
         elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
@@ -72,7 +74,7 @@ public class ElfoNoturnoTest
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
     }
     
    

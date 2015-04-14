@@ -25,8 +25,12 @@ public class ElfoNoturno extends Elfo
        
        vida -= cincoPorCentoDaVida;
        
-       if(vida == 0) {
+       if((int)this.vida == 0) {
            atualizaStatus();
         }     
+    }
+    
+    public String toString() {
+        return "Elfo Noturno: " + super.toString();
     }
 }

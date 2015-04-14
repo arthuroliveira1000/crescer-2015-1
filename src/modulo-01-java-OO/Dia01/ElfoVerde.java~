@@ -7,7 +7,7 @@
 public class ElfoVerde extends Elfo
 {
     public ElfoVerde(String nome) {
-       super(nome, 100);
+       super(nome);
     }
     
     public ElfoVerde(String nomeNovo, int flechasNovas)

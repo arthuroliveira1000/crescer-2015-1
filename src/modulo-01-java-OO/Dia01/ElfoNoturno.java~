@@ -18,15 +18,19 @@ public class ElfoNoturno extends Elfo
     
     public void atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(Orc umOrc) {
        
-       double cincoPorCentoDaVida = (int) (vida * 5) / 100;
+       double cincoPorCentoDaVida = (vida * 5) / 100;
         
        atirarFlecha(umOrc);
        experiencia += 2;
        
        vida -= cincoPorCentoDaVida;
        
-       if(vida == 0) {
+       if((int) vida == 0) {
            atualizaStatus();
         }     
+    }
+    
+    public String toString() {
+        return "Elfo Noturno: " + super.toString();
     }
 }

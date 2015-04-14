@@ -8,6 +8,7 @@ public class Elfo extends Personagem  {
 
     protected int flechas;
     
+    
     {
     flechas = 42;
     }
