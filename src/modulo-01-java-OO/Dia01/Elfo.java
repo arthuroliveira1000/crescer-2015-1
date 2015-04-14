@@ -17,12 +17,12 @@ public class Elfo extends Personagem  {
     
     public Elfo(String nomeNovo, int flechasNovas) {
     
-        super(nomeNovo, 100);
+        super(nomeNovo, 100.0);
         this.flechas = flechasNovas;
     }
 
     public Elfo(String nome) {
-       super(nome, 100);
+       super(nome, 100.0);
     }
     
     public void Setflechas(int novasFlechas) {
@@ -33,19 +33,16 @@ public class Elfo extends Personagem  {
         return this.flechas;
     }
     
-    protected int getContador() {
-        return contador;
+    public static void resetaContador() {
+        contador = 0;
     }
-    
-    protected void setContador(int novoContador) {
-        contador = novoContador;
-    }
-    
+   
     /**
      * Atira uma flecha e perde uma unidade.
      * 
      * @param umOrc Orc que receberá uma flechada.
      */
+  
     public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
         flechas--;
@@ -117,5 +114,11 @@ public class Elfo extends Personagem  {
         builder.append(" ");
         builder.append(textoNiveis);
         builder.append(" de experiência.");*/
+    }
+    
+    @Override
+    public boolean equals(Object outro) {
+    
+        return ((Elfo)outro).getNome().equals(this.nome);
     }
 }

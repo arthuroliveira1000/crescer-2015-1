@@ -16,7 +16,7 @@ public class ElfoTest
     public void contadorEstaticoFuncionando() {
     //Arrange
     Elfo elfoZera = new Elfo("elfozera");
-    elfoZera.setContador(0);
+    elfoZera.resetaContador();
     //Act
     Elfo elfo = new Elfo("elf");
     ElfoVerde elfov = new ElfoVerde("elfove");
@@ -26,27 +26,27 @@ public class ElfoTest
     
     //Assert
     
-    assertEquals(contadorEsperado, elfo.getContador());
+    assertEquals(contadorEsperado, elfo.contador);
     }
     
     @Test
     public void contadorEstaticoComValor0() {
     //Arrange
     Elfo elfoZera = new Elfo("elfozera");
-    elfoZera.setContador(0);
+    elfoZera.resetaContador();
     //Act
     
     int contadorEsperado = 0;
     
     //Assert
-    assertEquals(contadorEsperado, elfoZera.getContador());
+    assertEquals(contadorEsperado, elfoZera.contador);
     }
     
      @Test
     public void contadorEstaticoAposTerAdicionado6Elfos() {
     //Arrange
     Elfo elfoZera = new Elfo("elfozera");
-    elfoZera.setContador(0);
+    elfoZera.resetaContador();
     //Act
     ElfoVerde elfo1 = new ElfoVerde("elfo1");
     ElfoNoturno elfo2 = new ElfoNoturno("elfo2");
@@ -57,7 +57,7 @@ public class ElfoTest
     int contadorEsperado = 6;
     
     //Assert
-    assertEquals(contadorEsperado, elfoZera.getContador());
+    assertEquals(contadorEsperado, elfo1.contador);
     }
     
     @Test

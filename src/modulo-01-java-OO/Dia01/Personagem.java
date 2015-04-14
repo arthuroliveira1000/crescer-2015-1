@@ -15,20 +15,11 @@ public class Personagem
     protected int experiencia;
     ArrayList<ItemDoInventario> listaDeItens = new ArrayList<>();
     
-    protected Personagem(String nome, int vida) 
+    protected Personagem(String nome, double vida) 
     {
         this.nome = nome;
         this.vida = vida;
     }
-    
-    public void atualizaStatus()
-    {
-        if(vida == 0) {
-            status = Status.MORTO;
-    }
-    }
-    
-    
     
     protected Status getStatus()
     {

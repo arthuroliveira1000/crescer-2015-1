@@ -11,7 +11,9 @@ import org.junit.Test;
  */
 public class ElfoNoturnoTest
 {
-    @Test
+  private final double DELTA = 0.005;
+    
+  @Test
   public void elfoNoturnoAtiraUmaFlechaEmUmOrcEGanhaOTriploDeExperienciaEPerdeCincoPorCentoDeVidaAtual() {
         // Arrange
         ElfoNoturno elfo = new ElfoNoturno("Legolas");
@@ -26,7 +28,7 @@ public class ElfoNoturnoTest
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
     }
     
   @Test
@@ -47,7 +49,7 @@ public class ElfoNoturnoTest
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
     }
     
     @Test
@@ -72,8 +74,31 @@ public class ElfoNoturnoTest
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
     }
     
-   
+    
+  @Test
+  public void quandoatirarFlechaStatusVivo() {
+    ElfoNoturno elfoNoturno = new ElfoNoturno("Night Legolas");
+    Status statusEsperado = Status.VIVO;
+    elfoNoturno.atirarFlecha(new Orc());
+    Status obtido = elfoNoturno.getStatus();
+    assertEquals(statusEsperado, obtido);
+  }
+    
+  @Test
+  public void quandoAtirarMuitasFlechasStatusMorto() {
+     
+      ElfoNoturno elfoSuiçida = new ElfoNoturno("Night Legolas");
+      Status statusEsperado = Status.MORTO;
+      Orc orc = new Orc();
+      
+      for (int i = 0; i < 100; i++)
+        elfoSuiçida.atirarFlecha(orc);
+
+        Status obtido = elfoSuiçida.getStatus();
+
+        assertEquals(statusEsperado, obtido);
+  } 
 }
