@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Cria um exercito de elfos
  * 
@@ -10,9 +12,16 @@ public class ExercitoElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<String, Elfo>();
     
+    private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
+    
     public HashMap<String, Elfo> getExercito() {
         
         return this.exercito;
+    }
+    
+    public HashMap<Status, ArrayList<Elfo>> getPorStatus() {
+        agruparPorStatus();
+        return this.porStatus;
     }
     
     public void alistaElfo(Elfo elfo) {
@@ -29,15 +38,34 @@ public class ExercitoElfos
         return exercito.get(nome);
     }
     
-    public void buscaElfoPorStatus(Status status) {
+    public ArrayList<Elfo> buscarElfo(Status status) {
+        agruparPorStatus();
+        return porStatus.get(status);
+    }
+    
+    
+    
+    public void  agruparPorStatus() {
         
-        for(String key: exercito.keySet()) {
+        porStatus.clear();
         
-        if((exercito.get(key).getStatus()).equals(status)) {
-            System.out.println(exercito.get(key));
-        }
+        //entryset - > par com chave e valor 
+        for(Map.Entry<String, Elfo> parChaveValor: exercito.entrySet()) {
+        
+            Elfo elfo = parChaveValor.getValue();
+            Status status = elfo.getStatus();
+            
+            if (porStatus.containsKey(status)) {
+                
+                porStatus.get(status).add(elfo);
+            } else {
+               
+                porStatus.put(status, new ArrayList<>(Arrays.asList(elfo)));
+            }
         }
     }
+    
+    
     
     
  

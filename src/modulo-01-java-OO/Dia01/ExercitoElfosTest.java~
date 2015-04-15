@@ -90,7 +90,7 @@ public class ExercitoElfosTest
     }
     
     @Test
-    public void buscaPorStatusAtacandoComVariosElfos() {
+    public void buscaPorStatusAtacnadoComVariosElfos() {
         
         ElfoVerde elfoVivo1 = new ElfoVerde("Green 1");
         ElfoNoturno elfoVivo2 = new ElfoNoturno("Aa");
@@ -100,17 +100,17 @@ public class ExercitoElfosTest
         elfoAtacando1.atirarFlecha(new Orc());
         elfoAtacando2.atirarFlecha(new Orc());
         
-        ArrayList<Elfo> esperado = new ArrayList<>(Arrays.asList(elfoAtacando1, elfoAtacando2));
+        ArrayList<Elfo> esperado = new ArrayList(Arrays.asList(elfoAtacando1, elfoAtacando2));
         
-        ExercitoElfos exercito = new ExercitoElfos();
-        exercito.alistaElfo(elfoAtacando1);
-        exercito.alistaElfo(elfoAtacando2);
-        exercito.alistaElfo(elfoVivo1);
-        exercito.alistaElfo(elfoVivo2);
-        exercito.alistaElfo(elfoVivo3);
+        ExercitoElfos exercitoElfos = new ExercitoElfos();
+        exercitoElfos.alistaElfo(elfoAtacando1);
+        exercitoElfos.alistaElfo(elfoAtacando2);
+        exercitoElfos.alistaElfo(elfoVivo1);
+        exercitoElfos.alistaElfo(elfoVivo2);
+        exercitoElfos.alistaElfo(elfoVivo3);
         
         //ACT
-        ArrayList<Elfo> resultado = exercito.buscarElfo(Status.ATACANDO);
+        ArrayList<Elfo> resultado = exercitoElfos.buscarElfo(Status.ATACANDO);
         
         //assert
         assertEquals(esperado, resultado);
