@@ -135,14 +135,19 @@ public class ExercitoElfosTest
         
         //assert
         assertEquals(esperado, resultado);
-        
-     
-        
     }
-    
-    
-    
-    
-    
- 
-}
+    /*
+    @Test(expected=NaoPodeAlistarException.class)
+    public void alistarElfoBaseLançaErro() throws NaoPodeAlistarException {
+        // Arrange
+        Elfo elfo = new Elfo("Legolas");
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        // Act
+        try {
+            exercito.alistar(elfo);
+        } catch (NaoPodeAlistarException error) {
+            throw error;
+        }
+    }
+    */
+ }

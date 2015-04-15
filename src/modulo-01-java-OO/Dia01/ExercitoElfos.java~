@@ -11,8 +11,8 @@ import java.util.Arrays;
 public class ExercitoElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<String, Elfo>();
-    
     private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
+    private EstrategiaDeAtaque estrategia = new EstrategiaNormal();
     
     public HashMap<String, Elfo> getExercito() {
         
@@ -30,11 +30,8 @@ public class ExercitoElfos
         // para ver se uma classe pertence a outra
         if(ElfoisGreenOrNoturno) {
             exercito.put(elfo.getNome(), elfo);
-        } else {
-            
+        } else { 
             throw new NaoPodeAlistarException();
-            
-        
         }
     }
     
@@ -47,8 +44,6 @@ public class ExercitoElfos
         agruparPorStatus();
         return porStatus.get(status);
     }
-    
-    
     
     public void  agruparPorStatus() {
         
@@ -69,6 +64,11 @@ public class ExercitoElfos
             }
         }
     }
+    
+    public void atacarHorda(ArrayList<Orc> orcs) {
+         ArrayList<Elfo> elfosQueVãoPraPeleia = buscarElfo(Status.VIVO);
+         estrategia.atacarOrcs(elfosQueVãoPraPeleia, orcs);
+ }
     
     
     

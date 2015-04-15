@@ -11,8 +11,8 @@ import java.util.Arrays;
 public class ExercitoElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<String, Elfo>();
-    
     private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
+    private EstrategiaDeAtaque estrategia = new EstrategiaNormal();
     
     public HashMap<String, Elfo> getExercito() {
         
@@ -45,8 +45,6 @@ public class ExercitoElfos
         return porStatus.get(status);
     }
     
-    
-    
     public void  agruparPorStatus() {
         
         porStatus.clear();
@@ -67,8 +65,12 @@ public class ExercitoElfos
         }
     }
     
-    
-    
-    
+    public void atacarHorda(ArrayList<Orc> orcs) {
+         ArrayList<Elfo> elfosQueVãoPraPeleia = buscarElfo(Status.VIVO);
+         estrategia.atacarOrcs(elfosQueVãoPraPeleia, orcs);
+    }
  
+    public void mudaDeEstrategia(EstrategiaDeAtaque novaEstrategia) {
+         estrategia = novaEstrategia;
+    }
 }
