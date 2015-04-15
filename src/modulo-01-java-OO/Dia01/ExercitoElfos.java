@@ -18,7 +18,7 @@ public class ExercitoElfos
     public void alistaElfo(Elfo elfo) {
     
         boolean ElfoisGreenOrNoturno = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
-        
+        // para ver se uma classe pertence a outra
         if(ElfoisGreenOrNoturno) {
             exercito.put(elfo.getNome(), elfo);
         }
@@ -29,9 +29,16 @@ public class ExercitoElfos
         return exercito.get(nome);
     }
     
+    public void buscaElfoPorStatus(Status status) {
+        
+        for(String key: exercito.keySet()) {
+        
+        if((exercito.get(key).getStatus()).equals(status)) {
+            System.out.println(exercito.get(key));
+        }
+        }
+    }
     
     
-    
-    
-    //boolean isGreen = ev instanceof ElfoVerde
+ 
 }
