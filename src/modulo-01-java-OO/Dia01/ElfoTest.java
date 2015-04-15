@@ -12,12 +12,15 @@ public class ElfoTest
 {
     private final double DELTA = 0.005;
     
+    @Before 
+    public void setUp()
+    {
+        Elfo.resetaContador();
+    }
+    
+    
     @Test
     public void contadorEstaticoFuncionando() {
-    //Arrange
-    Elfo elfoZera = new Elfo("elfozera");
-    elfoZera.resetaContador();
-    //Act
     Elfo elfo = new Elfo("elf");
     ElfoVerde elfov = new ElfoVerde("elfove");
     ElfoNoturno elfon = new ElfoNoturno("elfon");
@@ -26,28 +29,22 @@ public class ElfoTest
     
     //Assert
     
-    assertEquals(contadorEsperado, elfo.contador);
+    assertEquals(contadorEsperado, elfon.contador);
     }
     
     @Test
     public void contadorEstaticoComValor0() {
-    //Arrange
-    Elfo elfoZera = new Elfo("elfozera");
-    elfoZera.resetaContador();
     //Act
     
     int contadorEsperado = 0;
     
     //Assert
-    assertEquals(contadorEsperado, elfoZera.contador);
+    assertEquals(contadorEsperado, Elfo.contador);
     }
     
      @Test
     public void contadorEstaticoAposTerAdicionado6Elfos() {
-    //Arrange
-    Elfo elfoZera = new Elfo("elfozera");
-    elfoZera.resetaContador();
-    //Act
+    
     ElfoVerde elfo1 = new ElfoVerde("elfo1");
     ElfoNoturno elfo2 = new ElfoNoturno("elfo2");
     Elfo elfov = new Elfo("elfo3");
