@@ -24,12 +24,14 @@ public class ExercitoElfos
         return this.porStatus;
     }
     
-    public void alistaElfo(Elfo elfo) {
+    public void alistaElfo(Elfo elfo) throws NaoPodeAlistarException {
     
         boolean ElfoisGreenOrNoturno = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
         // para ver se uma classe pertence a outra
         if(ElfoisGreenOrNoturno) {
             exercito.put(elfo.getNome(), elfo);
+        } else { 
+            throw new NaoPodeAlistarException();
         }
     }
     
