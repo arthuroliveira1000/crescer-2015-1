@@ -18,7 +18,13 @@ public class ExercitoElfosTest
         
         //act
         ExercitoElfos exercitoElfos = new ExercitoElfos();
-        exercitoElfos.alistaElfo(elfonew);
+        try {
+            exercitoElfos.alistaElfo(elfonew);
+        } catch (NaoPodeAlistarException error) {
+            System.out.println(error);
+        } finally {
+            System.out.println("depois do catch(se tiver), cai no finally");
+        }
         //assert
         assertEquals(exercito, exercitoElfos.getExercito());
     }
@@ -34,8 +40,12 @@ public class ExercitoElfosTest
         
         //act
         ExercitoElfos exercitoElfos = new ExercitoElfos();
-        exercitoElfos.alistaElfo(elfonew);
-        exercitoElfos.alistaElfo(elfonew1);
+        try {
+            exercitoElfos.alistaElfo(elfonew);
+            exercitoElfos.alistaElfo(elfonew1);
+        } catch (NaoPodeAlistarException error) {
+            System.out.println(error);
+        }
         //assert
         assertEquals(exercito, exercitoElfos.getExercito());
     }
@@ -48,8 +58,12 @@ public class ExercitoElfosTest
 
         //act
         ExercitoElfos exercitoElfos = new ExercitoElfos();
-        exercitoElfos.alistaElfo(elfonew);
-        exercitoElfos.alistaElfo(elfonew1);
+        try {
+            exercitoElfos.alistaElfo(elfonew);
+            exercitoElfos.alistaElfo(elfonew1);
+        } catch (NaoPodeAlistarException error){
+            System.out.println(error);
+        }
         Elfo elfoRetornado = exercitoElfos.buscarElfo(elfonew.getNome());
   
         //assert
@@ -75,12 +89,16 @@ public class ExercitoElfosTest
         esperado.put(Status.VIVO, new ArrayList<>(Arrays.asList(elfoVivo2, elfoVivo3, elfoVivo1)));
         
         ExercitoElfos exercitoElfos = new ExercitoElfos();
-        exercitoElfos.alistaElfo(elfoAtacando1);
-        exercitoElfos.alistaElfo(elfoAtacando2);
-        exercitoElfos.alistaElfo(elfoVivo1);
-        exercitoElfos.alistaElfo(elfoVivo2);
-        exercitoElfos.alistaElfo(elfoVivo3);
         
+        try {
+            exercitoElfos.alistaElfo(elfoAtacando1);
+            exercitoElfos.alistaElfo(elfoAtacando2);
+            exercitoElfos.alistaElfo(elfoVivo1);
+            exercitoElfos.alistaElfo(elfoVivo2);
+            exercitoElfos.alistaElfo(elfoVivo3);
+        } catch (NaoPodeAlistarException error){
+            System.out.println(error); 
+        }
         //ACT
         exercitoElfos.agruparPorStatus();
         
@@ -103,12 +121,15 @@ public class ExercitoElfosTest
         ArrayList<Elfo> esperado = new ArrayList<>(Arrays.asList(elfoAtacando1, elfoAtacando2));
         
         ExercitoElfos exercito = new ExercitoElfos();
-        exercito.alistaElfo(elfoAtacando1);
-        exercito.alistaElfo(elfoAtacando2);
-        exercito.alistaElfo(elfoVivo1);
-        exercito.alistaElfo(elfoVivo2);
-        exercito.alistaElfo(elfoVivo3);
-        
+        try {
+            exercito.alistaElfo(elfoAtacando1);
+            exercito.alistaElfo(elfoAtacando2);
+            exercito.alistaElfo(elfoVivo1);
+            exercito.alistaElfo(elfoVivo2);
+            exercito.alistaElfo(elfoVivo3);
+        } catch (NaoPodeAlistarException error){
+            System.out.println(error);
+        }
         //ACT
         ArrayList<Elfo> resultado = exercito.buscarElfo(Status.ATACANDO);
         
