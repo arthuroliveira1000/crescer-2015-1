@@ -1,0 +1,11 @@
+import java.util.*;
+
+/**
+ * Write a description of interface EstrategiaDetaque here.
+ * 
+ * @author Arthur Oliveira 
+ */
+public interface EstrategiaDetaque
+{
+   void atacaOrcs(ArrayList<Elfo> elfos, ArrayList<Orc> orcs);
+}
