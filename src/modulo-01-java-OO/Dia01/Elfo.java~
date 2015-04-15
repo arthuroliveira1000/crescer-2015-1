@@ -42,12 +42,13 @@ public class Elfo extends Personagem  {
      * 
      * @param umOrc Orc que receberá uma flechada.
      */
-    @Override
+  
     public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
         umOrc.recebeAtaque();
+        Elfo.setStatus(Status.ATACANDO);
     }
     
     /*public void setFlechas(int novaQtdFlechas) {
