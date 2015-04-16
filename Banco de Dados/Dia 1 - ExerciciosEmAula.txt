@@ -1,0 +1,18 @@
+Exercicio em aula
+
+TIPOS DE DADOS 
+
+
+1 - tabela
+2 - select
+3 - function
+4 - procedure
+5 - identity
+6 - triger
+7 - alter table
+8 - check
+9 - unique key
+10 - foreign key
+
+**uma tabela pode ter uma chave primaria e uma unique
+

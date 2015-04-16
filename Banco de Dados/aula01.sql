@@ -1,8 +1,10 @@
 Create table Cidade
 (
 IDCidade	int NOT NULL, 
-Nome	varchar(30) NOT NULL, 
-UF		varchar(2)	NOT NULL
+Nome		varchar(30) NOT NULL, 
+UF			varchar(2)	NOT NULL,
+	constraint PK_Cidade Primary Key (IDCidade), 
+	constraint UKCidade_Nome Unique (Nome)
 );
 
 
@@ -16,6 +18,9 @@ IDCidade int
 );
 
 INSERT INTO Cliente (Nome, Endereco, Bairro) VALUES('Maria','Rua Bento Gonçalves, 123', 'Centro');
+INSERT INTO Cidade VALUES (1, 'Novo Hamburgo', 'RS');
 
+select * from Cidade;
 select * from Cliente;
+
 
