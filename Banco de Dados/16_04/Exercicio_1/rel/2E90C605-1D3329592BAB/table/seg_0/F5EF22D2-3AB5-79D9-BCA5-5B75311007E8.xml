@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F5EF22D2-3AB5-79D9-BCA5-5B75311007E8" name="Seguro">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>7A6E2B9D-11E1-7AFE-E0B4-4DA710042A34</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDServico" id="E8E19557-315A-525F-F8DA-5FB18C27FA0F">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>9252F2F5-C844-65A9-F342-BB88C699E3CF</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo" id="92EA376B-7355-A4B7-5C44-818AC8AC15BC">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>FE773405-B619-05C7-D845-61E89537B090</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="C3295FC9-99C1-DF56-F394-380CFE5B9FAB">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>6D7495B6-FCFA-54F7-0943-9636D32ED4BC</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contrato_IDContrato" id="4C7B1770-1342-B79A-A807-18EA2AE9DFD7">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 18:12:29 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>F8383084-C55E-9C57-77F4-2A5416D83A7E</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="28E3C6C7-33A4-F56E-D38C-FFD77C92FC6D" referredColumn="F8383084-C55E-9C57-77F4-2A5416D83A7E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="73239698-930F-EDB8-899F-500DF991AFED" name="Seguro_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>6D1800C9-8D1D-1230-9A14-2211D37123E9</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8E19557-315A-525F-F8DA-5FB18C27FA0F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CAE3F4C3-835B-1E46-0877-C71CE0B1C8B3" name="Seguro_Contrato_FK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 18:12:29 UTC</createdTime>
+<generatorID>593EDC04-B9BD-4BA3-2EA0-5C657020725F</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C7B1770-1342-B79A-A807-18EA2AE9DFD7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

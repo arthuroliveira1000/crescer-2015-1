@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="74A8EC4A-1B8E-DFB2-1F54-81545DEF555C" name="Beneficiario">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>AF9A0831-733E-3742-ABD1-3E7819A0CBD8</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDBeneficiario" id="DC7A87BA-CAF5-6518-E336-E8C8A74C0678">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>6441A359-1093-CBBA-2E28-24E77644F122</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="4E9555E5-0520-DD98-41E7-AA48213FA31F">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>43507D90-E287-3628-2333-E23D3FC04392</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefone" id="F0C27A00-EE08-5AA7-1E6A-690E93F5421E">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>9BA7F737-D57F-F0C0-63B6-8678FA8FE360</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereço" id="818C2E80-6627-6517-98D8-BCBA3094833D">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>2579CAAC-F0A2-965F-53DC-0EB09C875D69</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>90</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5DDE7EC4-ADD9-2E5E-1418-63D7F81804B9" name="Beneficiario_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:57:04 UTC</createdTime>
+<generatorID>DB80F065-72EF-DC5B-A746-6284B6CE2560</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DC7A87BA-CAF5-6518-E336-E8C8A74C0678"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

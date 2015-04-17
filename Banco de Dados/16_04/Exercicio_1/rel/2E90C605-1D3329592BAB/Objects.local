@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="3B9BFC39-B400-877F-0D0D-16D50387011B" name="Contrato" seqName="seg_0"/>
+   <object objectType="Table" objectID="74A8EC4A-1B8E-DFB2-1F54-81545DEF555C" name="Beneficiario" seqName="seg_0"/>
+   <object objectType="Table" objectID="AB3C0D7F-CFEF-FD01-D1ED-F3DEE58AD0A0" name="Cliente" seqName="seg_0"/>
+   <object objectType="Table" objectID="F5EF22D2-3AB5-79D9-BCA5-5B75311007E8" name="Seguro" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="19056487-26A1-6D2A-5516-F2356ABBBFE5" name="Contrato_Beneficiario_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="28E3C6C7-33A4-F56E-D38C-FFD77C92FC6D" name="Seguro_Contrato_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="3E31AE19-8D4A-A651-872F-737CA8107338" name="Contrato_Cliente_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="AB05B86A-F5B9-F008-CF45-F62F096200E3" name="Cliente_Beneficiario_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="D7EBEFF1-4978-3BAA-29DB-97D85B4CC9D7" name="Cliente_Contrato_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="DA51F32C-DE03-9E5E-DA1C-8475BD05A7A9" name="Contrato_Seguro_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

@@ -1,0 +1,204 @@
+-- Gerado por Oracle SQL Developer Data Modeler 4.0.3.853
+--   em:        2015-04-17 15:53:10 BRT
+--   site:      SQL Server 2008
+--   tipo:      SQL Server 2008
+
+
+
+
+CREATE
+  TABLE Beneficiario
+  (
+    IDBeneficiario INTEGER NOT NULL ,
+    Nome           VARCHAR (100) NOT NULL ,
+    Telefone       VARCHAR (20) NOT NULL ,
+    Endereço       VARCHAR (90) NOT NULL ,
+    CONSTRAINT Beneficiario_PK PRIMARY KEY CLUSTERED (IDBeneficiario)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE Cliente
+  (
+    IDCliente INTEGER NOT NULL ,
+    Nome      VARCHAR (100) NOT NULL ,
+    Telefone NVARCHAR (20) NOT NULL ,
+    CPF                         VARCHAR (40) NOT NULL ,
+    "E-mail"                    VARCHAR (60) NOT NULL ,
+    Beneficiario_IDBeneficiario INTEGER NOT NULL ,
+    Contrato_IDContrato         INTEGER NOT NULL ,
+    Endereco                    VARCHAR (70) NOT NULL ,
+    CONSTRAINT Cliente_PK PRIMARY KEY CLUSTERED (IDCliente)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE Contrato
+  (
+    IDContrato        INTEGER NOT NULL ,
+    Data_Inicio       DATE NOT NULL ,
+    Data_Fim          DATE NOT NULL ,
+    Endereco_Cobranca VARCHAR (90) NOT NULL ,
+    Valor_Total BIGINT NOT NULL ,
+    Seguro_IDServico            INTEGER NOT NULL ,
+    Cliente_IDCliente           INTEGER NOT NULL ,
+    Beneficiario_IDBeneficiario INTEGER NOT NULL ,
+    CONSTRAINT Contrato_PK PRIMARY KEY CLUSTERED (IDContrato)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE Seguro
+  (
+    IDServico INTEGER NOT NULL ,
+    Tipo      VARCHAR (6) NOT NULL ,
+    Valor BIGINT NOT NULL ,
+    Contrato_IDContrato INTEGER NOT NULL ,
+    CONSTRAINT Seguro_PK PRIMARY KEY CLUSTERED (IDServico)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+ALTER TABLE Cliente
+ADD CONSTRAINT Cliente_Beneficiario_FK FOREIGN KEY
+(
+Beneficiario_IDBeneficiario
+)
+REFERENCES Beneficiario
+(
+IDBeneficiario
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Cliente
+ADD CONSTRAINT Cliente_Contrato_FK FOREIGN KEY
+(
+Contrato_IDContrato
+)
+REFERENCES Contrato
+(
+IDContrato
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Contrato
+ADD CONSTRAINT Contrato_Beneficiario_FK FOREIGN KEY
+(
+Beneficiario_IDBeneficiario
+)
+REFERENCES Beneficiario
+(
+IDBeneficiario
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Contrato
+ADD CONSTRAINT Contrato_Cliente_FK FOREIGN KEY
+(
+Cliente_IDCliente
+)
+REFERENCES Cliente
+(
+IDCliente
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Contrato
+ADD CONSTRAINT Contrato_Seguro_FK FOREIGN KEY
+(
+Seguro_IDServico
+)
+REFERENCES Seguro
+(
+IDServico
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Seguro
+ADD CONSTRAINT Seguro_Contrato_FK FOREIGN KEY
+(
+Contrato_IDContrato
+)
+REFERENCES Contrato
+(
+IDContrato
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+
+-- Relatório do Resumo do Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                             4
+-- CREATE INDEX                             0
+-- ALTER TABLE                              6
+-- CREATE VIEW                              0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE DATABASE                          0
+-- CREATE DEFAULT                           0
+-- CREATE INDEX ON VIEW                     0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE ROLE                              0
+-- CREATE RULE                              0
+-- CREATE PARTITION FUNCTION                0
+-- CREATE PARTITION SCHEME                  0
+-- 
+-- DROP DATABASE                            0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0

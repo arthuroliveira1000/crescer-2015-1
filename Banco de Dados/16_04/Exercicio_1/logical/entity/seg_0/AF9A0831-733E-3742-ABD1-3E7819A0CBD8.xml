@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AF9A0831-733E-3742-ABD1-3E7819A0CBD8" name="Beneficiario">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:46:51 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDBeneficiario" id="6441A359-1093-CBBA-2E28-24E77644F122">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:46:59 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="Nome" id="43507D90-E287-3628-2333-E23D3FC04392">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:48:50 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+</Attribute>
+<Attribute name="Telefone" id="9BA7F737-D57F-F0C0-63B6-8678FA8FE360">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:49:08 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+</Attribute>
+<Attribute name="Endereço" id="2579CAAC-F0A2-965F-53DC-0EB09C875D69">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:49:53 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>90</dataTypeSize>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DB80F065-72EF-DC5B-A746-6284B6CE2560" name="Beneficiario_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:47:13 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6441A359-1093-CBBA-2E28-24E77644F122</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7A6E2B9D-11E1-7AFE-E0B4-4DA710042A34" name="Seguro">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:36:53 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDServico" id="9252F2F5-C844-65A9-F342-BB88C699E3CF">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:36:59 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="Tipo" id="FE773405-B619-05C7-D845-61E89537B090">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:37:16 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+</Attribute>
+<Attribute name="Valor" id="6D7495B6-FCFA-54F7-0943-9636D32ED4BC">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:45:02 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+</Attribute>
+<Attribute name="Contrato IDContrato" id="C758BC50-FC34-D906-1DB0-8D862B56F914">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 18:39:46 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6D1800C9-8D1D-1230-9A14-2211D37123E9" name="Seguro_PK">
+<createdBy>projetocrescer</createdBy>
+<createdTime>2015-04-17 17:37:14 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Exercicio_1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="2E90C605-870C-27A6-C301-1D3329592BAB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9252F2F5-C844-65A9-F342-BB88C699E3CF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

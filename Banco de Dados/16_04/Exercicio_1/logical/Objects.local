@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="1C312D47-4515-D559-D8EC-91C7CAFBDE17" name="Contrato" seqName="seg_0"/>
+   <object objectType="Entity" objectID="7A5DBF57-998C-B156-FE85-35A8DB68B86A" name="Cliente" seqName="seg_0"/>
+   <object objectType="Entity" objectID="7A6E2B9D-11E1-7AFE-E0B4-4DA710042A34" name="Seguro" seqName="seg_0"/>
+   <object objectType="Entity" objectID="AF9A0831-733E-3742-ABD1-3E7819A0CBD8" name="Beneficiario" seqName="seg_0"/>
+   <object objectType="Note" objectID="AAFCE424-AABE-4A7A-6BA1-15761891DC00" name="Note_1" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>
