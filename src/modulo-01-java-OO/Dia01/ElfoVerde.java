@@ -16,8 +16,8 @@ public class ElfoVerde extends Elfo
         this.flechas = flechasNovas;
     }
     
-    public void atirarFlechaEGanha2DeExperiencia(Orc umOrc) {
-       atirarFlecha(umOrc);
+    public void atirarFlecha(Orc umOrc) {
+       super.atirarFlecha(umOrc);
        experiencia++;
     }
     

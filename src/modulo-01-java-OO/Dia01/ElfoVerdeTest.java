@@ -53,7 +53,7 @@ public class ElfoVerdeTest
         ElfoVerde elfo = new ElfoVerde("Legolas", 42);
         Orc orc = new Orc();
         // Act
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
+        elfo.atirarFlecha(orc);
         // Assert
         int experienciaEsperada = 2;
         int flechasEsperadas = 41;
@@ -68,8 +68,8 @@ public class ElfoVerdeTest
         ElfoVerde elfo = new ElfoVerde("Legolas", 42);
         Orc orc = new Orc();
         // Act
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
         // Assert
         int experienciaEsperada = 4;
         int flechasEsperadas = 40;
@@ -84,11 +84,11 @@ public class ElfoVerdeTest
         ElfoVerde elfo = new ElfoVerde("Legolas", 4);
         Orc orc = new Orc();
         // Act
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
-        elfo.atirarFlechaEGanha2DeExperiencia(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
         // Assert
         int experienciaEsperada = 10;
         int flechasEsperadas = -1;

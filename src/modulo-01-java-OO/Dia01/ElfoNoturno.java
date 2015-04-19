@@ -16,9 +16,9 @@ public class ElfoNoturno extends Elfo
         this.flechas = flechasNovas;
     }
     
-    public void atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(Orc umOrc) {
+    public void atirarFlecha(Orc umOrc) {
        
-         atirarFlecha(umOrc);
+         super.atirarFlecha(umOrc);
          this.experiencia += 2;
          double qtdVidaAPerder = this.vida * 0.05;
          //double qtdVidaAPerder = this.vida * 5/100;

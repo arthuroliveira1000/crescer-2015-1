@@ -21,7 +21,7 @@ public class ElfoNoturnoTest
         // Act
         
         double vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         // Assert
         int experienciaEsperada = 3;
         int flechasEsperadas = 41;
@@ -38,9 +38,9 @@ public class ElfoNoturnoTest
         Orc orc = new Orc();
         // Act
         double vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         
         // Assert
         int experienciaEsperada = 6;
@@ -59,15 +59,15 @@ public class ElfoNoturnoTest
         Orc orc = new Orc();
         // Act
         double vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         vidaEsperada = elfo.getVida() - ((elfo.getVida() * 5)/ 100);
-        elfo.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(orc);
+        elfo.atirarFlecha(orc);
         // Assert
         int experienciaEsperada = 15;
         int flechasEsperadas = 37;
@@ -94,7 +94,7 @@ public class ElfoNoturnoTest
       Status statusEsperado = Status.MORTO;
 
       for (int i = 0; i < 100; i++)
-        elfoSuiçida.atirarFlechaEGanha3DeExperienciaEPerdeCincoPorCentoDeVida(new Orc());
+        elfoSuiçida.atirarFlecha(new Orc());
 
         Status obtido = elfoSuiçida.getStatus();
 
