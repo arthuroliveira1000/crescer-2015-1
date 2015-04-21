@@ -24,7 +24,8 @@ public class EstrategiaIntercaladaTest
         exercito.alistaElfo(green2);
         exercito.alistaElfo(green3);
         ArrayList<Elfo> esperado = new ArrayList<>(
-            Arrays.asList(night3, green2, night1, green1, night2, green3)
+             Arrays.asList(green2, night1, green3, night2, green1, night3)
+             //Arrays.asList(night3, green2, night1, green1, night2, green3)
         );
         // Act
         exercito.atacarHorda(new ArrayList<>(
@@ -49,7 +50,9 @@ public class EstrategiaIntercaladaTest
         exercito.alistaElfo(night1);
         exercito.alistaElfo(night2);
         ArrayList<Elfo> esperado = new ArrayList<>(
-            Arrays.asList(night1, green2, night2, green1)
+            Arrays.asList(night2, green1, night1, green2)
+            //Arrays.asList(night1, green2, night2, green1)
+            
         );
         // Act
         exercito.atacarHorda(new ArrayList<>(

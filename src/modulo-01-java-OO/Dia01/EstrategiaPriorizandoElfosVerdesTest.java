@@ -22,7 +22,8 @@ public class EstrategiaPriorizandoElfosVerdesTest
         exercito.alistaElfo(night3);
         exercito.alistaElfo(green2);
         ArrayList<Elfo> esperado = new ArrayList<>(
-            Arrays.asList(green2, green1, night3, night2, night1)
+               Arrays.asList(green2, green1, night1, night2, night3)
+               // Arrays.asList(green2, green1, night3, night2, night1)
         );
         // Act
         exercito.atacarHorda(new ArrayList<>(
