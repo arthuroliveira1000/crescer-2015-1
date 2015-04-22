@@ -27,10 +27,26 @@ select uf, count(nome) as [Quantidade de Cidades por Estado] from cidade group b
 select nome from cidade where uf = 'rs';
 
 --8
-
+select Nome, UF, count(1) as Total from cidade group by Nome, UF having count(1) > 1;
 
 --9
 select count(IDAssociado) + 1 as [Proximo id que será usado] from Associado;
 
+begin transaction 
+go 
+
+delete from associado;
+
+rollback
 
 --10
+
+delete from CidadeAux;
+
+insert into CidadeAux(IDCidade, Nome, UF) 
+select min(IDCidade) Menor_IDCidade, Nome, UF from cidade group by Nome, UF;
+
+--11
+
+
+--12
