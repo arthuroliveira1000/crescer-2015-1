@@ -23,26 +23,10 @@ select c.uf, count(1) as [Total de cidades que não possuem associados] from cida
 
 select a.nome as NomeAssociado, c.nome as NomeCidade, case 
 													  when c.uf in ('RS', 'SC', 'PR') then '***'
-												      else ''
-													  end [Cidade é da região sul] from cidade c Inner Join associado a on a.IDCidade = c.IDCidade;  
+												      else 'nulo'
+													  end [Cidade é do sul] from cidade c Inner Join associado a on a.IDCidade = c.IDCidade;  
 	
 	
 --------Exercicio 5 -------------
-select e.NomeEmpregado as NomeEmpregado,
-	   g.NomeEmpregado as NomeGerente,
-	   d.NomeDepartamento
-	   from empregado e 
-	   inner join departamento d on e.IDDepartamento = d.IDDepartamento
-	   inner join empregado g on g.IDEmpregado = e.IDGerente; 
 
-select * from Empregado;
-
---------Exercicio 6 -------------
-
-begin transaction 
-
-select * into AuxEmpregado from Empregado;
-
-commit
-
---terminar
+														 	 
