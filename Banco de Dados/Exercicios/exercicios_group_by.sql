@@ -47,6 +47,43 @@ insert into CidadeAux(IDCidade, Nome, UF)
 select min(IDCidade) Menor_IDCidade, Nome, UF from cidade group by Nome, UF;
 
 --11
+begin transaction 
+go
 
+update cidade set nome = '*' + nome where nome in (
+select nome from cidade group by nome, uf having count(1) > 1);
 
 --12
+select Nome, case when sexo = 'F' then 'Feminino'
+				  when sexo = 'M' then 'Masculino' 
+				  else 'Indeterminado' 
+		      end as Sexo
+		      from Associado;
+
+
+--13
+
+select NomeEmpregado, Salario, case
+							   when salario between 1164.01 and 2326 then (salario*0.15)
+							   when salario > 2326 then (salario*0.275)
+							   else 0
+							   end [Desconto para imposto de renda] 
+							   from Empregado;
+
+--14
+begin transaction 
+go
+
+Delete from cidade where idcidade in (select max(idcidade) from cidade group by nome, uf having count(1) > 1);
+
+commit 
+
+--15
+
+alter table cidade add constraint UK_Cidade_Nome_UF unique(Nome, uf);
+
+/*constraint são regras para a tabela - nesse caso não deixa adicionar um dado que tenha um nome e uf já existentes no banco*/
+
+
+
+
