@@ -1,3 +1,5 @@
+use cursosql;
+
 --------JOINNNN-------------
 
 
@@ -15,15 +17,21 @@ select e.NomeEmpregado, d.NomeDepartamento from Empregado e Inner Join Departame
 
 select a.Nome as NomeAssociado, c.Nome as NomeCidade from Cidade c Right Join Associado a on a.IDCidade = c.IDCidade;
 
+
+--- remove o '*' do ínicio dos nomes -> update ciade set nome = replace(nome, '*', ' ') where nome like = '*%'
+
+
 --------Exercicio 3 -------------
 
-select c.uf, count(1) as [Total de cidades que não possuem associados] from cidade c where exists (select 1 from associado a  where ISNULL(a.idcidade, 0) = 0) group by c.UF;  
-
+select c.uf, count(1) as [Total de cidades que não possuem associados] from cidade c where not exists (select 1 from associado a  where c.IDCidade = a.IDCidade) group by c.UF;  
+-- quando usar o exist ou not exist 
+--count não pode ser usado no exist
 --------Exercicio 4 -------------
+
 
 select a.nome as NomeAssociado, c.nome as NomeCidade, case 
 													  when c.uf in ('RS', 'SC', 'PR') then '***'
-												      else ''
+												      else null
 													  end [Cidade é da região sul] from cidade c Inner Join associado a on a.IDCidade = c.IDCidade;  
 	
 	
@@ -41,29 +49,38 @@ select * from Empregado;
 
 begin transaction 
 
-select * into AuxEmpregado from Empregado;
+--select * into AuxEmpregado from Empregado;
 
 commit
 
-update AuxEmpregado e set e.salario = salario + ((salario * 14.5) / 100) as SalarioComReajuste where exists (select 1 from departamento d where e.iddepartamento = d.iddepartamento and d.localidade = 'SP'); 
+update Empregado set salario = salario + ((salario * 0.145) 
 
+----TERMINARRR
 --------Exercicio 7 -------------
 
-
+---FAZER
 
 --------Exercicio 8 -------------
 
-select top 1 with ties nome from departamento where exists (select 1 from empregado where max(count(salario)));
+select top 1 with ties d.NomeDepartamento as [Departamento de empregados com maior salario] from departamento d inner join AuxEmpregado a  on d.IDDepartamento = a.IDDepartamento order by a.salario desc;
 
+
+-- ver se ter que mostrar se der empate
+--select * from Departamento;
+--select * from AuxEmpregado order by salario desc;
 --nome? exists? innner join?
 
 --------Exercicio 9 -------------
 
-select a.nome, c.nome, e.nomeempregado, departamento.localidade from cidade c 
-	join associado a on a.idcidade = c.idcidade,
-	join empregado e on e.nomeempregado = departamento.departamento.
+select a.nome as [Nome do associado e empregado], c.nome as [Cidade do Associado e localização do departamento do empregado] from Associado a
+inner join Cidade c on a.IDCidade = c.IDCidade
+union 
+select e.nomeempregado, d.Localizacao from AuxEmpregado e
+inner join Departamento d on e.IDDepartamento = d.IDDepartamento;
+
+	
 
 --------Exercicio 10 -------------
 
-select IDCidade, nome from cidade c where exists (select 1 from associado a where c.cidade = a.associado);
+select IDCidade, nome from cidade c where exists (select 1 from associado a where c.IDCidade = a.IDCidade);
 
