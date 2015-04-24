@@ -45,4 +45,25 @@ select * into AuxEmpregado from Empregado;
 
 commit
 
---terminar
+update AuxEmpregado e set e.salario = salario + ((salario * 14.5) / 100) as SalarioComReajuste where exists (select 1 from departamento d where e.iddepartamento = d.iddepartamento and d.localidade = 'SP'); 
+
+--------Exercicio 7 -------------
+
+
+
+--------Exercicio 8 -------------
+
+select top 1 with ties nome from departamento where exists (select 1 from empregado where max(count(salario)));
+
+--nome? exists? innner join?
+
+--------Exercicio 9 -------------
+
+select a.nome, c.nome, e.nomeempregado, departamento.localidade from cidade c 
+	join associado a on a.idcidade = c.idcidade,
+	join empregado e on e.nomeempregado = departamento.departamento.
+
+--------Exercicio 10 -------------
+
+select IDCidade, nome from cidade c where exists (select 1 from associado a where c.cidade = a.associado);
+
