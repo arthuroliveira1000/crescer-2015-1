@@ -4,10 +4,10 @@
 select substring(nome, 1, CHARINDEX(' ', nome) - 1) [Primeiro Nome] from associado;
 
 --2
-select nome , DATEDIFF(yy, DataNascimento , GETDATE()) Idade from associado;
+select idassociado, nome, datanascimento,  DATEDIFF(yy, DataNascimento , GETDATE()) Idade from associado;
 
 --3
-select nomeempregado, datediff(mm, DataAdmissao, '31/12/2000') Total_De_Meses_trabalhodos_Até_31122000 from empregado where dataadmissao between convert(DateTime, '01/05/1980', 103) and convert(DateTime, '20/01/1982', 103);
+select idempregado, nomeempregado, dataadmissao, datediff(mm, DataAdmissao, '31/12/2000') Total_De_Meses_trabalhodos_Até_31122000 from empregado where dataadmissao between convert(DateTime, '01/05/1980', 103) and convert(DateTime, '20/01/1982', 103);
 
 --4
 select top 1 with ties cargo, count(1) [Total de Empregados] from empregado group by cargo order by [Total de Empregados] desc;
@@ -16,7 +16,7 @@ select top 1 with ties cargo, count(1) [Total de Empregados] from empregado grou
 select top 1 with ties nome from associado order by len(nome) desc;
 
 --6
-select nome, DateAdd(year, 50, DataNascimento) as [Ano que Completa 50 Anos], 
+select idassociado, nome, datanascimento, DateAdd(year, 50, DataNascimento) as [Ano que Completa 50 Anos], 
 dateName(weekday, DateAdd(year, 50, DataNascimento)) as [Dia da Semana] from associado;
 
 select * from associado;
