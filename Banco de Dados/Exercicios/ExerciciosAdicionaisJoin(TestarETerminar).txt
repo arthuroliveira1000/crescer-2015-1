@@ -1,0 +1,35 @@
+-- EXERCICIOS ADICIONAIS JOIN 
+
+--1
+select distinct situacao, count(1) from produto group by situacao;
+
+-- ver se precisa do distinct 
+
+
+
+--2
+select * from cliente where nome = 'LTDA' or RazaoSocial = 'LTDA';
+
+
+
+--3
+insert into produto (nome, PrecoCusto, PrecoVenda, Situacao) values('Galocha Maragato', 35.67, 77.95, 'A');
+
+
+--4
+select p.IDProduto, p.nome, p.DataCadastro, p.PrecoCusto, p.PrecoVenda, p.Situacao from produto p where not exists(select 1 from PedidoItem pi where p.IDProduto = pi.IDPedidoItem);
+
+
+--5
+select UF as [Estado que possui menor e maior número de clientes]from cidade where (select max(idcliente) from cliente) group by uf
+union
+select UF from cidade where (select min(idcliente) from cliente) group by uf;
+
+-- ou -> select uf from cidade where (select max(idcliente) from cliente) and
+(select min(idcliente) from cliente) group by uf; 
+
+
+6--
+select distinct IDCidade, Nome, UF from cidade inner join cliente cl on cl.IDCidade = c.IDCidade where not exists (select 1 from pedido p where p.IDCliente = cl.IDCliente);
+
+
