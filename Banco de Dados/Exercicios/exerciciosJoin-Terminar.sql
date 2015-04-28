@@ -65,10 +65,8 @@ update Empregado set salario = salario + ((salario * 0.145)
 select top 1 with ties d.NomeDepartamento as [Departamento de empregados com maior salario] from departamento d inner join AuxEmpregado a  on d.IDDepartamento = a.IDDepartamento order by a.salario desc;
 
 
--- ver se ter que mostrar se der empate
 --select * from Departamento;
 --select * from AuxEmpregado order by salario desc;
---nome? exists? innner join?
 
 --------Exercicio 9 -------------
 
