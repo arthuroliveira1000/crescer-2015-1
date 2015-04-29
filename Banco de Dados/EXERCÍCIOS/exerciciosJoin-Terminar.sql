@@ -45,11 +45,15 @@ select e.NomeEmpregado as NomeEmpregado,
 
 select * from Empregado;
 
---------Exercicio 6 -------------
+--------Exercicio 6 ------------- Faça uma cópia da tabela Empregado e altere o salário de todos os empregados 
+							-- que o departamento fique na localidade de SAO PAULO, faça um reajuste de 14,5%
+
+--select * into AuxEmpregado from Empregado;
 
 begin transaction 
 
---select * into AuxEmpregado from Empregado;
+update Empregado set Salario = (salario * 0.145) 
+
 
 commit
 
