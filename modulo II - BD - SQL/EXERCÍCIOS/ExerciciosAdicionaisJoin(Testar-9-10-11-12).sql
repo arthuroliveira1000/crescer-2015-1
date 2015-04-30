@@ -56,7 +56,7 @@ end;
 --9
 
 update produto set precocusto = 
-select sum(ma.PrecoCusto * isnull(pm.Quantidade, 1)) from ProdutoMaterial pm inner join material ma on ma.IDMaterial = pm.IDMaterial where pm.IDProduto = produto.IDProduto; 
+(select sum(ma.PrecoCusto * isnull(pm.Quantidade, 1)) from ProdutoMaterial pm inner join material ma on ma.IDMaterial = pm.IDMaterial where pm.IDProduto = produto.IDProduto); 
 
 --TESTAR
 
@@ -77,7 +77,7 @@ select top 1 with ties substring(nome, 1, CHARINDEX(' ', nome) - 1) as Nome_Mais
 
 --12
 
-select top 1 with ties nome Produto_Mais_Pedido from produto inner join pedidoitem on produto.idproduto = pedidoitem.idproduto order by max(count(pedidoitem.quantidade)) desc;
+select top 1 with ties nome Produto_Mais_Pedido from produto inner join pedidoitem on produto.idproduto = pedidoitem.idproduto group by nome order by max(count(pedidoitem.quantidade)) desc;
 
 --TESTAR
 
