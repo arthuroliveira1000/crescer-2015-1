@@ -1,0 +1,35 @@
+;;; 
+Export: Release 11.2.0.2.0 - Production on Qui Abr 30 10:56:33 2015
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Conectado a: Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+Iniciando "SYSTEM"."SYS_EXPORT_SCHEMA_01":  system/******** schemas=CRESCER15 directory=CURSOSQL dumpfile=CRESCER15 logfile=CRESCER15 
+Estimativa em andamento com o método BLOCKS...
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/TABLE_DATA
+Estimativa total usando o método de BLOCKS: 26.68 MB
+Processando o tipo de objeto SCHEMA_EXPORT/USER
+Processando o tipo de objeto SCHEMA_EXPORT/SYSTEM_GRANT
+Processando o tipo de objeto SCHEMA_EXPORT/ROLE_GRANT
+Processando o tipo de objeto SCHEMA_EXPORT/DEFAULT_ROLE
+Processando o tipo de objeto SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processando o tipo de objeto SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/TABLE
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processando o tipo de objeto SCHEMA_EXPORT/VIEW/VIEW
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processando o tipo de objeto SCHEMA_EXPORT/TABLE/TRIGGER
+. . exportou "CRESCER15"."PEDIDOITEM"                    14.24 MB  537993 linhas
+. . exportou "CRESCER15"."CLIENTE"                       1.198 MB   12501 linhas
+. . exportou "CRESCER15"."MATERIAL"                      927.0 KB   25000 linhas
+. . exportou "CRESCER15"."PEDIDO"                        1.376 MB   40000 linhas
+. . exportou "CRESCER15"."PRODUTOMATERIAL"               1.348 MB   67617 linhas
+. . exportou "CRESCER15"."PRODUTO"                       353.1 KB    8000 linhas
+. . exportou "CRESCER15"."CIDADE"                        113.3 KB    4668 linhas
+Tabela-mestre "SYSTEM"."SYS_EXPORT_SCHEMA_01" carregada/descarregada com sucesso
+******************************************************************************
+Conjunto de arquivos de dump para SYSTEM.SYS_EXPORT_SCHEMA_01 é:
+  C:\ORACLE\DATAPUMP\CRESCER15.DMP
+O job "SYSTEM"."SYS_EXPORT_SCHEMA_01" foi concluído com sucesso em 10:57:50
