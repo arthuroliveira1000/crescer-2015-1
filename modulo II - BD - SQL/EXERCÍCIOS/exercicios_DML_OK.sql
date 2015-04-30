@@ -13,7 +13,7 @@ select idempregado, nomeempregado, dataadmissao, datediff(mm, DataAdmissao, '31/
 select top 1 with ties cargo, count(1) [Total de Empregados] from empregado group by cargo order by [Total de Empregados] desc;
 
 --5
-select top 1 with ties nome from associado order by len(nome) desc;
+select top 1 len(nome) as numero_caracteres from associado order by numero_caracteres desc;
 
 --6
 select idassociado, nome, datanascimento, DateAdd(year, 50, DataNascimento) as [Ano que Completa 50 Anos], 
@@ -22,7 +22,7 @@ dateName(weekday, DateAdd(year, 50, DataNascimento)) as [Dia da Semana] from ass
 select * from associado;
 
 --7
-select uf, count(nome) as [Quantidade de Cidades por Estado] from cidade group by uf; 
+select uf, count(1) as [Quantidade de Cidades por Estado] from cidade group by  uf order by uf; 
 
 select nome from cidade where uf = 'rs';
 
@@ -46,6 +46,10 @@ delete from CidadeAux;
 insert into CidadeAux(IDCidade, Nome, UF) 
 select min(IDCidade) Menor_IDCidade, Nome, UF from cidade group by Nome, UF;
 
+-- verificar a estrutura de uma tabela
+sp_help 'CidadeAux'
+
+
 --11
 begin transaction 
 go
@@ -59,6 +63,9 @@ select Nome, case when sexo = 'F' then 'Feminino'
 				  else 'Indeterminado' 
 		      end as Sexo
 		      from Associado;
+
+-- conversão para concatenar
+select '123'+ CAST(23 as varchar(10))
 
 
 --13

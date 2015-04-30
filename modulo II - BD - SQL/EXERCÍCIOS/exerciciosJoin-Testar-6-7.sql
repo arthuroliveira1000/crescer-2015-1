@@ -57,12 +57,15 @@ update Empregado set Salario = (salario * 0.145)
 
 commit
 
-update Empregado set salario = salario + ((salario * 0.145) 
-
-----TERMINARRR
+update Empregado set salario = salario + ((salario * 0.145) where iddepartamento in(
+select iddepartamento from departamento where departamento.iddepartamento = empregado.iddepartamento where localizacao like '%SAO PAULO%');
+--TESTAR
 --------Exercicio 7 -------------
+/*Liste a diferença que representará o reajuste aplicado no item anterior no somatório dos salários de todos os empregados.*/
 
----FAZER
+select (empregado.salario - empregadoaux.salario) as reajuste from empregado inner join empregadoaux on empregado.idempregado = empregadoaux.idempregado; 
+--TESTAR
+
 
 --------Exercicio 8 -------------
 

@@ -96,5 +96,8 @@ inner join produto			pro on pro.idproduto = item.idproduto
 
 where ped.DataPedido between dateadd(day, -60, getdate()) and GETDATE()
 
+--4
 
+select nome from cliente inner join cidade on cliente.idcidade = cidade.idcidade group by nome, uf having max(count(cidade.idcidade) > 1)
 
+--TESTAR
