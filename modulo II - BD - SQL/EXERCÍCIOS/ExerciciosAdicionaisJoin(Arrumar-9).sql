@@ -58,28 +58,24 @@ end;
 update produto set precocusto = 
 (select sum(ma.PrecoCusto * isnull(pm.Quantidade, 1)) from ProdutoMaterial pm inner join material ma on ma.IDMaterial = pm.IDMaterial where pm.IDProduto = produto.IDProduto); 
 
---TESTAR
+--ARRUMAR
 
 --10
 
-select nome as Clientes_Com_O_Mesmo_Nome from cliente group by nome having count(1) > 1;
+select nome as Clientes_Com_O_Mesmo_Nome from cliente group by Nome having count(1) > 1;
+select * from cliente;
 
---TESTAR
 
 --11
 
-select substring(nome, 1, CHARINDEX(' ', nome) - 1) as Nome_Mais_popular from cliente group by Nome_Mais_popular having max(count(Nome_Mais_popular));
+select top 1 with ties substring(nome, 1, CHARINDEX(' ', nome) - 1) as NomeMaisPopular, count(1) as Quantidade from cliente group by substring(nome, 1, CHARINDEX(' ', nome) - 1) order by count(substring(nome, 1, CHARINDEX(' ', nome) - 1)) desc;
 
-- ou
-select top 1 with ties substring(nome, 1, CHARINDEX(' ', nome) - 1) as Nome_Mais_popular from cliente group by Nome_Mais_popular order by max(count(Nome_Mais_popular)) desc;
 
---TESTAR
 
 --12
 
-select top 1 with ties nome Produto_Mais_Pedido from produto inner join pedidoitem on produto.idproduto = pedidoitem.idproduto group by nome order by max(count(pedidoitem.quantidade)) desc;
+select top 1 with ties nome Produto_Mais_Pedido from produto inner join pedidoitem on produto.idproduto = pedidoitem.idproduto group by nome order by count(pedidoitem.quantidade) desc;
 
---TESTAR
 
 
 

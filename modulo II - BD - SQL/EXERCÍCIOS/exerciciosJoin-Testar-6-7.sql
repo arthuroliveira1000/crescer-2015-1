@@ -1,4 +1,4 @@
-use cursosql;
+use curso;
 
 --------JOINNNN-------------
 
@@ -50,20 +50,15 @@ select * from Empregado;
 
 --select * into AuxEmpregado from Empregado;
 
-begin transaction 
 
-update Empregado set Salario = (salario * 0.145) 
-
-
-commit
-
-update Empregado set salario = salario + ((salario * 0.145) where iddepartamento in(
-select iddepartamento from departamento where departamento.iddepartamento = empregado.iddepartamento where localizacao like '%SAO PAULO%');
+update Empregado set salario = salario + ((salario * 0.145) where iddepartamento exists(
+select iddepartamento from departamento where departamento.iddepartamento = empregado.iddepartamento and localizacao like '%SAO PAULO%');
 --TESTAR
 --------Exercicio 7 -------------
 /*Liste a diferença que representará o reajuste aplicado no item anterior no somatório dos salários de todos os empregados.*/
 
-select (empregado.salario - empregadoaux.salario) as reajuste from empregado inner join empregadoaux on empregado.idempregado = empregadoaux.idempregado; 
+
+select (e.salario - ae.salario) as reajuste from empregado e inner join AuxEmpregado ae on e.idempregado = ae.idempregado; 
 --TESTAR
 
 
@@ -88,4 +83,3 @@ inner join Departamento d on e.IDDepartamento = d.IDDepartamento;
 --------Exercicio 10 -------------
 
 select IDCidade, nome from cidade c where exists (select 1 from associado a where c.IDCidade = a.IDCidade);
-
