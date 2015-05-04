@@ -51,15 +51,26 @@ select * from Empregado;
 --select * into AuxEmpregado from Empregado;
 
 
-update Empregado set salario = salario + ((salario * 0.145) where iddepartamento exists(
-select iddepartamento from departamento where departamento.iddepartamento = empregado.iddepartamento and localizacao like '%SAO PAULO%');
---TESTAR
+Update Empregado
+Set    Salario = Salario* 1.145
+Where  EXISTS (Select 1
+               From   Departamento dep
+               Where  dep.IDDepartamento = Empregado.IDDepartamento
+               and    dep.Localizacao    = 'Sao Paulo')
+
+
 --------Exercicio 7 -------------
 /*Liste a diferença que representará o reajuste aplicado no item anterior no somatório dos salários de todos os empregados.*/
 
 
-select (e.salario - ae.salario) as reajuste from empregado e inner join AuxEmpregado ae on e.idempregado = ae.idempregado; 
---TESTAR
+Select 'Salario ANTES' as Descricao,
+       SUM(Salario)    as SalarioTotal
+From   EmpregadoCopia
+UNION       
+Select 'Salario DEPOIS' as Descricao,
+       SUM(Salario)    as SalarioTotal
+From   Empregado
+
 
 
 --------Exercicio 8 -------------
@@ -82,4 +93,4 @@ inner join Departamento d on e.IDDepartamento = d.IDDepartamento;
 
 --------Exercicio 10 -------------
 
-select IDCidade, nome from cidade c where exists (select 1 from associado a where c.IDCidade = a.IDCidade);
+select nome from cidade c where exists (select 1 from associado a where c.IDCidade = a.IDCidade);

@@ -18,7 +18,7 @@ insert into produto (nome, PrecoCusto, PrecoVenda, Situacao) values('Galocha Mar
 --SP_help 'produto' - mostra dados da tabela
 
 --4
-select p.IDProduto, p.nome, p.DataCadastro, p.PrecoCusto, p.PrecoVenda, p.Situacao from produto p where not exists(select 1 from PedidoItem pi where p.IDProduto = pi.IDProduto);
+select p.IDProduto, p.nome from produto p where not exists(select 1 from PedidoItem pi where p.IDProduto = pi.IDProduto);
 
 --create index IX_PedidoItem_Produto on pedidoItem(IDProduto);
 
@@ -40,26 +40,31 @@ select pro.idproduto, pro.nome from produto pro where not exists (select 1 from 
 
 --8
 
-select idproduto, nome, precocusto, dbo.buscaPrecoCustoMaterial(idproduto) as valorDeCusto from produto where idproduto = 123;
-
-
-create function buscaPrecoCustoMaterial (@IDProduto int)
-	returns decimal(9,2) as 
-begin 
-	declare @preco_custo decimal(9, 2)
-	select @preco_custo = sum(ma.PrecoCusto * isnull(pm.Quantidade, 1)) from ProdutoMaterial pm inner join material ma on ma.IDMaterial = pm.IDMaterial where pm.IDProduto = @IDProduto
-	
-	return @preco_custo;
-end;
+  select pro.IDProduto,
+          pro.Nome,
+	      pro.PrecoCusto,
+          SUM (ma.PrecoCusto * ISNULL(pm.Quantidade, 1) ) as Preco_Custo_Material
+	from Produto pro
+	 inner join produtoMaterial pm  on pm.idproduto = pro.idproduto
+	 inner join Material ma         on ma.IDMaterial = pm.IDMaterial
+   group by pro.IDProduto,
+            pro.Nome,
+	        pro.PrecoCusto
 
 
 --9
 
-update produto set precocusto = 
-(select sum(ma.PrecoCusto * isnull(pm.Quantidade, 1)) from ProdutoMaterial pm inner join material ma on ma.IDMaterial = pm.IDMaterial where pm.IDProduto = produto.IDProduto); 
-
---ARRUMAR
-
+Create view vwCustoProduto as
+ Select pr.IDProduto, 
+        pr.Nome, 
+        pr.PrecoCusto, 
+        ROUND( SUM( ISNULL(pm.Quantidade,1) * ma.PrecoCusto ),2) as TotalMateriais
+ From   Produto pr
+   inner join ProdutoMaterial pm on pm.IDProduto  = pr.IDProduto
+   inner join Material        ma on ma.IDMaterial = pm.IDMaterial
+ Group by pr.IDProduto, 
+          pr.Nome, 
+          pr.PrecoCusto 
 --10
 
 select nome as Clientes_Com_O_Mesmo_Nome from cliente group by Nome having count(1) > 1;
@@ -68,7 +73,7 @@ select * from cliente;
 
 --11
 
-select top 1 with ties substring(nome, 1, CHARINDEX(' ', nome) - 1) as NomeMaisPopular, count(1) as Quantidade from cliente group by substring(nome, 1, CHARINDEX(' ', nome) - 1) order by count(substring(nome, 1, CHARINDEX(' ', nome) - 1)) desc;
+select top 1 with ties substring(nome, 1, CHARINDEX(' ', nome) - 1) as NomeMaisPopular, count(1) as Quantidade from cliente group by substring(nome, 1, CHARINDEX(' ', nome) - 1) order by Quantidade desc;
 
 
 
