@@ -10,18 +10,19 @@
 		<form method="POST">
 					
 			<div style="height: 50px">
-				<label for="nome"> 
+				<label for="nome" > 
 					Nome do Elfo:
 				</label> </br>
-				<input name="nome" id="nome" type="text">
+				<input name="nome" id="nome" type="text" 
+				pattern=".{6,}"	required>
 			</div>
 			<div style="height: 70px">
 				<label for="sexo">
 					Sexo do Elfo:
 				</label> </br>
-					<input type="radio" id="sexo" name="sexo" value="male"> Masculino
+					<input type="radio" id="sexo" name="sexo" value="male" required> Masculino
 					<br>
-					<input type="radio" id="sexo" name="sexo" value="female"> Feminino
+					<input type="radio" id="sexo" name="sexo" value="female" required> Feminino
 			</div>
 			<div style="height: 50px"> 
 				<label for="QtdadeFlechas">
@@ -34,7 +35,7 @@
 				<label for="dataNascimento">
 					Data de Nascimento:
 				</label> </br>
-				<input name="dataNascimento"  id="dataNascimento" type="date"/>
+				<input name="dataNascimento"  id="dataNascimento" type="date" required/>
 			</div>
 			
 			<div style="height: 50px">
@@ -52,11 +53,11 @@
 				<label for="itens">
 					Itens do Elfo:
 				</label> </br>
-				<input type="checkbox" id="itens" name="Arco-e-Flecha" value="Arco-e-Flecha"> Arco e Flecha
+				<input type="checkbox" id="itens" name="Arco-e-Flecha" value="Arco-e-Flecha" checked="checked"> Arco e Flecha
 				<br>
 				<input type="checkbox" id="itens" name="Espada-de-açoPorto-alegrense" value="Espada-de-açoPorto-alegrense"> Espada de aço Porto-alegrense
 				<br>
-				<input type="checkbox" id="itens" name="Escudo-de-amburana" value="Escudo-de-amburana"> Escudo de amburana
+				<input type="checkbox" id="itens" name="Escudo-de-amburana" value="Escudo-de-amburana" checked="checked"> Escudo de amburana
 				<br>
 				<input type="checkbox" id="itens" name="Poção-HP" value="Poção-HP"> Poção HP
 			</div>
@@ -65,7 +66,8 @@
 				<label for="itens">
 						Upload de Imagem:
 				</label> </br>
-				<input type="file" name="imagem" accept="image/jpg"/>
+				<input type="file" name="imagem"  accept="image/x-png, image/png, image/jpeg"/>
+				<!--http://www.w3schools.com/tags/att_form_accept.asp-->
 			</div>
 			<div style="height: 50px">
 				<input type="submit" value="Cadastrar">
