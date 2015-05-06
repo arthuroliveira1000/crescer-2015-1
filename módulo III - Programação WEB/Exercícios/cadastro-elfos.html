@@ -7,28 +7,28 @@
 		
 		<title> Cadastro de Elfos</title>
 		
-		<form method="POST">
+		<form method="POST" enctype="multipart/form-data">
 					
 			<div style="height: 50px">
 				<label for="nome" > 
 					Nome do Elfo:
 				</label> </br>
 				<input name="nome" id="nome" type="text" 
-				pattern=".{6,}"	required>
+				pattern=".{6,}"	title="6 letras ou mais" placeholder="Digite seu Nome" required>
 			</div>
 			<div style="height: 70px">
 				<label for="sexo">
 					Sexo do Elfo:
 				</label> </br>
-					<input type="radio" id="sexo" name="sexo" value="male" required> Masculino
+					<input type="radio" id="sexo" name="sexo" value="m" required> Masculino
 					<br>
-					<input type="radio" id="sexo" name="sexo" value="female" required> Feminino
+					<input type="radio" id="sexo" name="sexo" value="f" > Feminino
 			</div>
 			<div style="height: 50px"> 
 				<label for="QtdadeFlechas">
 					Quantidade de flechas:
 				</label> </br>
-				<input name="QtdadeFlechas" id="QtdadeFlechas" type="number" placeholder="42">
+				<input name="QtdadeFlechas" id="QtdadeFlechas" type="number" value="42">
 			</div>
 			
 			<div style="height: 50px">
@@ -43,6 +43,7 @@
 					Status do Elfo:
 				</label> </br>
 					<select name="status" id="status"> 
+						<option value="">Selecione </option>
 						<option value="dormindo">Dormindo</option> 
 						<option value="cacando">Caçando</option>
 						<option value="contando-piada">Contando piada</option>
@@ -53,26 +54,50 @@
 				<label for="itens">
 					Itens do Elfo:
 				</label> </br>
-				<input type="checkbox" id="itens" name="Arco-e-Flecha" value="Arco-e-Flecha" checked="checked"> Arco e Flecha
+				<input type="checkbox" id="itens" name="Arco-e-Flecha" value="Arco-e-Flecha" checked> Arco e Flecha
 				<br>
 				<input type="checkbox" id="itens" name="Espada-de-açoPorto-alegrense" value="Espada-de-açoPorto-alegrense"> Espada de aço Porto-alegrense
 				<br>
-				<input type="checkbox" id="itens" name="Escudo-de-amburana" value="Escudo-de-amburana" checked="checked"> Escudo de amburana
+				<input type="checkbox" id="itens" name="Escudo-de-amburana" value="Escudo-de-amburana" 	checked> Escudo de amburana
 				<br>
 				<input type="checkbox" id="itens" name="Poção-HP" value="Poção-HP"> Poção HP
 			</div>
 			
-			<div style="height: 50px">
-				<label for="itens">
+			<div style="height: 60px">
+				<label for="upload">
 						Upload de Imagem:
 				</label> </br>
-				<input type="file" name="imagem"  accept="image/x-png, image/png, image/jpeg"/>
+				<input type="file" name="imagem"  id="imagem" accept=".jpg,.jpeg,.png" onchange="return validarExt();"/>
 				<!--http://www.w3schools.com/tags/att_form_accept.asp-->
 			</div>
-			<div style="height: 50px">
+			<div style="height: 50px"></br>
 				<input type="submit" value="Cadastrar">
 			</div>
-		</form>		
-		
+		</form>	
+
+	<script>
+		function validarExt() {
+		//var inputFile = document.getElementsByName('avatar')[0];
+				var inputFile = document.getElementById('imagem');
+				var nomeArquivo = inputFile.value;
+				var valida = false;
+				var extensoesValidas = [ '.jpg', '.jpeg', '.png' ];
+				for (var i = 0, len = extensoesValidas.length; i < len; i++) {
+					var ext = extensoesValidas[i];
+					var apenasAExtensao = nomeArquivo.substring(nomeArquivo.length-ext.length, nomeArquivo.length).toLowerCase();
+										
+					if (apenasAExtensao === ext.toLowerCase()) {
+						valida = true;
+						break;
+					}
+				}
+				
+				if (valida === false) {
+					alert('Extensão inválida!');
+					inputFile.value = null;
+				}
+				
+				return valida;			}
+	</script>
 	</body>
 </html>
