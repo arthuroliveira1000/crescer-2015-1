@@ -1,0 +1,17 @@
+﻿*, body{ margin: 0;
+		  padding:0;
+}
+.tamanho{
+	width: 33.33%;
+	height:100vh;
+	float: left;
+}
+#primeiro{
+	background-color: black;
+}
+#segundo{
+	background-color: yellow;
+}
+#terceiro{
+	background-color: red;
+}
