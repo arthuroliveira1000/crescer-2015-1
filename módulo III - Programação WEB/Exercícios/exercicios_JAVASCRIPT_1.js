@@ -1,5 +1,3 @@
-<script>
-
 	//1  
 	
 	var contagemtitulos = [ arsenal, chelsea, liverpool, manchesterunited];
@@ -147,22 +145,28 @@
 	*/
 	
 		function apenasOsMelhores(array) {
+		
+			var arraynovo = [0]; 
 			
-			for(var i = 0; i < array.length; i++) {
-				if(array[i].titulos[0].qtd > 18) 
-					return array[i];
+				for(var j = 0; j < array.length; j++) {
+					if(array[j].titulos[0].qtd > 18) {
+						arraynovo.push(array[j]);
+					}
 			}	
+			arraynovo.shift();
+			return arraynovo;
+		
 		} 
-		//ARRUMAR
-	
+		
 	
 	/*
 	5.A
 	Escreva uma função chamada apenasOsMelhoresParaJSON(Array) que recebe o array dos clubes que têm mais de 18 títulos ingleses e retorna a representação JSON deles.
 	*/
 	
-	function apenasOsMelhoresParaJSON() {
-	//FAZER
+	function apenasOsMelhoresParaJSON(array) {
+	
+		return JSON.stringify(array); // transforma array em uma string no formato JSON (chave, valor)
 	
 	
 	}
@@ -181,8 +185,5 @@
 	
 	function apenasOsMelhoresRecebendoJSON(array) {
 	
-		return JSON.stringify(array);
+		return JSON.parse(array); // transforma string no formato json em um array
 	}
-	
-	
-</script>
