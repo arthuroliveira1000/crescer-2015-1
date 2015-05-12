@@ -2,7 +2,7 @@
 		  padding:0;
 }
 .tamanho{
-	width: 33.33%;
+	width: calc(100%/3);
 	height:100vh;
 	float: left;
 }
