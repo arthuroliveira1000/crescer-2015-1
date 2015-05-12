@@ -89,6 +89,18 @@
 	3.A
 	Crie uma função chamada somarPorNacionais(Array) que recebe o array de clubes e retorna o 
 	somatório de todas quantidades de títulos nacionais entre os clubes do array.
+		
+		
+		USANDO O MAP E REDUCE ??????????????
+		var somarPorMap = function(arr, mapFn) {
+		  return arr.map(mapFn).reduce(function(a,b) {
+		  return a + b;
+		  });
+		};
+ 
+		
+		
+		
 		*/
 		
 	function somarPorNacionais(array) {
@@ -103,9 +115,21 @@
 	}	
 	
 	
+	
+	
 	/*
 	3.B
 	Crie uma função chamada somarPorContinentais(Array) que recebe o array de clubes e retorna o somatório de todas quantidades de títulos continentais entre os clubes do array.
+		
+			
+		USANDO MAP	
+		var somatorio3B = (function somarPorContinentais(arr) {
+		  return somarPorMap(arr,
+			function(i) { return i.titulos[1].qtd; }
+		  );
+		})(clubes);
+		
+		
 		*/
 		
 	function somarPorContinentais(array) {
@@ -124,6 +148,16 @@
 	/*
 	3.C
 	Crie uma função chamada somarPorTodosTitulos(Array) que recebe o array de clubes e retorna o somatório de todas quantidades de todos os títulos entre os clubes do array.
+	
+	USANDO MAP
+	var somatorio3C = (function somarPorTodosTitulos(arr) {
+	  return somarPorMap(arr,
+		function(i) { return i.titulos[0].qtd + i.titulos[1].qtd + i.titulos[2].qtd; }
+	  );
+	})(clubes);
+	 
+	
+	
 	*/
 
 	function somarPorTodosTitulos(array) {
