@@ -159,11 +159,25 @@ var find_myListItem = document.getElementById('myListItem');
 console.log("Terceiro elemento da lista não ordenada myList: ", find_myListItem);
 
 //  3 - ARRUMAR
-var find_labelfor_q = $('label[for=q]');
+var find_labelfor_q = $('.search label');
 console.log("Label para o input de busca usando um seletor de atributo", find_labelfor_q);
 
-//  4 
-//console.log("Quantidade de elementos na página que tem um atributo alt", );
+//  4
+var find_all_com_alt = $("img[alt]").length;
+console.log("Quantidade de elementos na página que tem um atributo alt", find_all_com_alt);
+
+//  5 - ARRUMAR
+
+var linhaspares = $("#fruits > tr").filter(function( index ) {
+		return $( "tr", this ).length % 2 === 0;
+  });
+console.log("Linhas pares da tabela com exceção do cabeçalho: ", linhaspares);
+
+//  6
+
+var count = $("h2[b]").length;
+console.log("Quantos h2 possuem as letras B, e NO MESMO texto:" + count);
+
  </script>
 <!--
 <script src="js/sandbox.js"></script>
