@@ -151,19 +151,6 @@
 
 <script>
 
-
-//  1A
-$(".module");
-
-
-//  1B
-document.getElementById('myListItem');
-
-
-
-//  1C
-$('#search label[for=q]');
-
 //  1D
 $('[alt]').length;
 $('[alt]').size();
@@ -191,17 +178,50 @@ $('#myList .current ~ li').text().length;
 
 // Exercício 2
 
-//  2A
+ //  2A
 
-console.log("Elementos img da página que possuem alt: ", $('img').attr('alt'));
+	$('img[alt]').each(function(i, elem) {
+	  console.log(elem.alt);
+	});
+
+//  2B
+
+	$("#search .input_text").parent().addClass("template");
+
+// 2C
+
+	cls = 'current', $('#myList li .current').removeClass(cls).next().addClass(cls);
+
+// 2D
+
+	$('#specials h2').text('Promoções').siblings().find('[value=friday]').text('Dimitri');
+	//text - altera valor do texto
+
+
+//  2E
+
+	$("#slideshow li").first().addClass('current').siblings().addClass('disabled');
+
+// 3A
+	var list = $('#myList');
+		for (var i = 8; i < 13; i++) {
+			$('<li/>').text('List item ' + i).appendTo(list);
+	}
  
+// 3B
+
+	$('#myList li:odd').remove();
  
 // 3C
-$('div.module').last().after($('<div/>').addClass('module').
-	append(
-		$('img:eq(0)').clone()));
- 
- 
+	$('div.module')
+	.last()
+	.after(
+		$('<div/>').addClass('module')
+		.append(
+        $('img:eq(0)').clone()
+      )
+    );   
+
  </script>
 <!--
 <script src="js/sandbox.js"></script>
