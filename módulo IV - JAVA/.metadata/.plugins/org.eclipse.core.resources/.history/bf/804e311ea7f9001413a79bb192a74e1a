@@ -1,0 +1,13 @@
+package filmator;
+
+public enum Genero {
+	Comedia("Comédia"), Acao("Ação"), TERROR("Terror"), SUSPENSE("Suspense"), ROMANCE(
+			"Romance");
+	
+	private String descricao;
+	
+	public Genero(String descricao) {
+		this.descricao = descricao;
+	}
+	
+}

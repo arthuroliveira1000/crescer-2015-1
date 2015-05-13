@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+
+public class Filme {
+	
+	private String nome;
+	private ArrayList<Ator> elenco = new ArrayList<Ator>();
+
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+	
+	
+	public String toString() {  
+	    return this.nome; 
+	    return this.elenco;
+	}  
+
+}

@@ -1,0 +1,52 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+import filmator.Ator;
+import filmator.Filme;
+
+public class FilmeTest {
+
+	@Test
+	public void adiciona2AtoresFunciona() {
+
+		Filme godzila = new Filme("Godzila");
+		Ator vera = new Ator("Vera Farmiga");
+		Ator megan = new Ator("Megan Fox");
+
+		ArrayList<Ator> auxiliar = new ArrayList<Ator>();
+		auxiliar.add(vera);
+		auxiliar.add(megan);
+		godzila.adicionaAtor(vera);
+		godzila.adicionaAtor(megan);
+
+		assertEquals(auxiliar, godzila.getElenco());
+
+	}
+
+	@Test
+	public void toStringFunciona() {
+		Filme godzila = new Filme("Godzila");
+
+		assertEquals("Godzila", godzila.toString());
+
+	}
+
+	@Test
+	public void adiciona1AtorFunciona() {
+
+		Filme powerrangers = new Filme("Power Rangers");
+		Ator vera = new Ator("Vera Farmiga");
+		ArrayList<Ator> auxilia = new ArrayList<Ator>();
+
+		auxilia.add(vera);
+		powerrangers.adicionaAtor(vera);
+
+		assertEquals(auxilia, powerrangers);
+	}
+
+}

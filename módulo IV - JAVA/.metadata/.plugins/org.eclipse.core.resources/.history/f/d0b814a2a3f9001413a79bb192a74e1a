@@ -1,0 +1,12 @@
+package test;
+
+import filmator.Filme;
+
+public class FilmeTest {
+
+	Filme godzila = new Filme();
+	
+	
+	
+	
+}

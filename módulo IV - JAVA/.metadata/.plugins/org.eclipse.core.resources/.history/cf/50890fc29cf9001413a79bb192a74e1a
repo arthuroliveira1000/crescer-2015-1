@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+
+public class Filme {
+
+	private String nome;
+	private ArrayList<Ator> elenco = new ArrayList<Ator>();
+
+	public static void main(String[] args) {
+
+	}
+
+	public ArrayList<Ator> listaElenco(String nome) {
+		for(int x = 0; x < elenco.size(); x++) {
+			if(elenco[x].getNome().contains(nome)) {
+				
+			}
+		}
+
+	}
+	
+	public void adicionaAtor(Ator atorinserido) {
+		elenco.add(atorinserido);
+	}
+
+	public String toString() {
+		return this.nome;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public ArrayList<Ator> getElenco() {
+		return elenco;
+	}
+
+	public void setElenco(ArrayList<Ator> elenco) {
+		this.elenco = elenco;
+	}
+
+}

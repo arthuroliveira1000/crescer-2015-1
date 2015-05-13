@@ -1,0 +1,28 @@
+package listator;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+	public void busca() {
+		String diretorio = "C:\Users\projetocrescer\Desktop\Crescer_arthur\módulo III - Programação WEB\Exercícios\Exer_JQuery\dia06\pagina-exercicios";
+		
+		
+		File file = new File(diretorio); 
+		File afile[] = file.listFiles(); 
+		int i = 0; 
+		for (int j = afile.length; i < j; i++) { 
+			File arquivos = afile[i]; 
+			System.out.println(arquivos.getName()); 
+		} 
+
+	}
+
+	public void imprimir() {
+
+	}
+
+}

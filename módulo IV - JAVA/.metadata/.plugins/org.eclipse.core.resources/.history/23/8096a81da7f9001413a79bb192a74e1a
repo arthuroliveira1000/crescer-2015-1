@@ -1,0 +1,8 @@
+package filmator;
+
+public enum Genero {
+	Comedia("Comédia"), Acao("Ação"), TERROR("Terror"), SUSPENSE("Suspense"), ROMANCE(
+			"Romance");
+	
+	
+}

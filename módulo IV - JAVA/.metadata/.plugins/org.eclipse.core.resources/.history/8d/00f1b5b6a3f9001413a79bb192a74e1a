@@ -1,0 +1,19 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import filmator.Filme;
+
+public class FilmeTest {
+
+	@Test
+	public void toStringFunciona() {
+		Filme godzila = new Filme("Godzila");
+		
+		assertEquals("Godzila", godzila.getNome());
+
+	}
+
+}
