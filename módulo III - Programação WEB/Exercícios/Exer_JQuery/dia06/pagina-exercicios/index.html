@@ -150,34 +150,58 @@
 <script src="libs/jquery-1.5.0.js"></script>
 
 <script>
-//  1
-var elementCount = $( "*" );
-console.log('Todos elementos com a classe module: ', elementCount);
 
-//  2
-var find_myListItem = document.getElementById('myListItem');
-console.log("Terceiro elemento da lista não ordenada myList: ", find_myListItem);
 
-//  3 - ARRUMAR
-var find_labelfor_q = $('.search label');
-console.log("Label para o input de busca usando um seletor de atributo", find_labelfor_q);
+//  1A
+$(".module");
 
-//  4
-var find_all_com_alt = $("img[alt]").length;
-console.log("Quantidade de elementos na página que tem um atributo alt", find_all_com_alt);
 
-//  5 - ARRUMAR
+//  1B
+document.getElementById('myListItem');
 
-var linhaspares = $("#fruits > tr").filter(function( index ) {
-		return $( "tr", this ).length % 2 === 0;
-  });
-console.log("Linhas pares da tabela com exceção do cabeçalho: ", linhaspares);
 
-//  6
 
-var count = $("h2[b]").length;
-console.log("Quantos h2 possuem as letras B, e NO MESMO texto:" + count);
+//  1C
+$('#search label[for=q]');
 
+//  1D
+$('[alt]').length;
+$('[alt]').size();
+
+//  1E
+$('#fruits tbody tr:odd');
+
+//  1F
+
+$('h2:contains("B"):contains("e")').length;
+ 
+ 
+//  1G
+
+$('#myList li:not(.current)');
+
+//  1H
+
+$('li:last-of-type img, h3:last');
+$('img:last, h3:last');
+
+//  1I
+
+$('#myList .current ~ li').text().length;
+
+// Exercício 2
+
+//  2A
+
+console.log("Elementos img da página que possuem alt: ", $('img').attr('alt'));
+ 
+ 
+// 3C
+$('div.module').last().after($('<div/>').addClass('module').
+	append(
+		$('img:eq(0)').clone()));
+ 
+ 
  </script>
 <!--
 <script src="js/sandbox.js"></script>
