@@ -1,8 +1,8 @@
 package filmator;
 
 public enum Genero {
-	Comedia("Comédia"), Acao("Ação"), Terror("Terror"), Suspense("Suspense"), Romance(
-			"Romance"), FiccaoCientifica("Ficção Científica"), Drama("Drama");
+	Comedia("Comédia"), Acao("Ação"), TERROR("Terror"), SUSPENSE("Suspense"), ROMANCE(
+			"Romance"), FiccaoCientifica("Ficção Científica");
 
 	private String descricao;
 	private int contador;

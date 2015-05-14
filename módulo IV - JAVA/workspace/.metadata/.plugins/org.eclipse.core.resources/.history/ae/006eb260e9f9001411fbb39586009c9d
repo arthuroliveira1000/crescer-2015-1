@@ -7,23 +7,20 @@ public class Netflox {
 	private ArrayList<Filme> listaDeFilmes = new ArrayList<Filme>();
 
 	public static void main(String[] args) {
-
-		Filme boyhood = new Filme("BoyHood - Da Infância a Juventude",
-				Genero.Drama);
+		
 		Filme interestelar = new Filme("Interestelar", Genero.FiccaoCientifica);
-
+		Filme boyhood = new Filme("BoyHood - Da Infância a Juventude", Genero.drama);
+		
 		Netflox teste = new Netflox();
-		teste.adicionaFilme(interestelar);
 		teste.adicionaFilme(boyhood);
+		teste.adicionaFilme(interestelar);
 		System.out.println(teste.listaDeFilmes);
-
-		teste.reproduzirFilme(interestelar);
-		teste.reproduzirFilme(boyhood);
-		teste.reproduzirFilme(boyhood);
-		teste.reproduzirFilme(boyhood);
-		teste.geraRelatorio();
+		
+		System.out.println(teste.reproduzirFilme(interestelar));
+		teste.geraRelatorio();		
 	}
-
+	
+	
 	public void adicionaFilme(Filme filmeinserido) {
 		listaDeFilmes.add(filmeinserido);
 	}
@@ -42,18 +39,15 @@ public class Netflox {
 	}
 
 	public void geraRelatorio() {
-		Genero[] percorreEnum = Genero.values(); // cria um array do Enum e pega
-													// os valores (objetos
-													// Enum);
-		System.out.println("Filmes visualizados - por gênero:");
-		// for (Genero e : percorreEnum) {
-		// System.out.println(e.getDescricao() + ": " + e.getContador());
-		// }
-
-		for (int x = 0; x < percorreEnum.length; x++) {
-			System.out.println(percorreEnum[x].getDescricao() + ": "
-					+ percorreEnum[x].getContador());
+		Genero[] percorreEnum = Genero.values();
+		System.out.println("Filmes reproduzidos - por gênero:");
+		for (Genero e : percorreEnum) {
+			System.out.println(e.getDescricao() + ": " + e.getContador());
 		}
+		
+		//for(int x = 0; x < percorreEnum.length; x++) {
+		//	System.out.println(percorreEnum[x].getDescricao() + ": " + percorreEnum[x].getContador());
+		//}
 	}
 
 }
