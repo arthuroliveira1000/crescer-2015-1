@@ -1,6 +1,5 @@
 package filmator;
 
-import java.util.ArrayList;
 
 public class Netflox extends Empresa {
 

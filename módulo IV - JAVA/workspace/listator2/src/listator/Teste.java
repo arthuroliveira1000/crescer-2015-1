@@ -1,6 +1,5 @@
 package listator;
 
-import java.io.File;
 
 public class Teste {
 
