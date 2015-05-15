@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Filmator/src"/>
+	<classpathentry kind="src" path="listator/src"/>
+	<classpathentry kind="src" path="listator2/src"/>
+	<classpathentry kind="src" path="listator2/test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="listator2/bin"/>
+</classpath>

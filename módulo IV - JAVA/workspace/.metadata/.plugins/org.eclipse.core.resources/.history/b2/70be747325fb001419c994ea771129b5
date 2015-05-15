@@ -1,0 +1,26 @@
+package filmator;
+
+import java.util.ArrayList;
+
+public class Empresa {
+
+	private String nome;
+	private ArrayList<Filme> listaDeFilmes = new ArrayList<Filme>();
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public ArrayList<Filme> getListaDeFilmes() {
+		return listaDeFilmes;
+	}
+
+	public void setListaDeFilmes(ArrayList<Filme> listaDeFilmes) {
+		this.listaDeFilmes = listaDeFilmes;
+	}
+
+}

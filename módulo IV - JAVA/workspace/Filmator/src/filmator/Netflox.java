@@ -2,9 +2,7 @@ package filmator;
 
 import java.util.ArrayList;
 
-public class Netflox {
-
-	private ArrayList<Filme> listaDeFilmes = new ArrayList<Filme>();
+public class Netflox extends Empresa {
 
 	public static void main(String[] args) {
 
@@ -15,45 +13,30 @@ public class Netflox {
 		Netflox teste = new Netflox();
 		teste.adicionaFilme(interestelar);
 		teste.adicionaFilme(boyhood);
-		System.out.println(teste.listaDeFilmes);
+		System.out.println(teste.getListaDeFilmes());
 
 		teste.reproduzirFilme(interestelar);
 		teste.reproduzirFilme(boyhood);
 		teste.reproduzirFilme(boyhood);
 		teste.reproduzirFilme(boyhood);
 		teste.geraRelatorio();
-	}
 
-	public void adicionaFilme(Filme filmeinserido) {
-		listaDeFilmes.add(filmeinserido);
-	}
+		System.out.println("--------------------------------------");
+		Iltube tube = new Iltube();
+		
+		Filme boyhood1 = new Filme("BoyHood1 - Da Infância a Juventude",
+				Genero.Drama);
+		Filme interestelar1 = new Filme("Interestelar1",
+				Genero.FiccaoCientifica);
+		tube.adicionaFilme(interestelar1);
+		tube.adicionaFilme(boyhood1);
+		System.out.println(tube.getListaDeFilmes());
 
-	public Filme reproduzirFilme(Filme filme) {
+		tube.reproduzirFilme(interestelar1);
+		tube.reproduzirFilme(boyhood1);
+		tube.reproduzirFilme(boyhood1);
+		tube.geraRelatorio();
 
-		Filme filmeParaReproduzir = null;
-
-		for (int x = 0; x < listaDeFilmes.size(); x++) {
-			if (listaDeFilmes.get(x) == filme) {
-				filmeParaReproduzir = listaDeFilmes.get(x);
-			}
-		}
-		filmeParaReproduzir.getGenero().incrementaContador();
-		return filmeParaReproduzir;
-	}
-
-	public void geraRelatorio() {
-		Genero[] percorreEnum = Genero.values(); // cria um array do Enum e pega
-													// os valores (objetos
-													// Enum);
-		System.out.println("Filmes visualizados - por gênero:");
-		// for (Genero e : percorreEnum) {
-		// System.out.println(e.getDescricao() + ": " + e.getContador());
-		// }
-
-		for (int x = 0; x < percorreEnum.length; x++) {
-			System.out.println(percorreEnum[x].getDescricao() + ": "
-					+ percorreEnum[x].getContador());
-		}
 	}
 
 }

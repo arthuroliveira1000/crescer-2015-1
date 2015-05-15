@@ -5,20 +5,6 @@ public enum Genero {
 			"Romance"), FiccaoCientifica("Ficção Científica"), Drama("Drama");
 
 	private String descricao;
-	private int contador;
-	
-	
-	public void incrementaContador() {
-		this.contador++;
-	}
-
-	public int getContador() {
-		return contador;
-	}
-
-	public void setContador(int contador) {
-		this.contador = contador;
-	}
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;

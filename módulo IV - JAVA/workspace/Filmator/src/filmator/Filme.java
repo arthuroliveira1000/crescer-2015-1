@@ -1,12 +1,12 @@
 package filmator;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Filme {
 
 	private String nome;
 	private ArrayList<Ator> elenco = new ArrayList<Ator>();
+
 	private Genero genero;
 
 	public static void main(String[] args) {
@@ -40,12 +40,12 @@ public class Filme {
 
 	}
 
-	public void adicionaAtor(Ator atorinserido) {
-		elenco.add(atorinserido);
+	public String getNome() {
+		return nome;
 	}
 
-	public String toString() {
-		return this.nome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public ArrayList<Ator> getElenco() {
@@ -56,20 +56,20 @@ public class Filme {
 		this.elenco = elenco;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public Genero getGenero() {
 		return genero;
 	}
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+
+	public void adicionaAtor(Ator atorinserido) {
+		elenco.add(atorinserido);
+	}
+
+	public String toString() {
+		return this.nome;
 	}
 
 }
