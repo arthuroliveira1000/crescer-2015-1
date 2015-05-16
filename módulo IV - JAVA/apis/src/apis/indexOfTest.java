@@ -10,7 +10,7 @@ public class indexOfTest {
 	public void teste() {
 		String teste = "abc";
 		assertEquals(1, teste.indexOf("b"));
-
+		//testandooo
 	}
 
 }
