@@ -3,10 +3,13 @@ package MestreCuca;
 public class Ingrediente {
 
 	private String nome;
-
-	private double quantidade;
-
+	private float preco;
+	private float quantidade;
 	private UnidadeMedida unidadeIngrediente;
+
+	public Ingrediente(String nome) {
+		this.nome = nome;
+	}
 
 	public String getNome() {
 		return nome;
@@ -20,7 +23,7 @@ public class Ingrediente {
 		return quantidade;
 	}
 
-	public void setQuantidade(double quantidade) {
+	public void setQuantidade(float quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -32,4 +35,44 @@ public class Ingrediente {
 		this.unidadeIngrediente = unidadeIngrediente;
 	}
 
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime
+				* result
+				+ ((unidadeIngrediente == null) ? 0 : unidadeIngrediente
+						.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ingrediente other = (Ingrediente) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (unidadeIngrediente != other.unidadeIngrediente)
+			return false;
+		return true;
+	}
+
+	
 }

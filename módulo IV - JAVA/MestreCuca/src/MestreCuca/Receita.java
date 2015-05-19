@@ -11,16 +11,26 @@ public class Receita {
 
 	private List<Instrucao> listaDeInstrucoes = new ArrayList<Instrucao>();
 
-	public Receita() {
-		
+	public Receita(String nome) {
+		this.nome = nome;
 	}
-	
+
 	public Receita(String nome, List<Ingrediente> listaDeIngredientes,
 			List<Instrucao> listaDeInstrucoes) {
 		this.nome = nome;
 		this.listaDeIngredientes = listaDeIngredientes;
 		this.listaDeInstrucoes = listaDeInstrucoes;
 	}
+
+	public float CalculaCusto() {
+		float custoDaReceita = 0;
+		for (int x = 0; x < listaDeIngredientes.size(); x++) {
+			custoDaReceita += listaDeIngredientes.get(x).getPreco();
+		}
+		return custoDaReceita;
+	}
+	
+	
 
 	public String getNome() {
 		return nome;

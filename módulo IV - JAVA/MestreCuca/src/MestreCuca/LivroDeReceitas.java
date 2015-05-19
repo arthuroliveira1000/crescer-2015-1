@@ -66,12 +66,55 @@ public class LivroDeReceitas implements LivroReceitas {
 		if (receitaAchada != null) {
 			return receitaAchada;
 		} else {
-			throw new nomeNaoEncontrado("Nome da Receita não encontrado!"); 
+			throw new nomeNaoEncontrado("Nome da Receita não encontrado!");
 		}
 	}
 
-	public List<Receita> getListaDeReceitas() {
-		return listaDeReceitas;
+	public float somaDasReceitas(LivroDeReceitas livro) {
+		float soma = 0;
+		for (int x = 0; x < livro.getTodasReceitas().size(); x++) {
+			soma += livro.getTodasReceitas().get(x).CalculaCusto();
+		}
+		return soma;
 	}
 
+	public List<Receita> protecaoAosAlergicos(
+			List<Ingrediente> listaDeIngredientesProibidos) {
+
+		List<Receita> listaDeProtecaoAosAlergicos = new ArrayList<Receita>();
+		int cont = 0;
+
+		for (int x = 0; x < listaDeReceitas.size(); x++) {
+			cont = 0;
+			for (int z = 0; z < listaDeReceitas.get(x).getListaDeIngredientes()
+					.size(); z++) {
+
+				for (int y = 0; y < listaDeIngredientesProibidos.size(); y++) {
+
+					if (listaDeIngredientesProibidos.get(y).equals(listaDeReceitas
+							.get(x).getListaDeIngredientes().get(z))) {
+						cont++;
+					}
+				}
+			}
+			if (cont == 0) {
+				listaDeProtecaoAosAlergicos.add(listaDeReceitas.get(x));
+			}
+			
+		}
+		return listaDeProtecaoAosAlergicos;
+	}
+	
+	
+	public List<String> listaDeCompras(List<Receita> listaDeReceita) {
+		List<String> listaDeCompras = new ArrayList();
+		//percorrer a lista de receita
+		//ver os que tem mesmo nome
+		//ver os que tem mesma unidade de medida 
+		// mostar as strings O.o o.O O.o O.o o.O O.o
+		
+		return null;
+	}
+	
+	
 }
