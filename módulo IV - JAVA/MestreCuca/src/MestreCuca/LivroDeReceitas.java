@@ -11,11 +11,9 @@ public class LivroDeReceitas implements LivroReceitas {
 
 	@Override
 	public void inserir(Receita receita) {
-		boolean argumentovalido = !receita.getNome().equals("")
-				|| !(receita == null);
-		if (argumentovalido) {
+		if (!(receita.getNome().equals("")) || !(receita == null)) {
 			listaDeReceitas.add(receita);
-		}
+		} 
 	}
 
 	@Override
@@ -91,8 +89,9 @@ public class LivroDeReceitas implements LivroReceitas {
 
 				for (int y = 0; y < listaDeIngredientesProibidos.size(); y++) {
 
-					if (listaDeIngredientesProibidos.get(y).equals(listaDeReceitas
-							.get(x).getListaDeIngredientes().get(z))) {
+					if (listaDeIngredientesProibidos.get(y).equals(
+							listaDeReceitas.get(x).getListaDeIngredientes()
+									.get(z))) {
 						cont++;
 					}
 				}
@@ -100,21 +99,19 @@ public class LivroDeReceitas implements LivroReceitas {
 			if (cont == 0) {
 				listaDeProtecaoAosAlergicos.add(listaDeReceitas.get(x));
 			}
-			
+
 		}
 		return listaDeProtecaoAosAlergicos;
 	}
-	
-	
+
 	public List<String> listaDeCompras(List<Receita> listaDeReceita) {
 		List<String> listaDeCompras = new ArrayList();
-		//percorrer a lista de receita
-		//ver os que tem mesmo nome
-		//ver os que tem mesma unidade de medida 
+		// percorrer a lista de receita
+		// ver os que tem mesmo nome
+		// ver os que tem mesma unidade de medida
 		// mostar as strings O.o o.O O.o O.o o.O O.o
-		
+
 		return null;
 	}
-	
-	
+
 }
