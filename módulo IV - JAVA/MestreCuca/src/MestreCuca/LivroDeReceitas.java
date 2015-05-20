@@ -1,9 +1,9 @@
 package MestreCuca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import javax.naming.NameNotFoundException;
+import java.util.Map;
 
 public class LivroDeReceitas implements LivroReceitas {
 
@@ -11,15 +11,16 @@ public class LivroDeReceitas implements LivroReceitas {
 
 	@Override
 	public void inserir(Receita receita) {
-		if (!(receita.getNome().equals("")) || !(receita == null)) {
+		if (!(receita.getNome().trim().equals("")) || !(receita == null)) {
 			listaDeReceitas.add(receita);
-		} 
+		}
 	}
 
 	@Override
 	public void atualizar(String nome, Receita receitaAtualizada) {
-		boolean argumentovalido = !receitaAtualizada.getNome().equals("")
-				|| !(receitaAtualizada == null) || !nome.equals("");
+		boolean argumentovalido = !receitaAtualizada.getNome().trim()
+				.equals("")
+				|| !(receitaAtualizada == null) || !nome.trim().equals("");
 
 		if (argumentovalido) {
 			for (int x = 0; x < listaDeReceitas.size(); x++) {
@@ -33,7 +34,7 @@ public class LivroDeReceitas implements LivroReceitas {
 
 	@Override
 	public void excluir(String nome) {
-		if (!nome.equals("")) {
+		if (!nome.trim().equals("")) {
 			for (int x = 0; x < listaDeReceitas.size(); x++) {
 				if (listaDeReceitas.get(x).getNome().equals(nome)) {
 					listaDeReceitas.remove(x);
@@ -68,10 +69,10 @@ public class LivroDeReceitas implements LivroReceitas {
 		}
 	}
 
-	public float somaDasReceitas(LivroDeReceitas livro) {
+	public float somaDasReceitas(List<Receita> lista) {
 		float soma = 0;
-		for (int x = 0; x < livro.getTodasReceitas().size(); x++) {
-			soma += livro.getTodasReceitas().get(x).CalculaCusto();
+		for (int x = 0; x < lista.size(); x++) {
+			soma += lista.get(x).CalculaCusto();
 		}
 		return soma;
 	}
@@ -104,14 +105,30 @@ public class LivroDeReceitas implements LivroReceitas {
 		return listaDeProtecaoAosAlergicos;
 	}
 
-	public List<String> listaDeCompras(List<Receita> listaDeReceita) {
-		List<String> listaDeCompras = new ArrayList();
-		// percorrer a lista de receita
-		// ver os que tem mesmo nome
-		// ver os que tem mesma unidade de medida
-		// mostar as strings O.o o.O O.o O.o o.O O.o
+	public Map<Ingrediente, Integer> listaDeCompras(List<Receita> listaDeReceita) {
+		Map<Ingrediente, Integer> listaDeCompras = new HashMap<Ingrediente, Integer>();
+		
+		for(Receita umaReceita: listaDeReceita) {
+			for(Ingrediente umIngrediente: umaReceita.getListaDeIngredientes()) {
+				
+				listaDeCompras.getOrDefault(umIngrediente, 0); 
+				//verificar a quantidade, se o item já existir, pegar o item anterior
+				// se não quantidade = 0;
+				listaDeCompras.put(umIngrediente, (int) umIngrediente.getQuantidade());
+			}
+		}
+		
+		
+		
 
-		return null;
+		return listaDeCompras;
 	}
-
 }
+
+// percorrer a lista de receita
+// ver os que tem mesmo nome
+// ver os que tem mesma unidade de medida
+// comparar com o proximo valor
+// somar as quantidades desses produtos
+// mostrar as strings O.o o.O O.o O.o o.O O.o
+

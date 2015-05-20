@@ -3,7 +3,7 @@ package MestreCuca;
 public enum UnidadeMedida {
 
 	GRAMA("Grama"), UNIDADE("Unidade"), XICARA("Xícara"), COLHER_SOPA(
-			"Colher de Sopa");
+			"Colher de Sopa"), KG("kg");
 
 	private String descricao;
 
