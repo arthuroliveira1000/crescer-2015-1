@@ -18,6 +18,8 @@ public class LivroDeReceitas implements LivroReceitas {
 
 	@Override
 	public void atualizar(String nome, Receita receitaAtualizada) {
+			
+		
 		boolean argumentovalido = !receitaAtualizada.getNome().trim()
 				.equals("")
 				|| !(receitaAtualizada == null) || !nome.trim().equals("");
@@ -29,6 +31,7 @@ public class LivroDeReceitas implements LivroReceitas {
 				}
 			}
 		}
+		
 
 	}
 
@@ -107,28 +110,17 @@ public class LivroDeReceitas implements LivroReceitas {
 
 	public Map<Ingrediente, Integer> listaDeCompras(List<Receita> listaDeReceita) {
 		Map<Ingrediente, Integer> listaDeCompras = new HashMap<Ingrediente, Integer>();
-		
-		for(Receita umaReceita: listaDeReceita) {
-			for(Ingrediente umIngrediente: umaReceita.getListaDeIngredientes()) {
-				
-				listaDeCompras.getOrDefault(umIngrediente, 0); 
-				//verificar a quantidade, se o item já existir, pegar o item anterior
-				// se não quantidade = 0;
-				listaDeCompras.put(umIngrediente, (int) umIngrediente.getQuantidade());
+
+		for (Receita umaReceita : listaDeReceita) {
+			for (Ingrediente umIngrediente : umaReceita
+					.getListaDeIngredientes()) {
+
+				listaDeCompras.getOrDefault(umIngrediente, 0);
+				// procurar sobre o getordefault e terminar lista de compras
+				listaDeCompras.put(umIngrediente,
+						(int) umIngrediente.getQuantidade());
 			}
 		}
-		
-		
-		
-
 		return listaDeCompras;
 	}
 }
-
-// percorrer a lista de receita
-// ver os que tem mesmo nome
-// ver os que tem mesma unidade de medida
-// comparar com o proximo valor
-// somar as quantidades desses produtos
-// mostrar as strings O.o o.O O.o O.o o.O O.o
-
