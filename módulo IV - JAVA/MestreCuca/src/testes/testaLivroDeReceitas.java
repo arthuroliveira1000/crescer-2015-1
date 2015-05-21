@@ -9,11 +9,11 @@ import mestrecuca.Ingrediente;
 import mestrecuca.LivroDeReceitas;
 import mestrecuca.Receita;
 import mestrecuca.UnidadeMedida;
-import mestrecuca.nomeNaoEncontrado;
+import mestrecuca.NomeNaoEncontrado;
 
 import org.junit.Test;
 
-public class testaLivroDeReceitas {
+public class TestaLivroDeReceitas {
 
 	@Test(expected = NullPointerException.class)
 	public void naoInseriReceitaNula() {
@@ -185,7 +185,7 @@ public class testaLivroDeReceitas {
 				tudoGostoso.buscaReceitaPeloNome("Atum com salgadinho"));
 	}
 
-	@Test(expected = nomeNaoEncontrado.class)
+	@Test(expected = NomeNaoEncontrado.class)
 	public void buscaUmaReceitaPeloNomeVazioELancaExcecao() {
 		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
@@ -277,16 +277,15 @@ public class testaLivroDeReceitas {
 	public void somaDuasReceitas() {
 
 		// CRIA OS INGREDIENTES
-		Ingrediente atum = new Ingrediente("Atum", (float) 2.5, 2,
+		Ingrediente atum = new Ingrediente("Atum", 2.5, 2,
 				UnidadeMedida.UNIDADE);
-		Ingrediente abobrinha = new Ingrediente("Abobrinha", (float) 1.5, 2,
+		Ingrediente abobrinha = new Ingrediente("Abobrinha", 1.5, 2,
 				UnidadeMedida.UNIDADE);
 
-		Ingrediente pao = new Ingrediente("pao", (float) 4.0, 2,
+		Ingrediente pao = new Ingrediente("pao", 4.0, 2, UnidadeMedida.UNIDADE);
+		Ingrediente bife = new Ingrediente("Bife de carne", 7.5, 2,
 				UnidadeMedida.UNIDADE);
-		Ingrediente bife = new Ingrediente("Bife de carne", (float) 7.5, 2,
-				UnidadeMedida.UNIDADE);
-		Ingrediente bacon = new Ingrediente("Bacon", (float) 5.5, 2,
+		Ingrediente bacon = new Ingrediente("Bacon", 5.5, 2,
 				UnidadeMedida.UNIDADE);
 		// CRIA A LISTA DE INGREDIENTES E ADICIONA OS INGREDIENTES NAS
 		// RESPECTIVAS LISTAS

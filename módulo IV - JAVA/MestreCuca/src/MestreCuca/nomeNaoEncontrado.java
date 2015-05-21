@@ -1,8 +1,8 @@
 package mestrecuca;
 
-public class nomeNaoEncontrado extends RuntimeException{
+public class NomeNaoEncontrado extends RuntimeException{
 
-	public nomeNaoEncontrado(String mensagem){
+	public NomeNaoEncontrado(String mensagem){
 		System.out.println(mensagem);
 	}
 }
