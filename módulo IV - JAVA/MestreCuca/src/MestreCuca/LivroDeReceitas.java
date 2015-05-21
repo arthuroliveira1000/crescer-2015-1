@@ -18,8 +18,7 @@ public class LivroDeReceitas implements LivroReceitas {
 
 	@Override
 	public void atualizar(String nome, Receita receitaAtualizada) {
-			
-		
+
 		boolean argumentovalido = !receitaAtualizada.getNome().trim()
 				.equals("")
 				|| !(receitaAtualizada == null) || !nome.trim().equals("");
@@ -31,7 +30,6 @@ public class LivroDeReceitas implements LivroReceitas {
 				}
 			}
 		}
-		
 
 	}
 
@@ -108,17 +106,17 @@ public class LivroDeReceitas implements LivroReceitas {
 		return listaDeProtecaoAosAlergicos;
 	}
 
-	public Map<Ingrediente, Integer> listaDeCompras(List<Receita> listaDeReceita) {
-		Map<Ingrediente, Integer> listaDeCompras = new HashMap<Ingrediente, Integer>();
+	public Map<Ingrediente, Double> listaDeCompras(List<Receita> listaDeReceita) {
+		Map<Ingrediente, Double> listaDeCompras = new HashMap<Ingrediente, Double>();
 
 		for (Receita umaReceita : listaDeReceita) {
 			for (Ingrediente umIngrediente : umaReceita
 					.getListaDeIngredientes()) {
-
-				listaDeCompras.getOrDefault(umIngrediente, 0);
-				// procurar sobre o getordefault e terminar lista de compras
-				listaDeCompras.put(umIngrediente,
-						(int) umIngrediente.getQuantidade());
+				double quantidadeAcumulada = listaDeCompras.getOrDefault(
+						umIngrediente, 0.0);
+				double quantidadeDoIngrediente = umIngrediente.getQuantidade();
+				listaDeCompras.put(umIngrediente, quantidadeAcumulada
+						+ quantidadeDoIngrediente);
 			}
 		}
 		return listaDeCompras;
