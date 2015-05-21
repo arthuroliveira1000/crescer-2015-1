@@ -10,6 +10,14 @@ public class Ingrediente {
 	public Ingrediente(String nome) {
 		this.nome = nome;
 	}
+	public Ingrediente(String nome, float preco, float quantidade,
+			UnidadeMedida unidadeIngrediente) {
+		super();
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = quantidade;
+		this.unidadeIngrediente = unidadeIngrediente;
+	}
 
 	public String getNome() {
 		return nome;
@@ -73,6 +81,7 @@ public class Ingrediente {
 			return false;
 		return true;
 	}
+
 
 	
 }
