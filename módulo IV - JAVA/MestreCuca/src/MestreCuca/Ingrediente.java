@@ -3,14 +3,14 @@ package mestrecuca;
 public class Ingrediente {
 
 	private String nome;
-	private float preco;
+	private Double preco;
 	private float quantidade;
 	private UnidadeMedida unidadeIngrediente;
 
 	public Ingrediente(String nome) {
 		this.nome = nome;
 	}
-	public Ingrediente(String nome, float preco, float quantidade,
+	public Ingrediente(String nome, Double preco, float quantidade,
 			UnidadeMedida unidadeIngrediente) {
 		super();
 		this.nome = nome;
@@ -43,11 +43,11 @@ public class Ingrediente {
 		this.unidadeIngrediente = unidadeIngrediente;
 	}
 
-	public float getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(float preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 
