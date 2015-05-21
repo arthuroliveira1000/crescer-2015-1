@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LivroDeReceitas implements LivroReceitas {
+public class LivroDaVovo implements LivroReceitas {
 
 	private List<Receita> listaDeReceitas = new ArrayList<Receita>();
 
@@ -19,6 +19,14 @@ public class LivroDeReceitas implements LivroReceitas {
 	@Override
 	public void atualizar(String nome, Receita receitaAtualizada) {
 
+		
+		/*
+		Receita receita = buscaReceitaPeloNome(nome);
+		int indice = listaDeReceitas.indexOf(receita);
+		receitas.set(indice, receitaAtualizada);
+		*/
+		
+		
 		boolean argumentovalido = !receitaAtualizada.getNome().trim()
 				.equals("")
 				|| !(receitaAtualizada == null) || !nome.trim().equals("");
@@ -66,7 +74,7 @@ public class LivroDeReceitas implements LivroReceitas {
 		if (receitaAchada != null) {
 			return receitaAchada;
 		} else {
-			throw new nomeNaoEncontrado("Nome da Receita não encontrado!");
+			throw new NomeNaoEncontrado("Nome da Receita não encontrado!");
 		}
 	}
 
