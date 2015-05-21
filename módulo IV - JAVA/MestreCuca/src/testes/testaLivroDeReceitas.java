@@ -5,13 +5,13 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import mestrecuca.Ingrediente;
+import mestrecuca.LivroDeReceitas;
+import mestrecuca.Receita;
+import mestrecuca.UnidadeMedida;
+import mestrecuca.nomeNaoEncontrado;
 
-import MestreCuca.Ingrediente;
-import MestreCuca.LivroDeReceitas;
-import MestreCuca.Receita;
-import MestreCuca.UnidadeMedida;
-import MestreCuca.nomeNaoEncontrado;
+import org.junit.Test;
 
 public class testaLivroDeReceitas {
 

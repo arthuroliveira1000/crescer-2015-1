@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import mestrecuca.Ingrediente;
+import mestrecuca.Receita;
+import mestrecuca.UnidadeMedida;
 
-import MestreCuca.Ingrediente;
-import MestreCuca.Receita;
-import MestreCuca.UnidadeMedida;
+import org.junit.Test;
 
 public class testaReceita {
 
