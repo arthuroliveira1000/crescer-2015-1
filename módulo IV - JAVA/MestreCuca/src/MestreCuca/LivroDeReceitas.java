@@ -80,7 +80,7 @@ public class LivroDeReceitas implements LivroReceitas {
 		return soma;
 	}
 
-	public List<Receita> protecaoAosAlergicos(
+	public List<Receita> buscaReceitasQueNaoPossuemIngredientesDaLista(
 			List<Ingrediente> listaDeIngredientesProibidos) {
 
 		List<Receita> listaDeProtecaoAosAlergicos = new ArrayList<Receita>();
