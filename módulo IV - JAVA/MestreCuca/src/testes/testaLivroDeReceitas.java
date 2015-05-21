@@ -10,6 +10,7 @@ import org.junit.Test;
 import MestreCuca.Ingrediente;
 import MestreCuca.LivroDeReceitas;
 import MestreCuca.Receita;
+import MestreCuca.UnidadeMedida;
 import MestreCuca.nomeNaoEncontrado;
 
 public class testaLivroDeReceitas {
@@ -91,7 +92,7 @@ public class testaLivroDeReceitas {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void naoAtualizaUmValorSeANovaReceitaForNula() {
+	public void naoAtualizaUmValorSeANovaReceitaForNulaELancaExcecao() {
 		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
@@ -183,9 +184,9 @@ public class testaLivroDeReceitas {
 		assertEquals(teste.buscaReceitaPeloNome("Atum com salgadinho"),
 				tudoGostoso.buscaReceitaPeloNome("Atum com salgadinho"));
 	}
-	
-	@Test(expected=nomeNaoEncontrado.class)
-	public void buscaUmaReceitaPeloNomeVazio() {
+
+	@Test(expected = nomeNaoEncontrado.class)
+	public void buscaUmaReceitaPeloNomeVazioELancaExcecao() {
 		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
@@ -199,7 +200,7 @@ public class testaLivroDeReceitas {
 		assertEquals(teste.buscaReceitaPeloNome(""),
 				tudoGostoso.buscaReceitaPeloNome(""));
 	}
-	
+
 	@Test
 	public void retornaDuasReceitasQueNaoTemFarofaEFrango() {
 
@@ -249,10 +250,12 @@ public class testaLivroDeReceitas {
 		System.out.println("TESTE");
 
 		System.out.println("ATUAL");
-		for (int i = 0; i < tudoGostoso.protecaoAosAlergicos(maisoumenos)
+		for (int i = 0; i < tudoGostoso
+				.buscaReceitasQueNaoPossuemIngredientesDaLista(maisoumenos)
 				.size(); i++) {
 
-			System.out.println(tudoGostoso.protecaoAosAlergicos(maisoumenos)
+			System.out.println(tudoGostoso
+					.buscaReceitasQueNaoPossuemIngredientesDaLista(maisoumenos)
 					.get(i).getNome());
 			// System.out.println(bacanas.get(i).getNome());
 		}
@@ -264,8 +267,56 @@ public class testaLivroDeReceitas {
 			System.out.println(bacanas.get(i).getNome());
 		}
 
-		assertEquals(bacanas, tudoGostoso.protecaoAosAlergicos(maisoumenos));
+		assertEquals(
+				bacanas,
+				tudoGostoso
+						.buscaReceitasQueNaoPossuemIngredientesDaLista(maisoumenos));
 	}
-	
-	
+
+	@Test
+	public void somaDuasReceitas() {
+
+		// CRIA OS INGREDIENTES
+		Ingrediente atum = new Ingrediente("Atum", (float) 2.5, 2,
+				UnidadeMedida.UNIDADE);
+		Ingrediente abobrinha = new Ingrediente("Abobrinha", (float) 1.5, 2,
+				UnidadeMedida.UNIDADE);
+
+		Ingrediente pao = new Ingrediente("pao", (float) 4.0, 2,
+				UnidadeMedida.UNIDADE);
+		Ingrediente bife = new Ingrediente("Bife de carne", (float) 7.5, 2,
+				UnidadeMedida.UNIDADE);
+		Ingrediente bacon = new Ingrediente("Bacon", (float) 5.5, 2,
+				UnidadeMedida.UNIDADE);
+		// CRIA A LISTA DE INGREDIENTES E ADICIONA OS INGREDIENTES NAS
+		// RESPECTIVAS LISTAS
+		List<Ingrediente> listaDeIngredientesHamburguer = new ArrayList<>();
+		listaDeIngredientesHamburguer.add(pao);
+		listaDeIngredientesHamburguer.add(bife);
+		listaDeIngredientesHamburguer.add(bacon);
+
+		List<Ingrediente> listaDeIngredientesAtumComAbobrinha = new ArrayList<>();
+		listaDeIngredientesAtumComAbobrinha.add(atum);
+		listaDeIngredientesAtumComAbobrinha.add(abobrinha);
+
+		// CRIA AS DUAS RECEITAS E ADICIONA SUAS RESPECTIVAS LISTAS DE
+		// INGREDIENTES
+		Receita atumComAbobrinha = new Receita("Atum com Abobrinha");
+		atumComAbobrinha
+				.setListaDeIngredientes(listaDeIngredientesAtumComAbobrinha);
+
+		Receita hamburguer = new Receita("Hamburguer");
+		hamburguer.setListaDeIngredientes(listaDeIngredientesHamburguer);
+
+		// CRIA UMA LISTA DE RECEITAS E ADICIONA AS DUAS CRIADAS ANTERIORMENTE
+		List<Receita> listaDeReceitas = new ArrayList<Receita>();
+		listaDeReceitas.add(atumComAbobrinha);
+		listaDeReceitas.add(hamburguer);
+
+		// CRIA NOVO LIVRO DE RECEITAS
+		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+
+		assertEquals(21, tudoGostoso.somaDasReceitas(listaDeReceitas), 0.0005);
+	}
+
 }
