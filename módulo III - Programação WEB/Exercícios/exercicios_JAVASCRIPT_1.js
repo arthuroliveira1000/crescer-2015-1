@@ -1,6 +1,6 @@
 	//1  
 	
-	var contagemtitulos = [ arsenal, chelsea, liverpool, manchesterunited];
+	var contagemtitulos = [arsenal, chelsea, liverpool, manchesterunited];
 
 	var arsenal = {
 	  nome: 'Arsenal Football Club',
@@ -90,17 +90,11 @@
 	Crie uma função chamada somarPorNacionais(Array) que recebe o array de clubes e retorna o 
 	somatório de todas quantidades de títulos nacionais entre os clubes do array.
 		
-		
-		USANDO O MAP E REDUCE ??????????????
 		var somarPorMap = function(arr, mapFn) {
 		  return arr.map(mapFn).reduce(function(a,b) {
 		  return a + b;
 		  });
 		};
- 
-		
-		
-		
 		*/
 		
 	function somarPorNacionais(array) {
@@ -109,8 +103,7 @@
 		
 		for(var i = 0; i < array.length; i++) {
 			soma+= array[i].titulos[0].qtd; 
-		}
-		 
+		} 
 		 return soma;
 	}	
 	
@@ -129,6 +122,9 @@
 		  );
 		})(clubes);
 		
+		MAP - tem que ter uma function(i) para pegar cada item do array
+		REDUCE - também precisa de uma function(a, b) para fazer o método de ordenação tipo bubblesort para "reduzir" os 
+		valores de um array em um só
 		
 		*/
 		
