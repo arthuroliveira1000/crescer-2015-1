@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mestrecuca.Ingrediente;
-import mestrecuca.LivroDeReceitas;
+import mestrecuca.LivroDaVovo;
 import mestrecuca.Receita;
 import mestrecuca.UnidadeMedida;
 import mestrecuca.NomeNaoEncontrado;
@@ -18,23 +18,23 @@ public class TestaLivroDeReceitas {
 	@Test(expected = NullPointerException.class)
 	public void naoInseriReceitaNula() {
 
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		tudoGostoso.inserir(null);
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(null);
 		assertEquals(teste.getTodasReceitas(), tudoGostoso.getTodasReceitas());
 	}
 
 	@Test
 	public void inseriDoisValores() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 
 		tudoGostoso.inserir(abobrinha);
 		tudoGostoso.inserir(atumComSalgadinho);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		assertEquals(teste.getTodasReceitas(), tudoGostoso.getTodasReceitas());
@@ -42,7 +42,7 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void atualizaUmValores() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 		Receita abobrinhaComQueijo = new Receita("Abobrinha com queijo");
@@ -50,7 +50,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.atualizar("Abobrinha", abobrinhaComQueijo);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.atualizar("Abobrinha", abobrinhaComQueijo);
@@ -59,7 +59,7 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void naoAtualizaUmValorComNomeVazio() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 		Receita abobrinhaComQueijo = new Receita("Abobrinha com queijo");
@@ -67,7 +67,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.atualizar("", abobrinhaComQueijo);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.atualizar("", abobrinhaComQueijo);
@@ -76,7 +76,7 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void naoAtualizaUmValorComNomeDaNovaReceitaVazio() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 		Receita abobrinhaComQueijo = new Receita("");
@@ -84,7 +84,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.atualizar("abobrinha", abobrinhaComQueijo);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.atualizar("abobrinha", abobrinhaComQueijo);
@@ -93,7 +93,7 @@ public class TestaLivroDeReceitas {
 
 	@Test(expected = NullPointerException.class)
 	public void naoAtualizaUmValorSeANovaReceitaForNulaELancaExcecao() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 		Receita abobrinhaComQueijo = null;
@@ -101,7 +101,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.atualizar("abobrinha", abobrinhaComQueijo);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.atualizar("abobrinha", abobrinhaComQueijo);
@@ -110,7 +110,7 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void excluiUmValor() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 
@@ -118,7 +118,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.excluir("Abobrinha");
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.excluir("Abobrinha");
@@ -127,7 +127,7 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void naoExcluiUmValorPorQueOnomeEstaVazio() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 
@@ -135,7 +135,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.excluir("");
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.excluir("");
@@ -144,7 +144,7 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void buscaTodasReceitas() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 		Receita abobrinhacompresunto = new Receita("Abobrinha com Presunto");
@@ -154,7 +154,7 @@ public class TestaLivroDeReceitas {
 		tudoGostoso.excluir("Atum com salgadinho");
 		tudoGostoso.inserir(abobrinhacompresunto);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(abobrinha);
 		teste.inserir(atumComSalgadinho);
 		teste.excluir("Atum com salgadinho");
@@ -164,21 +164,21 @@ public class TestaLivroDeReceitas {
 
 	@Test
 	public void buscaListaDeReceitasVazia() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
+		LivroDaVovo teste = new LivroDaVovo();
 		assertEquals(teste.getTodasReceitas(), tudoGostoso.getTodasReceitas());
 	}
 
 	@Test
 	public void buscaUmaReceitaPeloNome() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.inserir(abobrinha);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(atumComSalgadinho);
 		teste.inserir(abobrinha);
 		assertEquals(teste.buscaReceitaPeloNome("Atum com salgadinho"),
@@ -187,14 +187,14 @@ public class TestaLivroDeReceitas {
 
 	@Test(expected = NomeNaoEncontrado.class)
 	public void buscaUmaReceitaPeloNomeVazioELancaExcecao() {
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
 
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.inserir(abobrinha);
 
-		LivroDeReceitas teste = new LivroDeReceitas();
+		LivroDaVovo teste = new LivroDaVovo();
 		teste.inserir(atumComSalgadinho);
 		teste.inserir(abobrinha);
 		assertEquals(teste.buscaReceitaPeloNome(""),
@@ -236,7 +236,7 @@ public class TestaLivroDeReceitas {
 		frangoComFarofa.setListaDeIngredientes(maisoumenos);
 
 		// ADICIONA AS RECEITAS NO LIVRO DE RECEITA
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		tudoGostoso.inserir(atumComSalgadinho);
 		tudoGostoso.inserir(frangoComFarofa);
 		tudoGostoso.inserir(morangaCaramelizada);
@@ -313,7 +313,7 @@ public class TestaLivroDeReceitas {
 		listaDeReceitas.add(hamburguer);
 
 		// CRIA NOVO LIVRO DE RECEITAS
-		LivroDeReceitas tudoGostoso = new LivroDeReceitas();
+		LivroDaVovo tudoGostoso = new LivroDaVovo();
 
 		assertEquals(21, tudoGostoso.somaDasReceitas(listaDeReceitas), 0.0005);
 	}
