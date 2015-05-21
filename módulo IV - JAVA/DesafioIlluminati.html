@@ -5,19 +5,18 @@
 	</head>
 	<body>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script>
-				
+		<script>	
 			var resposta = {resposta: '4838'};
-			//objeto sempre resposta
+			//EXERCÍCIO 7
 			 $.ajax({
 			 url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=2a778e3dc49e', 
 			 type: "POST",
 			 dataType:'json', 
 			 contentType: 'application/json; charset=utf-8;',
 			 data: JSON.stringify(resposta)
+			 
 		}).done(function(jsonRetornado) {
 			var somaDosAtributosDoArrayDadosQueEstaoINCLUIDO = 0;
-			
 			for(var i = 0; i < jsonRetornado.dados.length; i++) {
 				if(jsonRetornado.dados[i].status === "INCLUIDO") {
 				somaDosAtributosDoArrayDadosQueEstaoINCLUIDO += jsonRetornado.dados[i].data;
@@ -25,14 +24,10 @@
 			};
 			
 			console.log(somaDosAtributosDoArrayDadosQueEstaoINCLUIDO);
-		
-		
-		
-		
 		});
 		</script>
 		
-		<!--
+		<!-- ANOTAÇÕES E GABARITO
 		GET - busca algo no endereco
 		POST - envia algo para o endereço
 		datatype - tipo de informação que será enviada
@@ -42,9 +37,7 @@
 		fail - quando não da certo
 		always - como o nome já diz, executa sempre
 		
-		
-		
-		exercicio 3 
+		exercício 3:
 		done(function(res) {
 				var soma = 	res.dados.reduce(function(a, b) {
 					return a + b;
@@ -54,7 +47,7 @@
 		
 		}); 
 
-		exercicio 4 
+		exercício 4:
 		var resposta = {resposta: '4394'};
 			//objeto sempre resposta
 			 $.ajax({
@@ -74,7 +67,7 @@
 		
 		});
 		
-		exercício 5
+		exercício 5:
 		var resposta = {resposta: '1299'};
 			//objeto sempre resposta
 			 $.ajax({
@@ -94,7 +87,7 @@
 		
 		});
 		
-		exercício 6
+		exercício 6:
 		var resposta = {resposta: '4687'};
 			//objeto sempre resposta
 			 $.ajax({
@@ -111,9 +104,6 @@
 			};
 			
 			console.log(somaDosAtributosDoArrayDados);
-		
-		
-
 		-->
 	</body>
 </html>
