@@ -1,0 +1,120 @@
+﻿<!doctype>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+				
+			var resposta = {resposta: '4838'};
+			//objeto sempre resposta
+			 $.ajax({
+			 url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=2a778e3dc49e', 
+			 type: "POST",
+			 dataType:'json', 
+			 contentType: 'application/json; charset=utf-8;',
+			 data: JSON.stringify(resposta)
+		}).done(function(jsonRetornado) {
+			var somaDosAtributosDoArrayDadosQueEstaoINCLUIDO = 0;
+			
+			for(var i = 0; i < jsonRetornado.dados.length; i++) {
+				if(jsonRetornado.dados[i].status === "INCLUIDO") {
+				somaDosAtributosDoArrayDadosQueEstaoINCLUIDO += jsonRetornado.dados[i].data;
+				}
+			};
+			
+			console.log(somaDosAtributosDoArrayDadosQueEstaoINCLUIDO);
+		
+		
+		
+		
+		});
+		</script>
+		
+		<!--
+		GET - busca algo no endereco
+		POST - envia algo para o endereço
+		datatype - tipo de informação que será enviada
+		type - ação que será tomada
+		json.stringify() - transforma um valor javascript para uma string json
+		done - quando a ação foi feita com sucesso - codigo 200 - OK
+		fail - quando não da certo
+		always - como o nome já diz, executa sempre
+		
+		
+		
+		exercicio 3 
+		done(function(res) {
+				var soma = 	res.dados.reduce(function(a, b) {
+					return a + b;
+					});
+					
+					console.log(soma);
+		
+		}); 
+
+		exercicio 4 
+		var resposta = {resposta: '4394'};
+			//objeto sempre resposta
+			 $.ajax({
+			 url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=2a778e3dc49e', 
+			 type: "POST",
+			 dataType:'json', 
+			 contentType: 'application/json; charset=utf-8;',
+			 data: JSON.stringify(resposta)
+		}).done(function(res) {
+				var total = 0;
+				for (var i = 0; i < res.dados.length; i++) {
+					if(typeof res.dados[i] === "number") {
+					total += res.dados[i];
+					}
+				}
+					console.log(total);
+		
+		});
+		
+		exercício 5
+		var resposta = {resposta: '1299'};
+			//objeto sempre resposta
+			 $.ajax({
+			 url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=2a778e3dc49e', 
+			 type: "GET",
+			 dataType:'json', 
+			 contentType: 'application/json; charset=utf-8;',
+			 data: JSON.stringify(resposta)
+		}).done(function(jsonRetornado) {
+				var somaDosNumerosMultiplos = 0;
+				for (var i = 0; i < jsonRetornado.dados.length; i++) {
+					if(jsonRetornado.dados[i] % 3 === 0) {
+					somaDosNumerosMultiplos += jsonRetornado.dados[i];
+					}
+				}
+					console.log(somaDosNumerosMultiplos);
+		
+		});
+		
+		exercício 6
+		var resposta = {resposta: '4687'};
+			//objeto sempre resposta
+			 $.ajax({
+			 url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=2a778e3dc49e', 
+			 type: "GET",
+			 dataType:'json', 
+			 contentType: 'application/json; charset=utf-8;',
+			 data: JSON.stringify(resposta)
+		}).done(function(jsonRetornado) {
+			var somaDosAtributosDoArrayDados = 0;
+			
+			for(var i = 0; i < jsonRetornado.dados.length; i++) {
+				somaDosAtributosDoArrayDados += jsonRetornado.dados[i].data;
+			};
+			
+			console.log(somaDosAtributosDoArrayDados);
+		
+		
+
+		-->
+	</body>
+</html>
+
