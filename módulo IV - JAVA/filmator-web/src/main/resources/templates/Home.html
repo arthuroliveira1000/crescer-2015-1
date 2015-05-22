@@ -1,0 +1,14 @@
+<html>
+	<body>
+		
+		<form action="/salvar" method="post">
+			<input name="nome" placeholder="Digite o nome do filme aqui"><p>
+			 <select name="genero">
+				 {{#generos}}
+            		<option value="{{name}}">{{descricao}}</option>
+       			 {{/generos}}
+			</select>
+			<button>Cadastrar</button>
+		</form>
+	</body>
+</html>
