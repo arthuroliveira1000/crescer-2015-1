@@ -29,8 +29,14 @@ public class Receita {
 		}
 		return custoDaReceita;
 	}
-	
-	
+
+	public void adicionarIngrediente(Ingrediente ingrediente) {
+		this.listaDeIngredientes.add(ingrediente);
+	}
+
+	public void adicionarInstrucao(Instrucao instrucao) {
+		this.listaDeInstrucoes.add(instrucao);
+	}
 
 	public String getNome() {
 		return nome;

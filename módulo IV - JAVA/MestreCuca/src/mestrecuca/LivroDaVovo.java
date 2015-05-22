@@ -9,46 +9,34 @@ public class LivroDaVovo implements LivroReceitas {
 
 	private List<Receita> listaDeReceitas = new ArrayList<Receita>();
 
-	@Override
-	public void inserir(Receita receita) {
-		if (!(receita.getNome().trim().equals("")) || !(receita == null)) {
-			listaDeReceitas.add(receita);
+	private void validaReceita(Receita receita) {
+		String nome = receita.getNome();
+		if (nome == null || nome.trim().equals("")) {
+			throw new IllegalArgumentException(
+					"Nome de receita nulo ou inválido");
 		}
 	}
 
 	@Override
-	public void atualizar(String nome, Receita receitaAtualizada) {
+	public void inserir(Receita novaReceita) {
+		validaReceita(novaReceita);
+		listaDeReceitas.add(novaReceita);
+	}
 
-		
-		/*
-		Receita receita = buscaReceitaPeloNome(nome);
-		int indice = listaDeReceitas.indexOf(receita);
-		receitas.set(indice, receitaAtualizada);
-		*/
-		
-		
-		boolean argumentovalido = !receitaAtualizada.getNome().trim()
-				.equals("")
-				|| !(receitaAtualizada == null) || !nome.trim().equals("");
-
-		if (argumentovalido) {
-			for (int x = 0; x < listaDeReceitas.size(); x++) {
-				if (listaDeReceitas.get(x).getNome().equals(nome)) {
-					listaDeReceitas.set(x, receitaAtualizada);
-				}
-			}
-		}
-
+	@Override
+	public void atualizar(String nome, Receita novaReceita) {
+		validaReceita(novaReceita);
+		Receita receitaAux = buscaReceitaPeloNome(nome);
+		int indice = listaDeReceitas.indexOf(receitaAux);
+		listaDeReceitas.set(indice, novaReceita);
 	}
 
 	@Override
 	public void excluir(String nome) {
 		if (!nome.trim().equals("")) {
-			for (int x = 0; x < listaDeReceitas.size(); x++) {
-				if (listaDeReceitas.get(x).getNome().equals(nome)) {
-					listaDeReceitas.remove(x);
-				}
-			}
+			Receita receitaAux = buscaReceitaPeloNome(nome);
+			int indice = listaDeReceitas.indexOf(receitaAux);
+			listaDeReceitas.remove(indice);
 		}
 
 	}
@@ -60,22 +48,15 @@ public class LivroDaVovo implements LivroReceitas {
 
 	@Override
 	public Receita buscaReceitaPeloNome(String nome) {
-
-		Receita receitaAchada = null;
-
+		Receita receitaAchada;
 		if (!nome.equals("")) {
 			for (int x = 0; x < listaDeReceitas.size(); x++) {
 				if (listaDeReceitas.get(x).getNome().equals(nome)) {
-					receitaAchada = listaDeReceitas.get(x);
+					return receitaAchada = listaDeReceitas.get(x);
 				}
 			}
 		}
-
-		if (receitaAchada != null) {
-			return receitaAchada;
-		} else {
-			throw new NomeNaoEncontrado("Nome da Receita não encontrado!");
-		}
+		throw new ReceitaNaoEncontradaException(nome);
 	}
 
 	public float somaDasReceitas(List<Receita> lista) {
@@ -87,9 +68,9 @@ public class LivroDaVovo implements LivroReceitas {
 	}
 
 	public List<Receita> buscaReceitasQueNaoPossuemIngredientesDaLista(
-			List<Ingrediente> listaDeIngredientesProibidos) {
+			List<Ingrediente> ingredientesProibidos) {
 
-		List<Receita> listaDeProtecaoAosAlergicos = new ArrayList<Receita>();
+		List<Receita> receitas = new ArrayList<Receita>();
 		int cont = 0;
 
 		for (int x = 0; x < listaDeReceitas.size(); x++) {
@@ -97,9 +78,9 @@ public class LivroDaVovo implements LivroReceitas {
 			for (int z = 0; z < listaDeReceitas.get(x).getListaDeIngredientes()
 					.size(); z++) {
 
-				for (int y = 0; y < listaDeIngredientesProibidos.size(); y++) {
+				for (int y = 0; y < ingredientesProibidos.size(); y++) {
 
-					if (listaDeIngredientesProibidos.get(y).equals(
+					if (ingredientesProibidos.get(y).equals(
 							listaDeReceitas.get(x).getListaDeIngredientes()
 									.get(z))) {
 						cont++;
@@ -107,11 +88,11 @@ public class LivroDaVovo implements LivroReceitas {
 				}
 			}
 			if (cont == 0) {
-				listaDeProtecaoAosAlergicos.add(listaDeReceitas.get(x));
+				receitas.add(listaDeReceitas.get(x));
 			}
 
 		}
-		return listaDeProtecaoAosAlergicos;
+		return receitas;
 	}
 
 	public Map<Ingrediente, Double> listaDeCompras(List<Receita> listaDeReceita) {

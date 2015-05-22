@@ -17,10 +17,10 @@ public class TestaReceita {
 	public void testaCalculaCustoDaReceitaComDoisIngredientes() {
 
 		Receita atumComAbobrinha = new Receita("Atum com Abobrinha");
-		Ingrediente atum = new Ingrediente("Atum", 2.5, 2,
-				UnidadeMedida.UNIDADE);
-		Ingrediente abobrinha = new Ingrediente("Abobrinha", 1.5, 2,
-				UnidadeMedida.UNIDADE);
+		Ingrediente atum = new Ingrediente("Atum", UnidadeMedida.UNIDADE, 2.0,
+				2.5);
+		Ingrediente abobrinha = new Ingrediente("Abobrinha",
+				UnidadeMedida.UNIDADE, 2.0, 1.5);
 
 		List<Ingrediente> listaDeIngredientes = new ArrayList<>();
 		listaDeIngredientes.add(atum);
@@ -35,12 +35,12 @@ public class TestaReceita {
 	public void garanteQueUmaReceitaTenhaSoOQuePrecisa() {
 
 		Receita atumComAbobrinha = new Receita("Atum com Abobrinha");
-		Ingrediente atum = new Ingrediente("Atum", 2.5, 2,
-				UnidadeMedida.UNIDADE);
-		Ingrediente abobrinha = new Ingrediente("Abobrinha", 1.5, 2,
-				UnidadeMedida.KG);
-		Ingrediente oregano = new Ingrediente("Oregano", 1.0, 2,
-				UnidadeMedida.UNIDADE);
+		Ingrediente atum = new Ingrediente("Atum", UnidadeMedida.UNIDADE, 2.0,
+				2.5);
+		Ingrediente abobrinha = new Ingrediente("Abobrinha", UnidadeMedida.KG,
+				2.0, 1.5);
+		Ingrediente oregano = new Ingrediente("Oregano", UnidadeMedida.UNIDADE,
+				2.0, 1.0);
 
 		List<Ingrediente> listaDeIngredientes = new ArrayList<>();
 		listaDeIngredientes.add(atum);

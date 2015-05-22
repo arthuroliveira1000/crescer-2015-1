@@ -1,19 +1,22 @@
 package testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import mestrecuca.Ingrediente;
 import mestrecuca.LivroDaVovo;
 import mestrecuca.Receita;
+import mestrecuca.ReceitaNaoEncontradaException;
 import mestrecuca.UnidadeMedida;
-import mestrecuca.NomeNaoEncontrado;
 
 import org.junit.Test;
 
-public class TestaLivroDeReceitas {
+public class TestaLivroDaVovo {
 
 	@Test(expected = NullPointerException.class)
 	public void naoInseriReceitaNula() {
@@ -41,7 +44,7 @@ public class TestaLivroDeReceitas {
 	}
 
 	@Test
-	public void atualizaUmValores() {
+	public void atualizaUmValor() {
 		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
 		Receita abobrinha = new Receita("Abobrinha");
@@ -57,7 +60,7 @@ public class TestaLivroDeReceitas {
 		assertEquals(teste.getTodasReceitas(), tudoGostoso.getTodasReceitas());
 	}
 
-	@Test
+	@Test(expected = ReceitaNaoEncontradaException.class)
 	public void naoAtualizaUmValorComNomeVazio() {
 		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
@@ -74,7 +77,7 @@ public class TestaLivroDeReceitas {
 		assertEquals(teste.getTodasReceitas(), tudoGostoso.getTodasReceitas());
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void naoAtualizaUmValorComNomeDaNovaReceitaVazio() {
 		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
@@ -185,7 +188,7 @@ public class TestaLivroDeReceitas {
 				tudoGostoso.buscaReceitaPeloNome("Atum com salgadinho"));
 	}
 
-	@Test(expected = NomeNaoEncontrado.class)
+	@Test(expected = ReceitaNaoEncontradaException.class)
 	public void buscaUmaReceitaPeloNomeVazioELancaExcecao() {
 		LivroDaVovo tudoGostoso = new LivroDaVovo();
 		Receita atumComSalgadinho = new Receita("Atum com salgadinho");
@@ -277,15 +280,16 @@ public class TestaLivroDeReceitas {
 	public void somaDuasReceitas() {
 
 		// CRIA OS INGREDIENTES
-		Ingrediente atum = new Ingrediente("Atum", 2.5, 2,
-				UnidadeMedida.UNIDADE);
-		Ingrediente abobrinha = new Ingrediente("Abobrinha", 1.5, 2,
-				UnidadeMedida.UNIDADE);
+		Ingrediente atum = new Ingrediente("Atum", UnidadeMedida.UNIDADE, 2.0,
+				2.5);
+		Ingrediente abobrinha = new Ingrediente("Abobrinha",
+				UnidadeMedida.UNIDADE, 2.0, 1.5);
 
-		Ingrediente pao = new Ingrediente("pao", 4.0, 2, UnidadeMedida.UNIDADE);
-		Ingrediente bife = new Ingrediente("Bife de carne", 7.5, 2,
+		Ingrediente pao = new Ingrediente("pao", 4.0, 2.0,
 				UnidadeMedida.UNIDADE);
-		Ingrediente bacon = new Ingrediente("Bacon", 5.5, 2,
+		Ingrediente bife = new Ingrediente("Bife de carne", 7.5, 2.0,
+				UnidadeMedida.UNIDADE);
+		Ingrediente bacon = new Ingrediente("Bacon", 5.5, 2.0,
 				UnidadeMedida.UNIDADE);
 		// CRIA A LISTA DE INGREDIENTES E ADICIONA OS INGREDIENTES NAS
 		// RESPECTIVAS LISTAS
@@ -318,4 +322,70 @@ public class TestaLivroDeReceitas {
 		assertEquals(21, tudoGostoso.somaDasReceitas(listaDeReceitas), 0.0005);
 	}
 
+	@Test
+	public void geraListaDeComprasAgrupandoProdutosComMesmaUnidade()
+			throws Exception {
+		// Arrange
+		LivroDaVovo livro = new LivroDaVovo();
+		Receita feijoada = new Receita("Feijoada com Queijo e Mel");
+		feijoada.adicionarIngrediente(new Ingrediente("Mel",
+				UnidadeMedida.COLHER_SOPA, 1.0, 10.0));
+		feijoada.adicionarIngrediente(new Ingrediente("Queijo",
+				UnidadeMedida.KG, 1.0, 5.0));
+		livro.inserir(feijoada);
+
+		Receita arroz = new Receita("Arroz com Queijo");
+		arroz.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.KG,
+				2.0, 10.0));
+		livro.inserir(arroz);
+
+		// Act
+		Map<Ingrediente, Double> listaDeCompras = livro.listaDeCompras(Arrays
+				.asList(feijoada, arroz));
+
+		// Assert
+		assertEquals(2, listaDeCompras.size());
+		assertTrue("Deve conter queijo na lista de compras",
+				listaDeCompras.containsKey(new Ingrediente("Queijo",
+						UnidadeMedida.KG)));
+		assertTrue("Deve conter mel na lista de compras",
+				listaDeCompras.containsKey(new Ingrediente("Mel",
+						UnidadeMedida.COLHER_SOPA)));
+	}
+
+	@Test
+	public void geraListaDeComprasAgrupandoProdutosComUnidadesDiferentes()
+			throws Exception {
+		// Arrange
+		LivroDaVovo livro = new LivroDaVovo();
+		Receita feijoada = new Receita("Feijoada com Queijo e Mel");
+		feijoada.adicionarIngrediente(new Ingrediente("Mel",
+				UnidadeMedida.COLHER_SOPA, 1.0, 10.0));
+		feijoada.adicionarIngrediente(new Ingrediente("Queijo",
+				UnidadeMedida.KG, 1.0, 5.0));
+		livro.inserir(feijoada);
+
+		Receita arroz = new Receita("Arroz com Queijo");
+		arroz.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.KG,
+				2.0, 10.0));
+		arroz.adicionarIngrediente(new Ingrediente("Mel",
+				UnidadeMedida.COLHER_CHA, 1.0, 10.0));
+		livro.inserir(arroz);
+
+		// Act
+		Map<Ingrediente, Double> listaDeCompras = livro.listaDeCompras(Arrays
+				.asList(feijoada, arroz));
+
+		// Assert
+		assertEquals(3, listaDeCompras.size());
+		assertTrue("Deve conter queijo na lista de compras",
+				listaDeCompras.containsKey(new Ingrediente("Queijo",
+						UnidadeMedida.KG)));
+		assertTrue("Deve conter colhe de sopa de mel na lista de compras",
+				listaDeCompras.containsKey(new Ingrediente("Mel",
+						UnidadeMedida.COLHER_SOPA)));
+		assertTrue("Deve conter colhe de chá de mel na lista de compras",
+				listaDeCompras.containsKey(new Ingrediente("Mel",
+						UnidadeMedida.COLHER_CHA)));
+	}
 }

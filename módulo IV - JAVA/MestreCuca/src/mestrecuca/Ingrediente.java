@@ -4,18 +4,31 @@ public class Ingrediente {
 
 	private String nome;
 	private Double preco;
-	private float quantidade;
+	private Double quantidade;
 	private UnidadeMedida unidadeIngrediente;
 
 	public Ingrediente(String nome) {
 		this.nome = nome;
 	}
-	public Ingrediente(String nome, Double preco, float quantidade,
-			UnidadeMedida unidadeIngrediente) {
-		super();
+
+	public Ingrediente(String nome, UnidadeMedida unidadeIngrediente,
+			Double quantidade, Double preco) {
 		this.nome = nome;
-		this.preco = preco;
+		this.unidadeIngrediente = unidadeIngrediente;
 		this.quantidade = quantidade;
+		this.preco = preco;
+	}
+
+	public Ingrediente(String nome, Double preco, Double quantidade,
+			UnidadeMedida unidadeIngrediente) {
+		this.nome = nome;
+		this.unidadeIngrediente = unidadeIngrediente;
+		this.quantidade = quantidade;
+		this.preco = preco;
+	}
+
+	public Ingrediente(String nome, UnidadeMedida unidadeIngrediente) {
+		this.nome = nome;
 		this.unidadeIngrediente = unidadeIngrediente;
 	}
 
@@ -31,7 +44,7 @@ public class Ingrediente {
 		return quantidade;
 	}
 
-	public void setQuantidade(float quantidade) {
+	public void setQuantidade(Double quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -82,6 +95,4 @@ public class Ingrediente {
 		return true;
 	}
 
-
-	
 }
