@@ -15,23 +15,22 @@ import filmator.model.Genero;
 @Controller
 public class HomeController {
 
+	//responsavel por persistir os dados no banco
 	private FilmeDao dao = new FilmeDao();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Filme filme, Model model) {
-		FilmeDao dao = new FilmeDao();
-		model.addAttribute("mensagem", "fulano de tal");
-		model.addAttribute("millisegundos", System.currentTimeMillis());
-		model.addAttribute("filmes", dao.buscaTodosFilmes());
 		model.addAttribute("generos", Genero.values());
-		
+		model.addAttribute("listaFilmes", dao.buscaTodosFilmes());
 		return "Home";
 	}
 
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(Filme filme, Model model) {
-		System.out.println(filme.getNome());
-		model.addAttribute("mensagem", filme.getNome() + " salvo com sucesso ");
+		
+		dao.salvar(filme);
+		model.addAttribute("generos", Genero.values());
+		model.addAttribute("listaFilmes", dao.buscaTodosFilmes());
 		return "Home";
 	}
 }

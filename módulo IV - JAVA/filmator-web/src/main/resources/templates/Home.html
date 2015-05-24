@@ -1,14 +1,93 @@
 <html>
-	<body>
+	<head>
+	
+	<title> Filmator</title>
+		<style>
 		
+		html, body{
+			font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			margin: 0;
+			padding: 0;
+			background: url(../img/planodefundo.png) no-repeat;
+			overflow: hidden; 
+    		width: 100%;
+    		height: 100%;
+    		background-repeat: no-repeat;
+			-moz-background-size: 100% 100%;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+		}
+
+		.header{
+			position: fixed;
+			width:100%;
+			height: 9%;
+			display: block;
+			padding:10px 0;
+			background-color: #fff;
+			position: fixed;
+			position: relative;
+			z-index:100;
+			-webkit-box-shadow: 0 4px 6px -6px #222;
+		    -moz-box-shadow: 0 4px 6px -6px #222;
+		    box-shadow: 0 4px 6px -6px #222;
+		    font-size: 80px;
+		    font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			font-color: #fff;
+		}
+
+		.formCadastro {
+			background-color: #fff;
+			width: auto;
+			height: auto;
+			display: inline-block;
+			position: relative;
+			margin-left: 20px;
+			margin-top: 20px;
+			opacity: 0.6;
+			padding: 10px;
+			align-text: left;
+			filter: alpha(opacity=60);
+		}
+		button, textarea, input[type=text], input[type=number], select {
+			width: 300px;
+			height: 50px;
+		}
+		
+		h3, placeholder {
+			font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			font-color: #fff;
+		}
+		
+		
+
+</style>
+	<head>
+	
+	<body>
+	<div class="header">FILMATOR</div>
+		<div class="formCadastro">
+		<h3> Cadastre um Filme</h3>
 		<form action="/salvar" method="post">
-			<input name="nome" placeholder="Digite o nome do filme aqui"><p>
+			<input name="nome" type="text" placeholder="Nome do Filme"><p>
 			 <select name="genero">
 				 {{#generos}}
             		<option value="{{name}}">{{descricao}}</option>
        			 {{/generos}}
-			</select>
+			</select><p>
+			<input name="anoLancamento" type="text" placeholder="Ano de Lançamento"> <p>
+			<textarea name="sinopse" id="sinopse" placeholder="Sinopse">
+			</textarea> <p>
 			<button>Cadastrar</button>
 		</form>
+		</div>
+		<!--<ul>
+			{{#listaFilmes}}
+				<li>{{nome}} - {{genero.descricao}}</li>
+			{{/listaFilmes}}
+		</ul>	-->
 	</body>
 </html>
