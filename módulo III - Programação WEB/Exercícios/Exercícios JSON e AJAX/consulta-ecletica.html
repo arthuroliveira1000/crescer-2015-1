@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hallowed be thy name!</title>
+		<style>
+			h1 {
+				font-family: Calibri;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+			function buscaArtista() {
+				if(formulario.nomeArtista.value == "") {
+					alert("Digite o nome do artista!");
+					formulario.nomeArtista.focus();
+					} else {
+						$(function() {
+							$.ajax({
+							url: 'https://api.spotify.com/v1/search?q='+formulario.nomeArtista.value+'&type=artist',
+							type: 'GET'
+						}).done(function(data) {
+							if(data.artists.total == 0) {
+								alert("Artista Não Encontrado");
+							} else {						
+								var idDoArtista = data.artists.items[0].id;
+								
+								$(function() {
+									$.ajax({
+										url: 'https://api.spotify.com/v1/artists/'+idDoArtista+'/albums?limit=50',
+										type: 'GET'
+									}).done(function(data) {
+										data.items.forEach(function(i) {	
+										$("<h1>").text(i.name).appendTo("#capaDosAlbuns");
+										$("<img>").attr("src", i.images[1].url).appendTo("#capaDosAlbuns");
+										});
+									});
+									});	
+							}
+					});
+				});
+				}
+				}
+		</script>
+		<form method="post" name="formulario"> 
+			<label for="nomeArtista">Digite o nome do artista:</label>
+				<input type="text" name="nomeArtista" id="campoDeBusca"><p>
+				<button type="button" onClick="return buscaArtista()">Pesquisar</button> 
+		</form>
+		<div id="capaDosAlbuns"></div>	
+	</body>
+</html>
