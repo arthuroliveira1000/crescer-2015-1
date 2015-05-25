@@ -1,0 +1,76 @@
+html, body{
+			font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			margin: 0;
+			padding: 0;
+			background: url(../img/planodefundo.png) no-repeat;
+			overflow: hidden; 
+    		width: 100%;
+    		height: 100%;
+    		background-repeat: no-repeat;
+			-moz-background-size: 100% 100%;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+		}
+		.header{
+			position: fixed;
+			width:100%;
+			height: 9%;
+			display: block;
+			padding:10px 0;
+			background-color: #fff;
+			position: fixed;
+			position: relative;
+			z-index:100;
+			-webkit-box-shadow: 0 4px 6px -6px #222;
+		    -moz-box-shadow: 0 4px 6px -6px #222;
+		    box-shadow: 0 4px 6px -6px #222;
+		    font-size: 80px;
+		    font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			font-color: #fff;
+		}
+		.formCadastro {
+			
+		}
+		button, textarea, input[type=text], input[type=number], input[type=file], select, option {
+			width: 300px;
+			height: 50px;
+			font-size: 20px;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 20px;
+		}
+		h3 {
+			font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			font-color: #fff;
+		}
+		
+		.logo_position {
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+		
+		.listaDeFilmes {
+		
+		}
+		
+		.box {
+			background-color: #fff;
+			position: relative;
+			display: inline;
+			float: left;
+			width: auto;
+			height: auto;
+			margin-left: 20px;
+			margin-top: 20px;
+			opacity: 0.6;
+			padding: 10px;
+			align-text: left;
+			filter: alpha(opacity=60);
+		}
+		ul {
+			cellpadding:15; 
+			border:2;
+			style:border-collapse: collapse;
+		}

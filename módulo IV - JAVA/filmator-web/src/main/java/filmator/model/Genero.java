@@ -2,8 +2,8 @@ package filmator.model;
 
 public enum Genero {
 
-	OUTRO("Outro"),TERROR("Terror"), ACAO("Ação"), ROMANCE("Romance"), COMEDIA("Comédia"), COMEDIA_ROMANTICA(
-			"Comédia Romantica"), ANIMACAO("Animação"), SUSPENSE("Suspense");
+	TERROR("Terror"), ACAO("Ação"), ROMANCE("Romance"), COMEDIA("Comédia"), COMEDIA_ROMANTICA(
+			"Comédia Romantica"), ANIMACAO("Animação"), SUSPENSE("Suspense"), OUTRO("Outro");
 
 	private String descricao;
 
