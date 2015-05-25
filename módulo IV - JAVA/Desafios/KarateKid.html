@@ -6,13 +6,29 @@
 	<body>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script>	
-			//var nome = {nome: 'Arthur Oliveira'};
 			 $.ajax({
-			 url: 'http://karatekid.instaweb.com.br:4567/tarefas?nome=交代伉佈乘世什书从乍', 
-			 type: "GET",
-			// dataType:'json',
-			// contentType: 'application/json; charset=utf-8;',
-			 //data: JSON.stringify(nome) 
+			 url:'http://karatekid.instaweb.com.br:4567/apresentar?nome=arthur', 
+			 type: "POST",
+		}).done(function(res) {
+			var nomeJapones = res.nome;
+			console.log(nomeJapones);
+				$.ajax({
+				url:'http://karatekid.instaweb.com.br:4567/tarefas?nome='+nomeJapones, 
+				type: "GET"
+		}).done(function(res) {
+				$.ajax({
+				url:'http://karatekid.instaweb.com.br:4567/'+res.atividades[0].atividade+'?nome='+nomeJapones, 
+				type:"POST"
+			});
+			 $.ajax({
+				url:'http://karatekid.instaweb.com.br:4567/'+res.atividades[1].atividade+'?nome='+nomeJapones, 
+				type:"POST"
+			});
+			$.ajax({
+				url:'http://karatekid.instaweb.com.br:4567/'+res.atividades[2].atividade+'?nome='+nomeJapones, 
+				type:"POST"
+			})
+		});
 		});
 		</script>
 		</body>
