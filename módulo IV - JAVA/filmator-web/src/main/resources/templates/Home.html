@@ -1,9 +1,7 @@
 <html>
 	<head>
-	
 	<title> Filmator</title>
 		<style>
-		
 		html, body{
 			font-family: 'Open Sans', sans-serif;
 			font-size: 100%;
@@ -18,7 +16,6 @@
 			-webkit-background-size: 100% 100%;
 			background-size: 100% 100%;
 		}
-
 		.header{
 			position: fixed;
 			width:100%;
@@ -37,13 +34,38 @@
 			font-size: 100%;
 			font-color: #fff;
 		}
-
 		.formCadastro {
+			
+		}
+		button, textarea, input[type=text], input[type=number], input[type=file], select, option {
+			width: 300px;
+			height: 50px;
+			font-size: 20px;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 20px;
+		}
+		h3 {
+			font-family: 'Open Sans', sans-serif;
+			font-size: 100%;
+			font-color: #fff;
+		}
+		
+		.logo_position {
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+		
+		.listaDeFilmes {
+		
+		}
+		
+		.box {
 			background-color: #fff;
+			position: relative;
+			display: inline;
+			float: left;
 			width: auto;
 			height: auto;
-			display: inline-block;
-			position: relative;
 			margin-left: 20px;
 			margin-top: 20px;
 			opacity: 0.6;
@@ -51,43 +73,78 @@
 			align-text: left;
 			filter: alpha(opacity=60);
 		}
-		button, textarea, input[type=text], input[type=number], select {
-			width: 300px;
-			height: 50px;
+		ul {
+			cellpadding:15; 
+			border:2;
+			style:border-collapse: collapse;
 		}
-		
-		h3, placeholder {
-			font-family: 'Open Sans', sans-serif;
-			font-size: 100%;
-			font-color: #fff;
-		}
-		
-		
-
-</style>
-	<head>
+		</style>
+	</head>
 	
 	<body>
-	<div class="header">FILMATOR</div>
-		<div class="formCadastro">
-		<h3> Cadastre um Filme</h3>
-		<form action="/salvar" method="post">
-			<input name="nome" type="text" placeholder="Nome do Filme"><p>
-			 <select name="genero">
-				 {{#generos}}
-            		<option value="{{name}}">{{descricao}}</option>
-       			 {{/generos}}
-			</select><p>
-			<input name="anoLancamento" type="text" placeholder="Ano de Lançamento"> <p>
-			<textarea name="sinopse" id="sinopse" placeholder="Sinopse">
-			</textarea> <p>
-			<button>Cadastrar</button>
-		</form>
+	
+	<script>
+		function validaFormulario() {
+			var formulario = document.form_cadastro;
+			if(formulario.nome.value == "" || formulario.anoLancamento.value == "" || formulario.sinopse.value =="" || formulario.genero.value=="") {
+				alert("Para o cadastramento do filme, todos os campos precisam estar preenchidos!");
+				} else {
+					document.form_cadastro.submit();
+					alert(formulario.nome.value + " cadastrado com sucesso!");
+				}
+		}
+	</script>
+	
+	<script>
+		function validaImagem() {
+				var inputFile = document.getElementById('imagem');
+				var nomeArquivo = inputFile.value;
+				var valida = false;
+				var extensoesValidas = [ '.jpg', '.jpeg', '.png' ];
+				for (var i = 0, len = extensoesValidas.length; i < len; i++) {
+					var ext = extensoesValidas[i];
+					var apenasAExtensao = nomeArquivo.substring(nomeArquivo.length-ext.length, nomeArquivo.length).toLowerCase();
+										
+					if (apenasAExtensao === ext.toLowerCase()) {
+						valida = true;
+						break;
+					}
+				}
+				
+				if (valida === false) {
+					alert('Extensão inválida!');
+					inputFile.value = null;
+				}
+				
+				return valida;			}
+	</script>
+
+		<div class="header">
 		</div>
-		<!--<ul>
-			{{#listaFilmes}}
-				<li>{{nome}} - {{genero.descricao}}</li>
-			{{/listaFilmes}}
-		</ul>	-->
+		<div class="formCadastro box">
+			<h3> Cadastre um Filme</h3>
+			<form action="/salvar" method="post" name="form_cadastro">
+				<input name="nome" type="text" placeholder="Nome do Filme"><p>
+			 	<select name="genero">
+			 		 <option value="">Selecione o Genero do filme</option>
+				 	{{#generos}}
+            		<option value="{{name}}">{{descricao}}</option>
+       			 	{{/generos}}
+				</select><p>
+				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento"> <p>
+				<textarea name="sinopse" placeholder="Sinopse do Filme"></textarea> <p>
+				<input type="file" placeholder="Imagem da capa do filme" name="imagem" accept=".jpg,.jpeg,.png" onchange="return validaImagem();"/><p>
+				<button type="button" onClick="return validaFormulario()">Cadastrar</button>
+			</form>
+		</div>
+		
+		<div class="listaDeFilmes box">
+				<h3> Filmes cadastrados</h3>
+				<ul>
+				{{#listaFilmes}}
+					<li>{{nome}} - {{genero.descricao}} - {{anoLancamento}} - {{sinopse}}</li>
+				{{/listaFilmes}}
+			</ul>
+		</div>
 	</body>
 </html>
