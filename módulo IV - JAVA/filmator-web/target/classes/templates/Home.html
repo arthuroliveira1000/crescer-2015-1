@@ -9,17 +9,17 @@
 		</div>
 		<div class="formCadastro box">
 			<h3> Cadastre um Filme</h3>
-			<form action="/salvar" method="post" name="form_cadastro">
+			<form action="/inserir" method="post" name="form_cadastro">
 				<input name="nome" type="text" placeholder="Nome do Filme"><p>
 			 	<select name="genero">
-			 		 <option value="">Selecione o Genero do filme</option>
+			 		 <option value="">Selecione o Genero </option>
 				 	{{#generos}}
             		<option value="{{name}}">{{descricao}}</option>
        			 	{{/generos}}
 				</select><p>
 				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento"> <p>
-				<textarea name="sinopse" placeholder="Sinopse do Filme"></textarea> <p>
-				<input type="text" placeholder="URL da capa do filme" name="imagem"/><p>
+				<textarea name="sinopse" placeholder="Sinopse do Filme" ></textarea> <p>
+				<input type="text" placeholder="URL da capa do filme" name="capaDoFilme"/><p>
 				<button type="button" onClick="return validaFormulario()">Cadastrar</button>
 			</form>
 		</div>
@@ -27,9 +27,9 @@
 		<div class="listaDeFilmes box">
 				<h3> Filmes cadastrados</h3>
 				<ul>
-				{{#listaFilmes}}
-					<li>{{nome}} - {{genero.descricao}} - {{anoLancamento}} - {{sinopse}}</li>
-				{{/listaFilmes}}
+				{{#filmes}}
+					<li>{{nome}}</li>
+				{{/filmes}}
 			</ul>
 		</div>
 	</body>
