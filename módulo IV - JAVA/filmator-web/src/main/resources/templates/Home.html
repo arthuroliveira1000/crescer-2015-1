@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<div class="header">
+			<img src="../img/icon.png">
 		</div>
 		<div class="formCadastro box">
 			<h3> Cadastre um Filme</h3>
@@ -28,9 +29,39 @@
 				<h3> Filmes cadastrados</h3>
 				<ul>
 				{{#filmes}}
-					<li>{{nome}}</li>
+					<li>
+						<img src="{{capaDoFilme}}" width="100" height="100">
+						<h3>{{nome}}</h3>
+						<p>{{sinopse}}</p>
+					</li> 
 				{{/filmes}}
 			</ul>
 		</div>
+		
+		<div class="listaDeFilmes box">
+			<form name="form_pesquisa" action="/buscaFilme" method="POST">
+				<input name="nome" type="text" placeholder="Digite o nome do filme desejado"><p>
+				<button type="button" onClick="return validaFormularioPesquisa()">Pesquisar Filme</button><p>
+			</form>
+			<ul>
+				{{#filmeSelecionado}}
+					<li>
+					<h2>Ficha Técnica</h2>	
+						<img src="{{capaDoFilme}}" width="150" height="300">
+						<h3>{{nome}}</h3><p>
+						<h3>Lançado em: </h3>
+						<h4>{{anolancamento}}</h4><p>
+						<h3>Gênero: </h3><h4>{{genero.descricao}}<h4><p>
+						<h3>{{sinopse}}</h3>
+					</li> 
+				{{/filmeSelecionado}}
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+		
 	</body>
 </html>
