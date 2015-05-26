@@ -16,6 +16,21 @@ public class Filme {
 		this.nome = nome;
 	}
 
+	public Filme(String nome, String sinopse, String capaDoFilme) {
+		this.nome = nome;
+		this.sinopse = sinopse;
+		this.capaDoFilme = capaDoFilme;
+	}
+
+	public Filme(String nome, Genero genero, Integer anoLancamento,
+			String sinopse, String capaDoFilme) {
+		this.nome = nome;
+		this.genero = genero;
+		this.anoLancamento = anoLancamento;
+		this.sinopse = sinopse;
+		this.capaDoFilme = capaDoFilme;
+	}
+
 	public int getAnoLancamento() {
 		return anoLancamento;
 	}
