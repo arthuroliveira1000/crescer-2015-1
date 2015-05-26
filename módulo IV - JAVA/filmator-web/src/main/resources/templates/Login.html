@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title> Filmator</title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<script type="text/javascript" src="/js/javascript.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<img src="../img/icon.png">
+		</div>
+		<div class="formCadastro box">
+			<h3> Faça seu Login</h3>
+			<form action="/inserir" method="post" name="form_cadastro">
+				<input name="login" type="text" placeholder="Nome do Filme"><p>
+				<input type="text" placeholder="Senha" name="senha"/><p>
+				<button type="button" onClick="return validaFormulario()">Cadastrar</button>
+			</form>
+		</div>
+		
+		<div class="listaDeFilmes box">
+				<h3> Filmes cadastrados</h3>
+				<ul>
+				{{#filmes}}
+					<li>
+						<img src="{{capaDoFilme}}" width="100" height="100">
+						<h3>{{nome}}</h3>
+						<p>{{sinopse}}</p>
+					</li> 
+				{{/filmes}}
+			</ul>
+		</div>
+		
+		<div class="listaDeFilmes box">
+			<form name="form_pesquisa" action="/buscaFilme" method="POST">
+				<input name="nome" type="text" placeholder="Digite o nome do filme desejado"><p>
+				<button type="button" onClick="return validaFormularioPesquisa()">Pesquisar Filme</button><p>
+			</form>
+			<ul>
+				{{#filmeSelecionado}}
+					<li>
+					<h2>Ficha Técnica</h2>	
+						<img src="{{capaDoFilme}}" width="150" height="300">
+						<h3>{{nome}}</h3><p>
+						<h3>Lançado em: </h3>
+						<h4>{{anolancamento}}</h4><p>
+						<h3>Gênero: </h3><h4>{{genero.descricao}}<h4><p>
+						<h3>{{sinopse}}</h3>
+					</li> 
+				{{/filmeSelecionado}}
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>
