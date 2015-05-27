@@ -39,21 +39,26 @@ public class FilmeDAO {
 	}
 
 	public Filme buscaFilme(String nome) {
-		Filme filme = jdbcTemplate.queryForObject("", new RowMapper<Filme>() {
-			@Override
-			public Filme mapRow(ResultSet rs, int arg1) throws SQLException {
-				Filme filmeretornado = new Filme(rs.getString("nome"), Enum
-						.valueOf(Genero.class, rs.getString("genero")), rs
-						.getInt("anolancamento"), rs.getString("sinopse"), rs
-						.getString("cadadofilme"));
-				return filmeretornado;
-			}
-		});
+		Filme filme = jdbcTemplate.queryForObject(
+				"SELECT * FROM FILME WHERE nome = '" + nome + "'",
+				new RowMapper<Filme>() {
+					@Override
+					public Filme mapRow(ResultSet rs, int arg1)
+							throws SQLException {
+						Filme filmeretornado = new Filme(rs.getString("nome"),
+								Enum.valueOf(Genero.class,
+										rs.getString("genero")), rs
+										.getInt("anolancamento"), rs
+										.getString("sinopse"), rs
+										.getString("capadofilme"));
+						return filmeretornado;
+					}
+				});
 		return filme;
 	}
 
 	public void excluir(String nome) {
-		jdbcTemplate.update("DELETE FROM FILME where nome =  '?'", nome);
+		jdbcTemplate.update("DELETE FROM FILME where nome =  '" + nome + "'");
 	}
 
 }
