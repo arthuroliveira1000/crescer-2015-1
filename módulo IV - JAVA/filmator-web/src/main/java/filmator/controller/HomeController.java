@@ -35,24 +35,22 @@ public class HomeController {
 		return "redirect:/"; // volta para a home, limpa o formulário
 	}
 
-	// @ResponseBody
 	// @ResponseBody faz transformar o retorno para JSON!
 	// @RequestMapping(value = "/buscarTodos", method = RequestMethod.GET)
 	// public List<Filme> buscarTodos(Model model) {
 	// return filmeDao.buscaTodosFilmesJava8();
 	// }
-	@RequestMapping(value ="/buscaFilme", method = RequestMethod.POST)
-	public String buscaDetalhes(String nome, Model model) {
-		model.addAttribute("filmeSelecionado", filmeDao.buscaFilme(nome));
-		return "redirect:/";
+	@ResponseBody
+	@RequestMapping(value = "/buscaFilme", method = RequestMethod.POST)
+	public Filme buscaDetalhes(String nome, Model model) {
+		return filmeDao.buscaFilme(nome);
 
 	}
-	
-	@RequestMapping(value ="/excluir", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
 	public String excluiFilme(String nome, Model model) {
 		filmeDao.excluir(nome);
 		return "redirect:/";
 
 	}
-
 }
