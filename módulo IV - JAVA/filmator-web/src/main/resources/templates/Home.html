@@ -1,19 +1,17 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title> Filmator</title>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<script type="text/javascript" src="/js/javascript.js"></script>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
 	</head>
 	<body>
 		<div class="header">
 			<img src="../img/icon.png">
 		</div>
+		
 		<div class="formCadastro box">
 			<h2> Cadastre um Filme</h2>
 			<form action="/inserir" method="post" name="form_cadastro">
@@ -31,12 +29,12 @@
 			</form>
 		</div>
 		
-		<div class="listaDeFilmes box">
+		<div class="listaDeFilmes box" id="listaDeFilmesCadastrados">
 				<h2> Filmes cadastrados</h2>
 				<ul>
 				{{#filmes}}
 					<li>
-						<img src="{{capaDoFilme}}" width="100" height="100">
+						<img src="{{capaDoFilme}}">
 						<h3>{{nome}}</h3>
 						<p>{{sinopse}}</p>
 					</li> 
@@ -45,33 +43,15 @@
 		</div>
 		
 		<div class="box">
-			<form name="form_pesquisa" action="/buscaFilme" method="POST">
-				<input name="nome" type="text" placeholder="Digite o nome do filme desejado" maxlength="100"><p>
-				<button type="button" onClick="return validaFormularioPesquisa()">Pesquisar Filme</button><p>
-			</form>
+			<input id="nomePesquisa" name="nome" type="text" placeholder="Digite o nome do filme desejado" maxlength="100"><p>
+			<button type="button" onClick="validaFormularioPesquisa()">Pesquisar Filme</button><p>
 		</div>
-			
-		<div class="box boxdebaixo">
+		
+		<div class="box boxreajust">
 			<form name="form_exclusao" action="/excluir" method="POST">
 				<input name="nome" type="text" placeholder="Quer excluir qual filme?" maxlength="100"><p>
 				<button type="button" onClick="return validaFormularioExclusao()">Excluir Filme</button><p>
 			</form>
 		</div>
-			
-		<div class="listaDeFilmes box">
-			<ul>
-				{{#filmeSelecionado}}
-					<li>
-					<h2>Ficha Técnica</h2>	
-						<img src="{{capaDoFilme}}">
-						<h3>{{nome}}</h3></br>
-						<h3>Lançado em: </h3>
-						<h4>{{anoLancamento}}</h4><p>
-						<h3>Gênero: </h3><h4>{{genero.descricao}}<h4></br>
-						<h4>{{sinopse}}</h4>
-					</li> 
-				{{/filmeSelecionado}}
-			</ul>
-		</div>	
 	</body>
 </html>
