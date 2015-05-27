@@ -9,24 +9,24 @@
 			<img src="../img/icon.png">
 		</div>
 		<div class="formCadastro box">
-			<h3> Cadastre um Filme</h3>
+			<h2> Cadastre um Filme</h2>
 			<form action="/inserir" method="post" name="form_cadastro">
-				<input name="nome" type="text" placeholder="Nome do Filme"><p>
+				<input name="nome" type="text" placeholder="Nome do Filme" maxlength="100"><p>
 			 	<select name="genero">
-			 		 <option value="">Selecione o Genero </option>
+			 		 <option value="">Selecione o Gênero</option>
 				 	{{#generos}}
             		<option value="{{name}}">{{descricao}}</option>
        			 	{{/generos}}
 				</select><p>
-				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento"> <p>
-				<textarea name="sinopse" placeholder="Sinopse do Filme" ></textarea> <p>
-				<input type="text" placeholder="URL da capa do filme" name="capaDoFilme"/><p>
-				<button type="button" onClick="return validaFormulario()">Cadastrar</button>
+				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento" maxlength="4"> <p>
+				<textarea name="sinopse" placeholder="Sinopse do Filme" maxlength="800"></textarea> <p>
+				<input type="text" placeholder="URL da capa do filme" name="capaDoFilme" maxlength="200"/><p>
+				<input type="button" onClick="validaFormulario()" value="Cadastrar">
 			</form>
 		</div>
 		
 		<div class="listaDeFilmes box">
-				<h3> Filmes cadastrados</h3>
+				<h2> Filmes cadastrados</h2>
 				<ul>
 				{{#filmes}}
 					<li>
@@ -38,30 +38,34 @@
 			</ul>
 		</div>
 		
-		<div class="listaDeFilmes box">
+		<div class="box">
 			<form name="form_pesquisa" action="/buscaFilme" method="POST">
-				<input name="nome" type="text" placeholder="Digite o nome do filme desejado"><p>
+				<input name="nome" type="text" placeholder="Digite o nome do filme desejado" maxlength="100"><p>
 				<button type="button" onClick="return validaFormularioPesquisa()">Pesquisar Filme</button><p>
 			</form>
+		</div>
+			
+		<div class="box boxdebaixo">
+			<form name="form_exclusao" action="/excluir" method="POST">
+				<input name="nome" type="text" placeholder="Quer excluir qual filme?" maxlength="100"><p>
+				<button type="button" onClick="return validaFormularioExclusao()">Excluir Filme</button><p>
+			</form>
+		</div>
+			
+		<div class="listaDeFilmes box">
 			<ul>
 				{{#filmeSelecionado}}
 					<li>
 					<h2>Ficha Técnica</h2>	
-						<img src="{{capaDoFilme}}" width="150" height="300">
-						<h3>{{nome}}</h3><p>
+						<img src="{{capaDoFilme}}">
+						<h3>{{nome}}</h3></br>
 						<h3>Lançado em: </h3>
-						<h4>{{anolancamento}}</h4><p>
-						<h3>Gênero: </h3><h4>{{genero.descricao}}<h4><p>
-						<h3>{{sinopse}}</h3>
+						<h4>{{anoLancamento}}</h4><p>
+						<h3>Gênero: </h3><h4>{{genero.descricao}}<h4></br>
+						<h4>{{sinopse}}</h4>
 					</li> 
 				{{/filmeSelecionado}}
 			</ul>
-		</div>
-		
-		
-		
-		
-		
-		
+		</div>	
 	</body>
 </html>

@@ -12,7 +12,16 @@ function validaFormularioPesquisa() {
 	var formulario = document.form_pesquisa;
 	if(formulario.nome.value == "") {
 		alert("Preencha o campo de pesquisa!");
-		else {
+		} else {
+			formulario.submit();
+		}
+}
+
+function validaFormularioExclusao() {
+	var formulario = document.form_exclusao;
+	if(formulario.nome.value == "") {
+		alert("Digite o nome do filme que deseja excluir!");
+		} else {
 			formulario.submit();
 		}
 }
