@@ -39,7 +39,7 @@ public class FilmeDAO {
 	}
 
 	public Filme buscaFilme(String nome) {
-		Filme filme = jdbcTemplate.queryForObject(
+		List<Filme> filmes = jdbcTemplate.query(
 				"SELECT * FROM FILME WHERE nome = '" + nome + "'",
 				new RowMapper<Filme>() {
 					@Override
@@ -54,11 +54,16 @@ public class FilmeDAO {
 						return filmeretornado;
 					}
 				});
-		return filme;
+		if (filmes.isEmpty()) {
+			return null;
+		} else {
+			return filmes.get(0);
+
+		}
 	}
 
 	public void excluir(String nome) {
-		jdbcTemplate.update("DELETE FROM FILME where nome =  '" + nome + "'");
+		jdbcTemplate.update("DELETE FROM FILME where nome = ?", nome);
 	}
 
 }
