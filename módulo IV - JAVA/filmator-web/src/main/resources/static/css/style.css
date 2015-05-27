@@ -11,10 +11,6 @@ html, body{
 	background-size: 100% 100%;
 }
 
-.floatright {
-	float:right;
-}
-
 .header{
 	position: fixed;
 	width:100%;
@@ -30,12 +26,10 @@ html, body{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
 	font-color: #fff;
-}
-
-
-.header img {
-	margin-left:18px;
 	
+}
+.header img {
+	margin-left:18px;	
 }
 
 .header h1 {
@@ -67,7 +61,6 @@ input[type=button] {
 .box {
 	background-color: #fff;
 	position: relative;
-	display: inline;
 	float: left;
 	width: auto;
 	height: auto;
@@ -75,16 +68,15 @@ input[type=button] {
 	margin-top: 200px;
 	opacity: 0.6;
 	padding: 10px;
-	align-text: left;
 	filter: alpha(opacity=60);
 	-moz-box-shadow: 3px 3px 3px #ccc;
 	-webkit-box-shadow: 3px 3px 3px #ccc;
 	box-shadow: 3px 3px 3px #ccc;
 	border-radius: 3px;
-} 
+}
 
-.boxdebaixo {
-	margin-top: 20px;
+.boxreajust {
+	margin-top: 20px !important;
 }
 ul {
 	list-style-type: none;
