@@ -1,3 +1,28 @@
+function curtiFilme(id_filme) {
+	console.log("ID DO FILME : " + id_filme);
+	$.ajax({
+				url:"/like",
+				type:"POST",
+				data:{
+					id: id_filme
+				}
+			});
+}
+
+function naoCurteFilme(id_filme) {
+	console.log("ID DO FILME : " + id_filme);
+	$.ajax({
+				url:"/dislike",
+				type:"POST",
+				data:{
+					id: id_filme
+				}
+			});
+}
+
+
+
+
 function validaFormulario() {
 	var formulario = document.form_cadastro;
 	var testaAnoLancamento = isNaN(formulario.anoLancamento.value);

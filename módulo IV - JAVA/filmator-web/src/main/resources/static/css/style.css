@@ -107,7 +107,6 @@ li {
 }
 li:hover {
 	background: #eee;
-	cursor: pointer;
 }
 
 .container {
@@ -131,7 +130,3 @@ li:hover {
 	transition-delay: 0.2s;
 	transition-duration: 2s;
 }
-
-
-
-

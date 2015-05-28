@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title> Filmator</title>
+		<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<script type="text/javascript" src="/js/javascript.js"></script>
+		<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!--<div class="header">
+		<img src="../img/icon.png">
+		<h1>Filmator</h1>
+		</div>-->
+		
+		{{#filmes}}
+		<div class="row">
+			<div class="col-sm-3 col-md-4">
+			<div class="thumbnail">
+			<img src="{{capaDoFilme}}" alt="Capa">
+			<div class="caption">
+			<h3>{{nome}}</h3>
+			<p>{{sinopse}}</p>
+			<p><a onclick="return curtiFilme({{id_filme}})" class="btn btn-primary" role="button">Bacana</a> <a onclick="return naoCurteFilme({{id_filme}})" class="btn btn-default" role="button">Podre</a></p>
+		</div>
+		</div>
+		</div>
+		</div>
+		{{/filmes}}
+
+	</div>
+</div>
+	</body>
+</html>
