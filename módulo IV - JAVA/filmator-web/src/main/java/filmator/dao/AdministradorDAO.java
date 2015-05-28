@@ -1,18 +1,13 @@
 package filmator.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import filmator.model.Administrador;
-import filmator.model.Filme;
-import filmator.model.Genero;
 
 @Component
 public class AdministradorDAO {
