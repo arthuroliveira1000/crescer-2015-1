@@ -1141,6 +1141,8 @@ img {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
+  float: left;
+  padding-right: 20px;
   -webkit-transition: all .2s ease-in-out;
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
@@ -2247,6 +2249,9 @@ table {
   background-color: transparent;
 }
 caption {
+  position: relative;
+  margin-top: 60px;
+  margin-left: 30px;
   padding-top: 8px;
   padding-bottom: 8px;
   color: #777;
@@ -4908,8 +4913,9 @@ a.badge:focus {
 }
 .thumbnail > img,
 .thumbnail a > img {
-  margin-right: auto;
-  margin-left: auto;
+  float: left;
+  padding-right: 20px;
+  margin auto;
 }
 a.thumbnail:hover,
 a.thumbnail:focus,
@@ -4919,6 +4925,8 @@ a.thumbnail.active {
 .thumbnail .caption {
   padding: 9px;
   color: #333;
+  width: auto;
+  height: auto;
 }
 .alert {
   padding: 15px;
