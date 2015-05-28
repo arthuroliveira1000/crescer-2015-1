@@ -4,10 +4,8 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title> Filmator</title>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<!-- link bootstrap, caso preciso 
 		<script type="text/javascript" src="/js/javascript.js"></script>
 		<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
-		-->
 	</head>
 	<body>
 		<div class="header">
@@ -17,7 +15,7 @@
 		
 		<div class="formCadastro box">
 			<h2> Cadastre um Filme</h2>
-			<form action="/login" method="post" name="form_cadastro">
+			<form action="/inserir" method="post" name="form_cadastro">
 				<input name="nome" type="text" placeholder="Nome do Filme" maxlength="100" required><p>
 			 	<select name="genero" required>
 			 		 <option value="">Selecione o Gênero</option>
@@ -28,7 +26,7 @@
 				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento" maxlength="4" required> <p>
 				<textarea name="sinopse" placeholder="Sinopse do Filme" maxlength="800" required></textarea> <p>
 				<input type="text" placeholder="URL da capa do filme" name="capaDoFilme" maxlength="200" required><p>
-				<input type="button" onClick="validaFormulario()" value="Cadastrar">
+				<input type="button" onClick="return validaFormulario()" value="Cadastrar">
 			</form>
 		</div>
 		
@@ -47,7 +45,7 @@
 		
 		<div class="box">
 			<input id="nomePesquisa" name="nome" type="text" placeholder="Digite o nome do filme desejado" maxlength="100"><p>
-			<button type="button" onClick="validaFormularioPesquisa()">Pesquisar Filme</button><p>
+			<button type="button" onClick="return validaFormularioPesquisa()">Pesquisar Filme</button><p>
 		</div>
 		
 		<div class="box boxreajust">
