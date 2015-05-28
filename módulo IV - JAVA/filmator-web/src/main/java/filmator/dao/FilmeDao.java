@@ -29,9 +29,9 @@ public class FilmeDAO {
 
 	public List<Filme> buscaTodosFilmesJava8() {
 		return jdbcTemplate
-				.query("SELECT nome, sinopse, capadofilme FROM Filme",
+				.query("SELECT id_filme, nome, sinopse, capadofilme FROM Filme",
 						(ResultSet rs, int rowNum) -> {
-							Filme filme = new Filme(rs.getString("nome"), rs
+							Filme filme = new Filme(rs.getInt("id_filme"),rs.getString("nome"), rs
 									.getString("sinopse"), rs
 									.getString("capaDoFilme"));
 							return filme;
