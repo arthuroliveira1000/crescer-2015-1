@@ -4,32 +4,35 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title> Filmator</title>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<!-- link bootstrap, caso preciso 
 		<script type="text/javascript" src="/js/javascript.js"></script>
 		<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
+		-->
 	</head>
 	<body>
 		<div class="header">
 			<img src="../img/icon.png">
+			<h1>Filmator</h1>
 		</div>
 		
 		<div class="formCadastro box">
 			<h2> Cadastre um Filme</h2>
-			<form action="/inserir" method="post" name="form_cadastro">
-				<input name="nome" type="text" placeholder="Nome do Filme" maxlength="100"><p>
-			 	<select name="genero">
+			<form action="/login" method="post" name="form_cadastro">
+				<input name="nome" type="text" placeholder="Nome do Filme" maxlength="100" required><p>
+			 	<select name="genero" required>
 			 		 <option value="">Selecione o Gênero</option>
 				 	{{#generos}}
             		<option value="{{name}}">{{descricao}}</option>
        			 	{{/generos}}
 				</select><p>
-				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento" maxlength="4"> <p>
-				<textarea name="sinopse" placeholder="Sinopse do Filme" maxlength="800"></textarea> <p>
-				<input type="text" placeholder="URL da capa do filme" name="capaDoFilme" maxlength="200"/><p>
+				<input name="anoLancamento" type="text" placeholder="Ano de Lançamento" maxlength="4" required> <p>
+				<textarea name="sinopse" placeholder="Sinopse do Filme" maxlength="800" required></textarea> <p>
+				<input type="text" placeholder="URL da capa do filme" name="capaDoFilme" maxlength="200" required><p>
 				<input type="button" onClick="validaFormulario()" value="Cadastrar">
 			</form>
 		</div>
 		
-		<div class="listaDeFilmes box" id="listaDeFilmesCadastrados">
+		<div class="box" id="listaDeFilmesCadastrados">
 				<h2> Filmes cadastrados</h2>
 				<ul>
 				{{#filmes}}

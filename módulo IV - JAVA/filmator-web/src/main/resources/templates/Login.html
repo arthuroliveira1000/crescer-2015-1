@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
-	<!-- Bootstrap core CSS -->
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login - Filmator</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Filmator</title>
   </head>
   <body>
 	<div class="container">
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Login</h2>
-        <label for="inputEmail" class="sr-only">Usuário</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Usuário" name="login" required autofocus>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" name="senha" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+	<img src="../img/icon.png">
+      <form action="/entrar" method="POST" name="form_identificacao">
+        <h2>Filmator</h2>
+        <input type="text" placeholder="Login" name="login" required autofocus>
+        <input type="password" placeholder="Senha" name="senha" required>
+        <button type="submit" onclick="validaFormidentificacao()">Entrar</button>
       </form>
     </div> 
   </body>

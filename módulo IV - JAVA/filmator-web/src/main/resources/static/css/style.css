@@ -3,12 +3,7 @@ html, body{
 	font-size: 100%;
 	margin: 0;
 	padding: 0;
-	background: url(../img/planodefundo.png);
-    width: 100%;
-    height: 100%;
-	-moz-background-size: 100% 100%;
-	-webkit-background-size: 100% 100%;
-	background-size: 100% 100%;
+	background: url(../img/planodefundo2.png);
 }
 
 .header{
@@ -29,34 +24,40 @@ html, body{
 	
 }
 .header img {
-	margin-left:18px;	
+	margin-left:18px;
+	float:left;
 }
 
 .header h1 {
-	font-size: 40px;
+	font-size: 60px;
 	font-family: 'Open Sans', sans-serif;
-	font-color: rgb(190, 248, 207);
+	color: #000;
 	float: left;
 }
-button, textarea, input[type=text], input[type=number], select, option {
+button, textarea, input[type=text], input[type=number],input[type=button], select, option, input[type=password] {
 	width: 300px;
 	height: 50px;
 	font-size: 20px;
 	font-family: 'Open Sans', sans-serif;
-	border-radius: 3px;
+	border-radius: 4px;
 	background: #fff;
+	text-decoration: none;
+	border:1px solid #ccc;
 }
-input[type=button] {
-	width: 300px;
-	height: 50px;
-	font-size: 20px;
-	font-family: 'Open Sans', sans-serif;
-	border-radius: 3px;
-	background-color:#ffffff;
+
+input[type=button]:hover, button:hover {
+	background-color:#ccc;
+	border:1px solid #ccc;
+	color: #fff;
 }
-.logo_position {
-	margin-left: 20px;
-	margin-top: 20px;
+input[type=text]:hover, input[type="password"]:hover {
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+-webkit-box-shadow: 0px 0px 15px 1px #fff;
+-moz-box-shadow: 0px 0px 10px 1px #fff;
+box-shadow: 0px 0px 4px 0px #fff;
+border:1px solid #fff !important;
+outline:none; 
 }
 .box {
 	background-color: #fff;
@@ -66,13 +67,9 @@ input[type=button] {
 	height: auto;
 	margin-left: 20px;
 	margin-top: 200px;
-	opacity: 0.6;
+	opacity: 0.7;
 	padding: 10px;
-	filter: alpha(opacity=60);
-	-moz-box-shadow: 3px 3px 3px #ccc;
-	-webkit-box-shadow: 3px 3px 3px #ccc;
-	box-shadow: 3px 3px 3px #ccc;
-	border-radius: 3px;
+	filter: alpha(opacity=70);
 }
 
 .boxreajust {
@@ -102,8 +99,8 @@ li img {
 	width:	200;
 	float: left;
 	margin: 0 15px 0 0;
+	z-index:50;
 }
- 
 li {
 	padding: 10px;
   	overflow: auto;
@@ -112,3 +109,29 @@ li:hover {
 	background: #eee;
 	cursor: pointer;
 }
+
+.container {
+	background-color: #fff;
+	width: 300px;
+	height: 100%;
+	padding: 40px;
+	margin-left: 70px;
+	top:1px;
+	bottom:2px;
+	
+	/*-moz-box-shadow: 3px 3px 3px #fff;
+	-webkit-box-shadow: 3px 3px 3px #fff;
+	box-shadow: 3px 3px 3px #fff; 
+	-webkit-transition-property: top, bottom;	
+	transition: */
+	/*transition-property: background-color;
+	transition-property: all;
+	transition-duration: 1s; */
+	transition-property: background-color;
+	transition-delay: 0.2s;
+	transition-duration: 2s;
+}
+
+
+
+

@@ -26,8 +26,10 @@ function validaFormularioPesquisa() {
 					nome: nomeInformado
 				}
 			}).done(function(resp){	
+					console.log(resp.status);
 					$("#listaDeFilmesCadastrados").html("");
-					$("<ul>").appendTo("#listaDeFilmesCadastrados");
+					$("#listaDeFilmesCadastrados").append("<ul><li><h2>Ficha Técnica</h2><img src="+resp.capaDoFilme+"></br><h3>"+resp.nome+"</h3><h4>"+resp.anoLancamento+"</h4><h4>"+resp.genero+"</h4><h4>"+resp.sinopse+"</h4></li></ul>");
+					/*$("<ul>").appendTo("#listaDeFilmesCadastrados");
 					$("<li>").appendTo("#listaDeFilmesCadastrados");
 					$("<h2>").text("Ficha Técnica").appendTo("#listaDeFilmesCadastrados");
 					$("<img>").attr("src", resp.capaDoFilme).appendTo("#listaDeFilmesCadastrados");
@@ -40,7 +42,8 @@ function validaFormularioPesquisa() {
 					$("<h3>").text("Gênero: ").appendTo("#listaDeFilmesCadastrados");
 					$("<h4>").text(resp.genero).appendTo("#listaDeFilmesCadastrados");
 					$("</br>").appendTo("#listaDeFilmesCadastrados");
-					$("<h4>").text(resp.sinopse).appendTo("#listaDeFilmesCadastrados");		
+					$("<h4>").text(resp.sinopse).appendTo("#listaDeFilmesCadastrados");	
+					*/
 			});
 		}
 }
@@ -53,3 +56,19 @@ function validaFormularioExclusao() {
 			formulario.submit();
 		}
 }
+
+function validaFormidentificacao() {
+	var formulario = document.form_identificacao;
+	if(formulario.login.value() =="") {
+		alert("Preencha seu login!");
+	} if(formulario.senha.value == "") {
+		alert("Preencha sua senha");
+		} else {
+			formulario.submit();
+		}
+}
+
+
+
+
+
