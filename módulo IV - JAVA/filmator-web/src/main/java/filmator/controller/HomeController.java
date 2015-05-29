@@ -1,7 +1,5 @@
 package filmator.controller;
 
-import java.util.ArrayList;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import filmator.dao.FilmeDAO;
 import filmator.model.Filme;
+import filmator.model.Genero;
 
 @Controller
 public class HomeController {
@@ -21,7 +20,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/Home", method = RequestMethod.GET)
 	public String abreHome(Model model) {
-		model.addAttribute("filmes", new ArrayList<>());
+		model.addAttribute("generos", Genero.values());
 		model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
 		return "Home"; // volta para a home, limpa o formulário
 	}
