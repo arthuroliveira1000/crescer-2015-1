@@ -2,10 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<title> Filmator</title>
+		{{> Adiciona_scripts }}
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<script type="text/javascript" src="/js/javascript.js"></script>
-		<script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -29,18 +27,9 @@
 				<input type="button" onClick="return validaFormulario()" value="Cadastrar">
 			</form>
 		</div>
-		
-		<div class="box" id="listaDeFilmesCadastrados">
-				<h2> Filmes cadastrados</h2>
-				<ul>
-				{{#filmes}}
-					<li>
-						<img src="{{capaDoFilme}}">
-						<h3>{{nome}}</h3>
-						<p>{{sinopse}}</p>
-					</li> 
-				{{/filmes}}
-			</ul>
+	
+		<div id="boxListaDeFilmes">
+		{{> listaDeFilmesCadastrados }}
 		</div>
 		
 		<div class="box">
@@ -49,10 +38,8 @@
 		</div>
 		
 		<div class="box boxreajust">
-			<form name="form_exclusao" action="/excluir" method="POST">
-				<input name="nome" type="text" placeholder="Quer excluir qual filme?" maxlength="100" required><p>
+				<input name="nome" id="nomeFilmeExcluido" type="text" placeholder="Quer excluir qual filme?" maxlength="100" required><p>
 				<button type="button" onClick="return validaFormularioExclusao()">Excluir Filme</button><p>
-			</form>
 		</div>
 	</body>
 </html>
