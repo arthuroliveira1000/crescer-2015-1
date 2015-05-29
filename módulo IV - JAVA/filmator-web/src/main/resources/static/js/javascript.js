@@ -77,11 +77,33 @@ function validaFormularioPesquisa() {
 }
 
 function validaFormularioExclusao() {
-	var formulario = document.form_exclusao;
-	if(formulario.nome.value == "") {
-		alert("Digite o nome do filme que deseja excluir!");
+	var nomeInformado = document.getElementById("nomeFilmeExcluido").value;
+	if(nomeInformado == "") {
+		alert("Preencha o nome do filme!");
 		} else {
-			formulario.submit();
+			$.ajax({
+				url:"/buscaFilme",
+				type:"POST",
+				data:{
+					nome: nomeInformado
+				}
+			}).done(function(resp){	
+					if(!resp.nome) {
+						alert("Filme não encontrado!");
+						} else {
+						$.ajax({
+						url:"/excluir",
+						type:"POST",
+						data:{
+							nome: nomeInformado
+						}
+					}).done(function(resp) {
+						$("#boxListaDeFilmes").html(resp);
+						alert("Filme excluído com sucesso!");
+						}
+					);
+				}
+			});
 		}
 }
 
