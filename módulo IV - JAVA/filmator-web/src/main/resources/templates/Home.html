@@ -44,13 +44,13 @@
 		</div>
 		
 		<div class="box">
-			<input id="nomePesquisa" name="nome" type="text" placeholder="Digite o nome do filme desejado" maxlength="100"><p>
+			<input id="nomePesquisa" name="nome" type="text" placeholder="Digite o nome do filme desejado" maxlength="100" required><p>
 			<button type="button" onClick="return validaFormularioPesquisa()">Pesquisar Filme</button><p>
 		</div>
 		
 		<div class="box boxreajust">
 			<form name="form_exclusao" action="/excluir" method="POST">
-				<input name="nome" type="text" placeholder="Quer excluir qual filme?" maxlength="100"><p>
+				<input name="nome" type="text" placeholder="Quer excluir qual filme?" maxlength="100" required><p>
 				<button type="button" onClick="return validaFormularioExclusao()">Excluir Filme</button><p>
 			</form>
 		</div>
