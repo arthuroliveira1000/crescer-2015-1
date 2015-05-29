@@ -77,6 +77,10 @@ outline:none;
 	background: url(../img/Psycho.jpg);
 	
 }
+a:link    {color:#000000; background-color:transparent; text-decoration:none}
+a:visited {color:#000000; background-color:transparent; text-decoration:none}
+a:hover   {color:#2F4F4F; background-color:transparent; text-decoration:none}
+a:active  {color:#2F4F4F; background-color:transparent; text-decoration:none}
 .container {
 	background-color: #fff;
 	width: 300px;
