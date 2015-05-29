@@ -51,7 +51,9 @@ function validaFormularioPesquisa() {
 					nome: nomeInformado
 				}
 			}).done(function(resp){	
-					console.log(resp.status);
+					if(!resp.nome) {
+						alert("Filme não encontrado!");
+						} else {
 					$("#listaDeFilmesCadastrados").html("");
 					$("#listaDeFilmesCadastrados").append("<ul><li><h2>Ficha Técnica</h2><img src="+resp.capaDoFilme+"></br><h3>"+resp.nome+"</h3><h4>"+resp.anoLancamento+"</h4><h4>"+resp.genero+"</h4><h4>"+resp.sinopse+"</h4></li></ul>");
 					/*$("<ul>").appendTo("#listaDeFilmesCadastrados");
@@ -69,6 +71,7 @@ function validaFormularioPesquisa() {
 					$("</br>").appendTo("#listaDeFilmesCadastrados");
 					$("<h4>").text(resp.sinopse).appendTo("#listaDeFilmesCadastrados");	
 					*/
+				}
 			});
 		}
 }
