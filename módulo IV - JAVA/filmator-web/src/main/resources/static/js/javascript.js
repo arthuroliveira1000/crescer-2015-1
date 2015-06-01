@@ -1,3 +1,12 @@
+function validaFormRegistro() {
+	var formulario = document.form_registro; 
+	if(formulario.nome.value == "" || formulario.apelido.value == "" || formulario.login.value == "" || formulario.senha.value =="") {
+		alert("Preencha todos os campos!");
+	} else {
+		formulario.submit();
+		}
+}
+
 function curtiFilme(id_filme) {
 	console.log("ID DO FILME : " + id_filme);
 	$.ajax({

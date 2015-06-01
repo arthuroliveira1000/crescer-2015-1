@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/css/style_login.css">
     <title>Registre-se</title>
+	{{> Adiciona_scripts }}
   </head>
   <body>
   <div class="loginbonito">
 	<div class="container">
 	<img src="../img/icon.png">
-      <form action="/entrar" method="POST" name="form_identificacao">
+      <form action="/cadastroRealizado" method="POST" name="form_registro">
         <h2>Registre-se</h2>
         <input type="text" placeholder="Nome" name="nome" required autofocus>
 		<input type="text" placeholder="Apelido" name="apelido" required autofocus>
 		<input type="text" placeholder="Login" name="login" required autofocus>
         <input type="password" placeholder="Senha" name="senha" required>
-		 <input type="password" placeholder="confirmaSenha" name="confirmaSenha" required>
-        <button type="submit" onclick="validaFormidentificacao()">Registra-se</button>
+        <input type="button" onClick="return validaFormRegistro()" value="Registre-se">
 		<p>
       </form>
     </div> 
