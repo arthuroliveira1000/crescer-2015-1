@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import filmator.dao.FilmeDAO;
+import filmator.dao.UsuarioDAO;
 import filmator.model.Filme;
 import filmator.model.Genero;
 import filmator.model.Usuario;
@@ -20,17 +21,22 @@ public class HomeController {
 	@Inject
 	private FilmeDAO filmeDao;
 
+	@Inject
+	private UsuarioDAO usuarioDao;
+
 	@RequestMapping(value = "/Home", method = RequestMethod.GET)
-	public String abreHome(Model model, HttpSession session) {
+	public String abreHomeAdmin(Model model, HttpSession session) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
+		Integer isAdmin = usuarioDao.isAdmin(userLogado.getLogin(),
+				userLogado.getSenha());
 		if (userLogado == null) {
-			return "Login"; // colocar tela de erro - faça seu login para
-							// continuar
-		} else {
+			return "Login";
+		} else if (isAdmin != null) {
 			model.addAttribute("generos", Genero.values());
 			model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
 			return "Home"; // volta para a home, limpa o formulário
 		}
+		return "Login";
 
 	}
 

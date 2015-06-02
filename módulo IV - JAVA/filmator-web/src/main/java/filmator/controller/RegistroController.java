@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import filmator.dao.FilmeDAO;
 import filmator.dao.UsuarioDAO;
 import filmator.model.Usuario;
 
@@ -16,6 +17,9 @@ public class RegistroController {
 
 	@Inject
 	private UsuarioDAO userDao;
+
+	@Inject
+	private FilmeDAO filmeDao;
 
 	@RequestMapping(value = "/registro", method = RequestMethod.GET)
 	public String abreTelaRegistro(Model model) {
@@ -26,7 +30,8 @@ public class RegistroController {
 	public String cadastraUser(Usuario user, Model model, HttpSession session) {
 		userDao.inserirUsuario(user);
 		session.setAttribute("usuarioLogado", user);
-		return "avaliacao";
+		model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
+		return "Avaliacao";
 	}
 
 }

@@ -21,9 +21,10 @@ public class UsuarioDAO {
 	private JdbcTemplate jdbcTemplate;
 
 	public void inserirUsuario(Usuario pessoaComum) {
-		jdbcTemplate.update("INSERT INTO Usuario (nome, apelido, login, senha) VALUES (?, ?, ?, ?)",
-				pessoaComum.getNome(), pessoaComum.getApelido(),
-				pessoaComum.getLogin(), pessoaComum.getSenha());
+		jdbcTemplate
+				.update("INSERT INTO Usuario (nome, apelido, login, senha) VALUES (?, ?, ?, ?)",
+						pessoaComum.getNome(), pessoaComum.getApelido(),
+						pessoaComum.getLogin(), pessoaComum.getSenha());
 	}
 
 	// para futura tela de cadastro de usuário admin
@@ -65,4 +66,25 @@ public class UsuarioDAO {
 			return ids.get(0);
 		}
 	}
+
+	public Integer isUser(String login, String senha) {
+		List<Integer> ids = jdbcTemplate
+				.queryForList(
+						"SELECT id_usuario FROM Usuario WHERE login = ? and senha=? and tipoPerfil is null",
+						Integer.class, login, senha);
+		if (ids.isEmpty()) {
+			return null;
+		} else {
+			return ids.get(0);
+		}
+	}
+
+	public Usuario verificaUsuarioExistente(String login, String senha) {
+		Integer IDuser = isUser(login, senha);
+		if (IDuser != null) {
+			return buscaUsuario(IDuser);
+		}
+		return null;
+	}
+
 }

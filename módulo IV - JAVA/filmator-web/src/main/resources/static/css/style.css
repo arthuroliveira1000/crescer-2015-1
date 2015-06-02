@@ -10,11 +10,12 @@ html, body{
 	width: auto;
 	height: auto;
 	position: relative;
-	padding-top:200px;
+	padding-top:170px;
 }
 
-.header{
+.myheader {
 	position: fixed !important;
+	top: 0px;
 	width:100% !important;
 	height: 18% !important;
 	padding:10px 0;
@@ -29,13 +30,13 @@ html, body{
 	font-color: #fff;
 	
 }
-.header img {
+.myheader img {
 	margin-left:18px;
 	float:left;
 }
 
-.header h1 {
-	font-size: 60px;
+.myheader h1 {
+	font-size: 36px;
 	font-family: 'Open Sans', sans-serif;
 	color: #000;
 	float: left;
@@ -70,12 +71,12 @@ outline:none;
 }
 .box {
 	background-color: #fff;
-	position: relative;
+	position: inherit;
 	float: left;
 	width: auto;
 	height: auto;
 	margin-left: 20px;
-	margin-top: 200px;
+	margin-top: 170px;
 	padding: 10px;
 	border-radius:3px;
 }
@@ -116,3 +117,8 @@ li {
 li:hover {
 	background: #eee;
 }
+img {
+	float: left;
+}
+	
+	
