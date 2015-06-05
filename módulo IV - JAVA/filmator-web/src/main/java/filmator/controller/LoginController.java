@@ -27,25 +27,31 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/entrar", method = RequestMethod.POST)
-	public String abreTela(String login, String senha,
-			Model model, HttpSession session) {
+	public String abreTela(String login, String senha, Model model,
+			HttpSession session) {
 		Integer IDisAdmin = userDao.isAdmin(login, senha);
 		Integer IDisUser = userDao.isUser(login, senha);
 		if (IDisAdmin != null) {
 			model.addAttribute("generos", Genero.values());
-			model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
+			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
 			session.setAttribute("usuarioLogado",
 					userDao.buscaUsuario(IDisAdmin));
 			return "Home";
-		} if (IDisUser != null) {
+		}
+		if (IDisUser != null) {
 			session.setAttribute("usuarioLogado",
 					userDao.buscaUsuario(IDisUser));
-			model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
-			return "avaliacao";
+			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
+			return "PaginaInicial";
 		} else {
 			return "Login";
 		}
 	}
-	// fazer um requestmapping para a home geral para os usuarios que não são
-	// administradores
+
+	@RequestMapping(value = "/sair", method = RequestMethod.GET)
+	public String invalidaSessao(HttpSession session) {
+		session.invalidate();
+		return "Login";
+	}
+
 }

@@ -11,15 +11,21 @@ public class AvaliacaoDAO {
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 
-	public void inserirLike(int id_filme) {
+	public void inserirNota(int id_filme, int nota) {
 		jdbcTemplate.update(
-				"INSERT INTO avaliacao (id_filme, likes) VALUES (?, ?)",
-				id_filme, 1);
+				"INSERT INTO avaliacao (id_filme, nota) VALUES (?, ?)",
+				id_filme, nota);
 	}
 
-	public void inserirDislike(int id_filme) {
-		jdbcTemplate.update(
-				"INSERT INTO avaliacao (id_filme, dislike) VALUES (?, ?)",
-				id_filme, 1);
+	public Double mediaGeral(int id_filme) {
+		Double media = (double) jdbcTemplate
+				.update("SELECT sum(nota) /count(nota) FROM avaliacao WHERE id_filme = ?",
+						id_filme);
+
+		if(media == null) {
+			media = 0.0;
+		}
+		
+		return media;
 	}
 }

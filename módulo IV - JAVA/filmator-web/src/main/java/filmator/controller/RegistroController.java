@@ -30,7 +30,7 @@ public class RegistroController {
 	public String cadastraUser(Usuario user, Model model, HttpSession session) {
 		userDao.inserirUsuario(user);
 		session.setAttribute("usuarioLogado", user);
-		model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
+		model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
 		return "Avaliacao";
 	}
 

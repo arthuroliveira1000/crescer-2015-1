@@ -1,5 +1,7 @@
 package filmator.model;
 
+import utils.RoundUtils;
+
 public class Filme {
 
 	private Integer id_filme;
@@ -8,6 +10,7 @@ public class Filme {
 	private Integer anoLancamento;
 	private String sinopse;
 	private String capaDoFilme;
+	private double media;
 
 	public Filme() {
 
@@ -18,20 +21,35 @@ public class Filme {
 	}
 
 	public Filme(Integer id_filme, String nome, String sinopse,
-			String capaDoFilme) {
+			String capaDoFilme, Double media) {
 		this.id_filme = id_filme;
 		this.nome = nome;
 		this.sinopse = sinopse;
 		this.capaDoFilme = capaDoFilme;
+		this.media = RoundUtils.round(media, 2);
 	}
 
-	public Filme(String nome, Genero genero, Integer anoLancamento,
-			String sinopse, String capaDoFilme) {
+	public Filme(int id_filme, String nome, Genero genero,
+			Integer anoLancamento, String sinopse, String capaDoFilme,
+			double media) {
+		this.id_filme = id_filme;
 		this.nome = nome;
 		this.genero = genero;
 		this.anoLancamento = anoLancamento;
 		this.sinopse = sinopse;
 		this.capaDoFilme = capaDoFilme;
+		this.media = media;
+	}
+
+	public Filme(int id_filme, String nome, Genero genero, Integer anoLancamento,
+			String sinopse, String capaDoFilme) {
+		this.id_filme = id_filme;
+		this.nome = nome;
+		this.genero = genero;
+		this.anoLancamento = anoLancamento;
+		this.sinopse = sinopse;
+		this.capaDoFilme = capaDoFilme;
+
 	}
 
 	public int getAnoLancamento() {
@@ -82,4 +100,11 @@ public class Filme {
 		this.id_filme = id_filme;
 	}
 
+	public double getMedia() {
+		return media;
+	}
+
+	public void setMedia(double media) {
+		this.media = media;
+	}
 }

@@ -1,3 +1,17 @@
+function abreFichaTecnica() {
+	var nomeInformado = document.getElementById("nomePesquisa").value;
+	$.ajax({
+				url:"/buscaFilme",
+				type:"POST",
+				data:{
+					nome: nomeInformado
+				}
+			}).done(function(res) {
+				$(".biblioteca").html("");
+					$(".biblioteca").append("<ul><li><h2>Ficha Técnica</h2><img src="+res.capaDoFilme+"></br><h3>"+res.nome+"</h3><h4>"+res.anoLancamento+"</h4><h4>"+res.sinopse+"</h4></li></ul>");
+				}
+			);
+}
 function validaFormRegistro() {
 	var formulario = document.form_registro; 
 	if(formulario.nome.value == "" || formulario.apelido.value == "" || formulario.login.value == "" || formulario.senha.value =="") {
@@ -6,31 +20,30 @@ function validaFormRegistro() {
 		formulario.submit();
 		}
 }
-
-function curtiFilme(id_filme) {
-	console.log("ID DO FILME : " + id_filme);
+function avaliaFilme(campo_id_filme, campo_nota) {
 	$.ajax({
-				url:"/like",
+				url:"/avalia",
 				type:"POST",
 				data:{
-					id: id_filme
+					id_filme: campo_id_filme,
+					nota: campo_nota
 				}
-			});
+			}).done(
+				alert("Avaliação salva!")
+			);
 }
-
-function naoCurteFilme(id_filme) {
-	console.log("ID DO FILME : " + id_filme);
+function buscaMediaGeral(campo_id_filme) {
 	$.ajax({
-				url:"/dislike",
+				url:"/mediaGeral",
 				type:"POST",
 				data:{
-					id: id_filme
+					id_filme: campo_id_filme,
 				}
+			}).done(function(res) {
+				alert("DEU CERTO")
+			
 			});
 }
-
-
-
 
 function validaFormulario() {
 	var formulario = document.form_cadastro;
@@ -46,8 +59,6 @@ function validaFormulario() {
 				document.form_cadastro.submit();
 			}
 }
-
-
 function validaFormularioPesquisa() {
 	var nomeInformado = document.getElementById("nomePesquisa").value;
 	if(nomeInformado == "") {
@@ -64,27 +75,11 @@ function validaFormularioPesquisa() {
 						alert("Filme não encontrado!");
 						} else {
 					$("#listaDeFilmesCadastrados").html("");
-					$("#listaDeFilmesCadastrados").append("<ul><li><h2>Ficha Técnica</h2><img src="+resp.capaDoFilme+"></br><h3>"+resp.nome+"</h3><h4>"+resp.anoLancamento+"</h4><h4>"+resp.genero+"</h4><h4>"+resp.sinopse+"</h4></li></ul>");
-					/*$("<ul>").appendTo("#listaDeFilmesCadastrados");
-					$("<li>").appendTo("#listaDeFilmesCadastrados");
-					$("<h2>").text("Ficha Técnica").appendTo("#listaDeFilmesCadastrados");
-					$("<img>").attr("src", resp.capaDoFilme).appendTo("#listaDeFilmesCadastrados");
-					$("</br>").appendTo("#listaDeFilmesCadastrados");
-					$("<h3>").text(resp.nome).appendTo("#listaDeFilmesCadastrados");
-					$("</br>").appendTo("#filmesSelecionado");
-					$("<h3>").text("Lançado em:").appendTo("#listaDeFilmesCadastrados");
-					$("<h4>").text(resp.anoLancamento).appendTo("#listaDeFilmesCadastrados");
-					$("<p>").appendTo("#filmesSelecionado");
-					$("<h3>").text("Gênero: ").appendTo("#listaDeFilmesCadastrados");
-					$("<h4>").text(resp.genero).appendTo("#listaDeFilmesCadastrados");
-					$("</br>").appendTo("#listaDeFilmesCadastrados");
-					$("<h4>").text(resp.sinopse).appendTo("#listaDeFilmesCadastrados");	
-					*/
+					$("#listaDeFilmesCadastrados").append("<ul><li><h2>Ficha Técnica</h2><img src="+resp.capaDoFilme+"></br><h3>"+resp.nome+"</h3><h4>"+resp.anoLancamento+"</h4><h4>"+resp.sinopse+"</h4></li></ul>");
 				}
 			});
 		}
 }
-
 function validaFormularioExclusao() {
 	var nomeInformado = document.getElementById("nomeFilmeExcluido").value;
 	if(nomeInformado == "") {
@@ -104,7 +99,7 @@ function validaFormularioExclusao() {
 						url:"/excluir",
 						type:"POST",
 						data:{
-							nome: nomeInformado
+							id_filme: resp.id_filme
 						}
 					}).done(function(resp) {
 						$("#boxListaDeFilmes").html(resp);
@@ -115,7 +110,6 @@ function validaFormularioExclusao() {
 			});
 		}
 }
-
 function validaFormidentificacao() {
 	var formulario = document.form_identificacao;
 	if(formulario.login.value() =="") {

@@ -11,26 +11,38 @@
 	</head>
 	<body>
 		<div class="myheader">
-		<img src="../img/icon.png">
-		<h1>Filmator</h1>
+			<img src="../img/icon.png">
+			<h1>Filmator</h1>
+			<ul class="nav nav-pills menus">
+					<li role="presentation"><a href="/PaginaInicial">Home</a></li>
+					<li role="presentation" class="active"><a href="/avaliacao">Avalie os filmes</a></li>
+					<li role="presentation"><a href="/sair">Sair</a></li>
+			</ul>
 		</div>
 		<div class="biblioteca">
-		{{#filmes}}
-		<div class="row">
-			<div class="col-sm-3 col-md-4">
-				<div class="thumbnail">
-				<img src="{{capaDoFilme}}" alt="Capa">
-					<div class="caption">
-						<h3>{{nome}}</h3>
-						<p>{{sinopse}}</p>
-						<p><a onclick="return curtiFilme({{id_filme}})" class="btn btn-primary" role="button">Bacana</a> <a onclick="return naoCurteFilme({{id_filme}})" class="btn btn-default" role="button">Podre</a></p>
+			{{#filmes}}
+			<div class="row">
+				<div class="col-sm-3 col-md-4">
+					<div class="thumbnail">
+					<img src="{{capaDoFilme}}" alt="Capa">
+						<div class="caption">
+							<h3>{{nome}}</h3>
+							<p>{{sinopse}}</p>
+							<h3>Média Geral: </h3> <h4 maxlength="4"> {{media}}</h4>
+							<p><h3>Sua Avaliação: </h3>
+							<a onclick="return avaliaFilme({{id_filme}}, 1)" class="btn btn-primary" role="button">1</a>
+							<a onclick="return avaliaFilme({{id_filme}}, 2)" class="btn btn-default" role="button">2</a> 
+							<a onclick="return avaliaFilme({{id_filme}}, 3)" class="btn btn-default" role="button">3</a>
+							<a onclick="return avaliaFilme({{id_filme}}, 4)" class="btn btn-default" role="button">4</a>
+							<a onclick="return avaliaFilme({{id_filme}}, 5)" class="btn btn-default" role="button">5</a>
+							</p>
+						</div>
 					</div>
 				</div>
+				{{/filmes}}
+				</div>
 			</div>
-			{{/filmes}}
 			</div>
-		</div>
-		</div>
 		</div>
 	</body>
 </html>

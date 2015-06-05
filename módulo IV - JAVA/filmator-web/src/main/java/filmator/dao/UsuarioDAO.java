@@ -10,8 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import filmator.model.Filme;
-import filmator.model.Genero;
 import filmator.model.Usuario;
 
 @Component
@@ -27,7 +25,6 @@ public class UsuarioDAO {
 						pessoaComum.getLogin(), pessoaComum.getSenha());
 	}
 
-	// para futura tela de cadastro de usuário admin
 	public void inserirUsuarioAdmin(Usuario administrador) {
 		jdbcTemplate.update("INSERT INTO Usuario VALUES (?, ?, ?, ?, ?)",
 				administrador.getNome(), administrador.getApelido(),

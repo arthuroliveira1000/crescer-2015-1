@@ -3,14 +3,19 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		{{> Adiciona_scripts }}
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 	<body>
 		<div class="myheader">
 			<img src="../img/icon.png">
 			<h1>Filmator</h1>
+			<ul class="nav nav-pills menus">
+					<li role="presentation" class="active"><a href="/sair">Sair</a></li>
+			</ul>
 		</div>
-		
 		<div class="formCadastro box">
 			<h2> Cadastre um Filme</h2>
 			<form action="/inserir" method="post" name="form_cadastro">
@@ -29,7 +34,7 @@
 		</div>
 	
 		<div id="boxListaDeFilmes">
-		{{> listaDeFilmesCadastrados }}
+			{{> listaDeFilmesCadastrados }}
 		</div>
 		
 		<div class="box">

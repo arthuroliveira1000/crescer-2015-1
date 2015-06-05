@@ -27,15 +27,16 @@ public class FilmeDAO {
 						filme.getCapaDoFilme());
 	}
 
-	public List<Filme> buscaTodosFilmesJava8() {
-		return jdbcTemplate
-				.query("SELECT id_filme, nome, sinopse, capadofilme FROM Filme",
-						(ResultSet rs, int rowNum) -> {
-							Filme filme = new Filme(rs.getInt("id_filme"),rs.getString("nome"), rs
-									.getString("sinopse"), rs
-									.getString("capaDoFilme"));
-							return filme;
-						});
+	public List<Filme> buscaTodosFilmesCadastrados() {
+		return jdbcTemplate.query(
+				"select f.*, (select avg(nota) from avaliacao av WHERE av.id_Filme = f.id_Filme) as media from Filme f",
+				(ResultSet rs, int rowNum) -> {
+					Filme filme = new Filme(rs.getInt("id_filme"), rs
+							.getString("nome"), rs.getString("sinopse"), rs
+							.getString("capaDoFilme"),
+							rs.getDouble("media"));
+					return filme;
+				});
 	}
 
 	public Filme buscaFilme(String nome) {
@@ -45,7 +46,9 @@ public class FilmeDAO {
 					@Override
 					public Filme mapRow(ResultSet rs, int arg1)
 							throws SQLException {
-						Filme filmeretornado = new Filme(rs.getString("nome"),
+						Filme filmeretornado = new Filme(
+								rs.getInt("id_filme"),
+								rs.getString("nome"),
 								Enum.valueOf(Genero.class,
 										rs.getString("genero")), rs
 										.getInt("anolancamento"), rs
@@ -62,8 +65,8 @@ public class FilmeDAO {
 		}
 	}
 
-	public void excluir(String nome) {
-		jdbcTemplate.update("DELETE FROM FILME where nome = ?", nome);
+	public void excluir(Integer id_filme) {
+		jdbcTemplate.update("DELETE FROM FILME where id_filme = ?", id_filme);
 	}
 
 }

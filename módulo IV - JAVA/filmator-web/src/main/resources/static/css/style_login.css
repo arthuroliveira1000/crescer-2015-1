@@ -74,7 +74,7 @@ outline:none;
 	width: 100%;
 	height: auto;
 	background-color: #fff;
-	background: url(../img/Psycho.jpg);
+	background: url(../img/background_tela_login.jpg);
 	
 }
 a:link    {color:#000000; background-color:transparent; text-decoration:none}
@@ -90,15 +90,7 @@ a:active  {color:#2F4F4F; background-color:transparent; text-decoration:none}
 	margin-left: 70px;
 	top:1px;
 	bottom:2px;
-	/*-moz-box-shadow: 3px 3px 3px #fff;
-	-webkit-box-shadow: 3px 3px 3px #fff;
-	box-shadow: 3px 3px 3px #fff; 
-	-webkit-transition-property: top, bottom;	
-	transition: */
-	/*transition-property: background-color;
-	transition-property: all;
-	transition-duration: 1s; */
 	transition-property: background-color;
 	transition-delay: 0.2s;
-	transition-duration: 2s;
+	transition-duration:3s;
 }

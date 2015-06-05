@@ -3,21 +3,25 @@ html, body{
 	font-size: 100%;
 	margin: 0px;
 	padding: 0px;
-	background: url(../img/planodefundo2.png);
+	background: url(../img/background_textura.png);
 }
-
+.menus {
+	float:right;
+	margin-top: 20px;
+	margin-right: 20px;
+	}
 .biblioteca {
 	width: auto;
 	height: auto;
-	position: relative;
+	padding-left:5%;
+	padding-right: 5%;
 	padding-top:170px;
 }
-
 .myheader {
 	position: fixed !important;
 	top: 0px;
 	width:100% !important;
-	height: 18% !important;
+	height: 14% !important;
 	padding:10px 0;
 	background-color: #fff;
 	z-index:100;
@@ -27,18 +31,18 @@ html, body{
 	font-size: 80px;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
-	font-color: #fff;
-	
+	font-color: #fff;	
 }
 .myheader img {
 	margin-left:18px;
 	float:left;
+	width: 80px;
 }
-
 .myheader h1 {
 	font-size: 36px;
-	font-family: 'Open Sans', sans-serif;
-	color: #000;
+	font: bold 50px/1 Helvetica, Verdana, sans-serif;
+	padding-left: 10px;
+	color: #337ab7;
 	float: left;
 }
 button, textarea, input[type=text], input[type=number],input[type=button], select, option, input[type=password] {
@@ -51,7 +55,6 @@ button, textarea, input[type=text], input[type=number],input[type=button], selec
 	text-decoration: none;
 	border:1px solid #ccc;
 }
-
 textarea {
 	resize: none;
 }
@@ -91,14 +94,11 @@ ul {
 h3 {
 	font: bold 20px/1 Helvetica, Verdana, sans-serif;
 	font-color: #fff;
-
 } 
-
 h4 {
 	font: bold 16px/1 Helvetica, Verdana, sans-serif;
 	font-color: #fff;
 }
-
 h2 {
 	font: bold 25px/1 Helvetica, Verdana, sans-serif;
 	font-color: #fff;
@@ -120,5 +120,3 @@ li:hover {
 img {
 	float: left;
 }
-	
-	

@@ -33,50 +33,45 @@ public class HomeController {
 			return "Login";
 		} else if (isAdmin != null) {
 			model.addAttribute("generos", Genero.values());
-			model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
-			return "Home"; // volta para a home, limpa o formulário
+			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
+			return "Home";
 		}
 		return "Login";
 
 	}
 
 	@RequestMapping(value = "/inserir", method = RequestMethod.POST)
-	public String inserir(Filme filme, HttpSession session) {
+	public String inserir(Filme filme, HttpSession session, Model model) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
 		if (userLogado == null) {
-			return "Login"; // colocar tela de erro - faça seu login para
-							// continuar
+			return "Login";
 		} else {
+			model.addAttribute("generos", Genero.values());
+			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
 			filmeDao.inserir(filme);
-			return "redirect:/Home";
+			return "Home";
 		}
 	}
 
-	// @ResponseBody faz transformar o retorno para JSON!
-	// @RequestMapping(value = "/buscarTodos", method = RequestMethod.GET)
-	// public List<Filme> buscarTodos(Model model) {
-	// return filmeDao.buscaTodosFilmesJava8();
-	// }
 	@ResponseBody
 	@RequestMapping(value = "/buscaFilme", method = RequestMethod.POST)
 	public Filme buscaDetalhes(String nome, Model model, HttpSession session) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
 		if (userLogado == null) {
-			return null; // colocar tela de erro - faça seu login para
-			// continuar
+			return null;
 		} else {
 			return filmeDao.buscaFilme(nome);
 		}
 	}
 
 	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
-	public String excluiFilme(String nome, Model model, HttpSession session) {
+	public String excluiFilme(Integer id_filme, Model model, HttpSession session) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
 		if (userLogado == null) {
 			return null;
 		} else {
-			filmeDao.excluir(nome);
-			model.addAttribute("filmes", filmeDao.buscaTodosFilmesJava8());
+			filmeDao.excluir(id_filme);
+			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
 			return "listaDeFilmesCadastrados";
 		}
 	}
