@@ -24,7 +24,7 @@ public class HomeController {
 	@Inject
 	private UsuarioDAO usuarioDao;
 
-	@RequestMapping(value = "/Home", method = RequestMethod.GET)
+	@RequestMapping(value = "/Home", method = RequestMethod.POST)
 	public String abreHomeAdmin(Model model, HttpSession session) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
 		Integer isAdmin = usuarioDao.isAdmin(userLogado.getLogin(),
@@ -32,6 +32,7 @@ public class HomeController {
 		if (userLogado == null) {
 			return "Login";
 		} else if (isAdmin != null) {
+			model.addAttribute("usuarioLogado", userLogado);
 			model.addAttribute("generos", Genero.values());
 			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
 			return "Home";
@@ -46,9 +47,10 @@ public class HomeController {
 		if (userLogado == null) {
 			return "Login";
 		} else {
+			filmeDao.inserir(filme);
+			model.addAttribute("usuarioLogado", userLogado);
 			model.addAttribute("generos", Genero.values());
 			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
-			filmeDao.inserir(filme);
 			return "Home";
 		}
 	}
@@ -60,19 +62,22 @@ public class HomeController {
 		if (userLogado == null) {
 			return null;
 		} else {
+			model.addAttribute("usuarioLogado", userLogado);
 			return filmeDao.buscaFilme(nome);
 		}
 	}
 
+	
 	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
 	public String excluiFilme(Integer id_filme, Model model, HttpSession session) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
 		if (userLogado == null) {
-			return null;
+			return "Login";
 		} else {
 			filmeDao.excluir(id_filme);
+			model.addAttribute("generos", Genero.values());
 			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
-			return "listaDeFilmesCadastrados";
+			return "Home";
 		}
 	}
 }

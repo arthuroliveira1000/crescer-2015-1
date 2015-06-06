@@ -21,6 +21,7 @@ public class PaginaInicialController {
 	public String abrePaginaInicial(Model model, HttpSession session) {
 		Usuario userLogado = (Usuario) session.getAttribute("usuarioLogado");
 		if (userLogado != null) {
+			model.addAttribute("usuarioLogado", userLogado);
 			model.addAttribute("filmes", filmeDao.buscaTodosFilmesCadastrados());
 			return "PaginaInicial";
 		}
